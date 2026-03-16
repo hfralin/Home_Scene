@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Scene</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@mux/mux-player" defer></script>
+<style>
+
+@font-face {
+  font-family: 'Exposure';
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrial[-20].otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Exposure';
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureItalicTrial[-20].otf') format('opentype');
+  font-weight: 400; font-style: italic;
+}
+@font-face {
+  font-family: 'ExposureVAR';
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrialVAR.ttf') format('truetype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'ALT Maria Clara';
+  src: url('Fonts/ALTMariaClara-Light.otf') format('opentype');
+  font-weight: 300; font-style: normal;
+}
+@font-face {
+  font-family: 'ALT Maria Clara';
+  src: url('Fonts/ALTMariaClara-Regular.otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'ALT Maria Clara';
+  src: url('Fonts/ALTMariaClara-Medium.otf') format('opentype');
+  font-weight: 500; font-style: normal;
+}
+@font-face {
+  font-family: 'ALT Maria Clara';
+  src: url('Fonts/ALTMariaClara-Semibold.otf') format('opentype');
+  font-weight: 600; font-style: normal;
+}
+@font-face {
+  font-family: 'ALT Maria Clara';
+  src: url('Fonts/ALTMariaClara-Bold.otf') format('opentype');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'Clarel Serif';
+  src: url('Fonts/Trial Clarel Serif/ClarelSerifTRIAL-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Clarel Serif';
+  src: url('Fonts/Trial Clarel Serif/ClarelSerifTRIAL-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal;
+}
+@font-face {
+  font-family: 'Clarel Serif';
+  src: url('Fonts/Trial Clarel Serif/ClarelSerifTRIAL-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'Clarel Serif';
+  src: url('Fonts/Trial Clarel Serif/ClarelSerifTRIAL-ExtraBold.ttf') format('truetype');
+  font-weight: 800; font-style: normal;
+}
+@font-face {
+  font-family: 'Clarel Serif';
+  src: url('Fonts/Trial Clarel Serif/ClarelSerifTRIAL-Heavy.ttf') format('truetype');
+  font-weight: 900; font-style: normal;
+}
+@font-face {
+  font-family: 'Clarel Serif';
+  src: url('Fonts/Trial Clarel Serif/ClarelSerifTRIAL-Black.ttf') format('truetype');
+  font-weight: 950; font-style: normal;
+}
+@font-face {
+  font-family: 'Clarel Serif';
+  src: url('Fonts/Trial Clarel Serif/ClarelSerifTRIAL-Light.ttf') format('truetype');
+  font-weight: 300; font-style: normal;
+}
+@font-face {
+  font-family: 'Decay White';
+  src: url('Fonts/Decay_White_Trial/Decay-Trial-White-Alt.otf') format('opentype'),
+       url('Fonts/Decay_White_Trial/Decay-Trial-White-Alt.ttf') format('truetype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Octoserif';
+  src: url('Fonts/Trial Font Octoserif/Octoseriftrial-Regular.woff2') format('woff2'),
+       url('Fonts/Trial Font Octoserif/Octoseriftrial-Regular.woff') format('woff'),
+       url('Fonts/Trial Font Octoserif/Octoseriftrial-Regular.otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Immortel';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG1Trial-Roman.otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Immortel';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG1Trial-Italic.otf') format('opentype');
+  font-weight: 400; font-style: italic;
+}
+@font-face {
+  font-family: 'Immortel';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG1Trial-Median.otf') format('opentype');
+  font-weight: 500; font-style: normal;
+}
+@font-face {
+  font-family: 'Immortel';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG2Trial-Roman.otf') format('opentype');
+  font-weight: 600; font-style: normal;
+}
+@font-face {
+  font-family: 'Immortel';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelColeraTrial-Roman.otf') format('opentype');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'Immortel';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelColeraTrial-Italic.otf') format('opentype');
+  font-weight: 700; font-style: italic;
+}
+@font-face {
+  font-family: 'ImmortelVar';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraTrialVAR-Roman.ttf') format('truetype');
+  font-weight: 100 900; font-style: normal;
+}
+@font-face {
+  font-family: 'ImmortelVar';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraTrialVAR-Italic.ttf') format('truetype');
+  font-weight: 100 900; font-style: italic;
+}
+@font-face {
+  font-family: 'ImmortelInfraG2';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraG2Trial-Roman.otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+
+@font-face {
+  font-family: 'NT Rappel';
+  src: url('Fonts/NTRappelTrial-BlackTrial.otf') format('opentype');
+  font-weight: 900; font-style: normal;
+}
+@font-face {
+  font-family: 'NT Rappel';
+  src: url('Fonts/NTRappelTrial-BlackItalicTrial.otf') format('opentype');
+  font-weight: 900; font-style: italic;
+}
+@font-face {
+  font-family: 'NT Rappel';
+  src: url('Fonts/NTRappelTrial-BoldTrial.otf') format('opentype');
+  font-weight: 700; font-style: normal;
+}
+@font-face {
+  font-family: 'NT Rappel';
+  src: url('Fonts/NTRappelTrial-BoldItalicTrial.otf') format('opentype');
+  font-weight: 700; font-style: italic;
+}
+@font-face {
+  font-family: 'NT Rappel';
+  src: url('Fonts/NTRappelTrial-MediumTrial.otf') format('opentype');
+  font-weight: 500; font-style: normal;
+}
+@font-face {
+  font-family: 'NT Rappel';
+  src: url('Fonts/NTRappelTrial-RegularTrial.otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'NT Rappel';
+  src: url('Fonts/NTRappelTrial-ItalicTrial.otf') format('opentype');
+  font-weight: 400; font-style: italic;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #111;
+  --mid:   #777;
+  --light: #bbb;
+  --rule:  #e5e5e5;
+  --white: #fff;
+}
+
+html { font-size: 14px; }
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'ImmortelInfraG2', serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+.bg-parallax {
+  position: fixed;
+  inset: 0;
+  background-image: url('https://res.cloudinary.com/de3dixf7f/image/upload/v1772836830/Artboard_3_3x_r8c9sm.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  opacity: 0.10;
+  z-index: -1;
+  pointer-events: none;
+  will-change: background-position;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+
+/* ─────────────────────────────
+   HEADER
+───────────────────────────── */
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: calc(2.2rem - 20px) calc(3rem + 75px) 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 100;
+}
+
+.logo img {
+  height: clamp(52px, 5.5vw, 92px);
+  width: auto;
+  display: block;
+}
+
+nav {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  padding-left: 4rem;
+  transform: translateY(-12px);
+}
+nav a {
+  font-family: 'ExposureVAR', serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.7vw, 21px);
+  letter-spacing: 0.02em;
+  color: #2a52d4;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  font-variation-settings: 'EXPO' 0;
+  transition: font-variation-settings 0.4s ease;
+}
+nav a:hover {
+  color: #e0407a;
+  font-variation-settings: 'EXPO' -80;
+}
+
+/* ─────────────────────────────
+   GALLERY — 12-col CSS Grid
+───────────────────────────── */
+.gallery {
+  padding: 2rem 58px 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 15px;
+  align-items: start;
+  margin: 0 auto 4rem;
+  max-width: 1500px;
+}
+
+.gallery-item { cursor: pointer; }
+.gallery-item:hover .gi-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #e0407a;
+}
+.gallery-item:hover .gi-img-wrap > * { transform: scale(1.03); }
+
+.gi-img-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+.gi-img-wrap > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+.gi-img-wrap img { object-fit: cover; }
+
+.gi-title {
+  font-family: 'ExposureVAR', serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  color: var(--black);
+  margin-top: 0.45rem;
+  font-variation-settings: 'EXPO' 0;
+  transition: font-variation-settings 0.4s ease;
+}
+.gallery-item:hover .gi-title {
+  font-variation-settings: 'EXPO' -50;
+  animation: gi-title-color 10s ease forwards;
+}
+@keyframes gi-title-color {
+  0%   { color: #e0407a; }
+  100% { color: var(--black); }
+}
+.gi-sub {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--mid);
+  margin-top: 0.3rem;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.gallery-item:hover .gi-sub {
+  opacity: 1;
+}
+.gi-label {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  color: var(--mid);
+  margin-top: 0.25rem;
+  line-height: 1.5;
+}
+
+/* Item positions per brief */
+/* Item 1: col 1–4, row 1, 3:2 */
+.gi-1 { grid-column: 1 / 5; grid-row: 1; }
+.gi-1 .gi-img-wrap { aspect-ratio: 3 / 2; }
+
+/* Item 2: col 5–9, row 1, 16:6, offset down 4% */
+.gi-2 { grid-column: 5 / 10; grid-row: 1; margin-top: 4%; }
+.gi-2 .gi-img-wrap { aspect-ratio: 16 / 6; }
+
+/* Item 3: col 10–12, rows 1+2, 9:16 */
+.gi-3 { grid-column: 10 / 13; grid-row: 1 / 3; }
+.gi-3 .gi-img-wrap { aspect-ratio: 9 / 16; }
+
+/* Item 4: col 1–2, row 2, 1:1 */
+.gi-4 { grid-column: 1 / 3; grid-row: 2; }
+.gi-4 .gi-img-wrap { aspect-ratio: 1 / 1; }
+
+/* Item 5: col 3–6, row 2, 3:2, offset down 3% — video cover */
+.gi-5 { grid-column: 3 / 7; grid-row: 2; margin-top: 3%; }
+.gi-5 .gi-img-wrap { aspect-ratio: 3 / 2; position: relative; overflow: hidden; }
+.gi-5 .gi-img-wrap mux-player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: calc(100% * 32 / 27);
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease;
+  --media-button-icon-width: 22px;
+  --media-button-icon-height: 22px;
+}
+.gi-5:hover .gi-img-wrap mux-player {
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+/* Item 6: col 7–9, row 2, 16:9 — video cover */
+.gi-6 { grid-column: 7 / 10; grid-row: 2; }
+.gi-6 .gi-img-wrap { aspect-ratio: 16 / 9; position: relative; }
+.gi-6 .gi-img-wrap mux-player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: calc(100% * 16 / 9); /* scales 1:1 video to fill 16:9 container */
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s ease;
+  --media-button-icon-width: 22px;
+  --media-button-icon-height: 22px;
+}
+.gi-6:hover .gi-img-wrap mux-player {
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+/* Right-aligned titles */
+.gi-3 .gi-title,
+.gi-6 .gi-title { text-align: right; }
+
+/* Placeholder gradients */
+.ph-warm  { background: linear-gradient(150deg, #c4b4a0, #9a8070); }
+.ph-blue  { background: linear-gradient(150deg, #7888a8, #506070); }
+.ph-dark  { background: linear-gradient(150deg, #181828, #0e0e18); }
+.ph-red   { background: linear-gradient(150deg, #200808, #180606); }
+.ph-sand  { background: linear-gradient(150deg, #a09088, #706858); }
+.ph-steel { background: linear-gradient(150deg, #80a0b0, #507080); }
+.ph-navy  { background: linear-gradient(150deg, #101828, #0c1420); }
+.ph-slate { background: linear-gradient(150deg, #b8a898, #988070); }
+.ph-teal  { background: linear-gradient(150deg, #90a8c0, #607890); }
+.ph-moss  { background: linear-gradient(150deg, #a0b898, #708070); }
+.ph-ink   { background: linear-gradient(150deg, #201820, #100810); }
+.ph-mauve { background: linear-gradient(150deg, #a09098, #786070); }
+
+/* ─────────────────────────────
+   SHARED ELEMENTS
+───────────────────────────── */
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.art-label {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2a52d4;
+  display: block;
+}
+.art-byline {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  color: var(--black);
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.block-title {
+  font-family: 'Exposure', serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.88;
+  color: var(--black);
+  margin-top: 0.3rem;
+}
+.block-title-lg { font-size: calc(3.8rem - 10px); }
+.block-title-md { font-size: 2rem; }
+.block-title-sm { font-size: 1.4rem; }
+
+.stagger-text { margin-top: 0.7rem; }
+.stagger-text p {
+  font-family: 'ImmortelInfraG2', serif;
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--black);
+  max-width: 38ch;
+  text-align: right;
+}
+.stagger-text p:nth-child(odd)  { margin-right: 0; }
+.stagger-text p:nth-child(even) { margin-right: 4ch; }
+.stagger-text p + p { margin-top: 0.4rem; }
+
+/* ─────────────────────────────
+   BLOCK A — Large hero article
+   72% wide 3:2 image,
+   label + big title + staggered excerpt
+───────────────────────────── */
+.block-a {
+  padding: 3rem calc(3rem + 20px) 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+.block-a:hover .block-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #e0407a;
+}
+.block-a:hover .ba-img > * { transform: scale(1.02); }
+
+.ba-main {
+  flex: 0 0 70%;
+  min-width: 0;
+}
+
+.ba-feature {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.2rem;
+  border-left: 1px solid var(--rule);
+  padding-left: 1.5rem;
+}
+
+.ba-feature-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.ba-feature-img > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ba-feature-title {
+  font-family: 'Exposure', serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--black);
+  margin-top: 0.6rem;
+}
+
+.ba-feature-body {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--mid);
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.ba-feature-player {
+  margin-top: 0.6rem;
+}
+
+.ba-img {
+  width: 90%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.ba-img > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.ba-text {
+  margin-top: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%;
+}
+.ba-left { flex: 1; }
+.ba-right {
+  width: 220px;
+  padding-left: 2rem;
+  padding-top: 0.1rem;
+}
+
+/* ─────────────────────────────
+   BLOCK LATEST — 4 quick cards
+   + stacked list rows
+───────────────────────────── */
+.block-latest {
+  max-width: 1100px;
+  padding: 3rem 60px 0;
+  margin: 0 auto;
+}
+.block-latest .block-title { font-style: italic; }
+
+/* 4-column quick cards */
+.bl-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--rule);
+}
+.bl-card {
+  padding: 0 1.4rem 1.5rem 0;
+  border-right: 1px solid var(--rule);
+  cursor: pointer;
+}
+.bl-card:first-child { padding-left: 0; }
+.bl-card:last-child  { border-right: none; padding-right: 0; }
+.bl-card:hover .block-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #e0407a;
+}
+.bl-card:hover .bl-card-img > * { transform: scale(1.03); }
+
+.bl-card-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+.bl-card-img > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* List rows */
+.bl-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+}
+.bl-row:hover .block-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #e0407a;
+}
+.bl-row:hover .bl-row-img > * { transform: scale(1.03); }
+
+.bl-row-img {
+  width: 190px;
+  flex-shrink: 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.bl-row-img > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.bl-row-text { flex: 1; }
+.bl-row:nth-child(even) { flex-direction: row-reverse; }
+
+/* ─────────────────────────────
+   BLOCK C — Portrait + Landscape
+   Left: 9:16 + rotated title
+   Right: 16:9 pushed down 3rem
+───────────────────────────── */
+.block-c {
+  padding: 3rem 3rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bc-portrait {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.bc-portrait:hover .bc-port-img > * { transform: scale(1.03); }
+.bc-portrait:hover .bc-vert-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.bc-vert-title {
+  font-family: 'NT Rappel', sans-serif;
+  font-weight: 900;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  color: var(--black);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.bc-port-wrap { width: 180px; }
+.bc-port-img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+}
+.bc-port-img > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.bc-port-label { margin-top: 0.4rem; }
+
+.bc-landscape {
+  flex: 1;
+  padding-top: 3rem;
+  cursor: pointer;
+}
+.bc-landscape:hover .bc-land-img > * { transform: scale(1.03); }
+.bc-landscape:hover .block-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #e0407a;
+}
+
+.bc-land-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.bc-land-img > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* ─────────────────────────────
+   BLOCK D — Three equal cards
+   3-col grid, no stagger
+───────────────────────────── */
+.block-d {
+  padding: 3rem 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bd-item { cursor: pointer; }
+.bd-item:hover .bd-img > * { transform: scale(1.03); }
+.bd-item:hover .block-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #e0407a;
+}
+
+.bd-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.bd-img > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* ─────────────────────────────
+   BLOCK E — Full-width video
+───────────────────────────── */
+.block-e {
+  padding: 3rem 3rem 0;
+  cursor: pointer;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.block-e:hover .be-thumb > .be-fill { transform: scale(1.02); }
+.block-e:hover .block-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  color: #e0407a;
+}
+
+.be-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+.be-fill {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.be-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.be-play::after {
+  content: '';
+  border-left: 16px solid rgba(255,255,255,0.8);
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  margin-left: 4px;
+}
+.block-e:hover .be-play { background: rgba(255,255,255,0.1); }
+
+.be-text { margin-top: 1rem; }
+.be-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-top: 0.8rem;
+}
+.be-left { flex: 1; }
+.be-right {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+/* ─────────────────────────────
+   MUX PLAYER
+───────────────────────────── */
+mux-player {
+  --controls-backdrop-color: transparent;
+  --media-control-bar-background: transparent;
+  --media-control-background: transparent;
+  --duration-display: none;
+}
+
+/* ─────────────────────────────
+   FOOTER
+───────────────────────────── */
+footer {
+  margin-top: 6rem;
+  padding: 2rem 3rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.foot-left {}
+.foot-logo img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.foot-tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  color: var(--light);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.foot-nav {
+  display: flex;
+  gap: 2.2rem;
+}
+.foot-nav a {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  color: var(--mid);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.foot-nav a:hover { color: var(--black); }
+
+/* ─────────────────────────────
+   NEWSLETTER WIDGET — fixed bottom-right
+───────────────────────────── */
+.newsletter-widget {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  width: 266px;
+  background: #e0407a;
+  padding: 0.8rem 1rem;
+  z-index: 200;
+  transform: translateY(110%);
+  transition: transform 0.4s ease;
+}
+
+.newsletter-widget.nw-visible {
+  transform: translateY(0);
+}
+
+.nw-text { display: none; }
+
+.nw-inner {
+  position: relative;
+  height: 1.5rem;
+}
+
+.nw-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  font-family: 'Exposure', serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.newsletter-widget:hover .nw-label {
+  opacity: 0;
+}
+
+.nw-form {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.newsletter-widget:hover .nw-form {
+  opacity: 1;
+}
+
+.nw-input {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--black);
+  background: #fff;
+  border: none;
+  padding: 0.45rem 0.65rem;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+}
+
+.nw-input::placeholder { color: #aaa; }
+
+.nw-btn {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e0407a;
+  background: #fff;
+  border: none;
+  border-left: 1px solid rgba(0,0,0,0.08);
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.nw-btn:hover {
+  background: #f0f0f0;
+}
+
+.nw-form:hover .nw-btn:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg-parallax"></div>
+
+<!-- ── HEADER ── -->
+<header>
+  <a href="index.html" class="logo">
+    <img src="20260131_HS_Logo.png" alt="Home Scene">
+  </a>
+  <nav>
+    <a href="articles/">Articles</a>
+    <a href="shows.html">Shows</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ── GALLERY ── -->
+<!-- No section heading — gallery starts immediately after header -->
+<div class="gallery">
+
+  <!-- Item 1: col 1–4, row 1, 3:2 — top-left, largest in row 1 -->
+  <div class="gallery-item gi-1">
+    <div class="gi-img-wrap">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Kendrick Returns" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="gi-title">The Transcendent Luster of Starcleaner Reunion</div>
+    <div class="gi-sub">A meditation on legacy, power, and survival</div>
+  </div>
+
+  <!-- Item 2: col 5–9, row 1, 16:6 — wide shallow crop, offset down 4% -->
+  <div class="gallery-item gi-2">
+    <div class="gi-img-wrap">
+      <div class="ph-blue"></div>
+    </div>
+    <div class="gi-title">Charli XCX Takes the Brat Tour Global</div>
+    <div class="gi-sub">Hyperpop meets stadium energy on her world tour</div>
+  </div>
+
+  <!-- Item 3: col 10–12, rows 1+2, 9:16 — portrait, spans both rows -->
+  <div class="gallery-item gi-3">
+    <div class="gi-img-wrap">
+      <img src="img3.jpg" alt="Live — guitarist on stage, blue lighting">
+    </div>
+    <div class="gi-title">Sword II Swoops in from Atlanta</div>
+    <div class="gi-sub">The DIY duo bringing raw southern rock back</div>
+  </div>
+
+  <!-- Item 4: col 1–2, row 2, 1:1 — small square, bottom-left -->
+  <div class="gallery-item gi-4">
+    <div class="gi-img-wrap">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772675536/Screenshot_2026-01-05_at_7.08.38_PM_tsdojf.png" alt="Otto Benson's Peanut" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="gi-title">Otto Benson's 'Peanut' Is a Quiet Revelation</div>
+    <div class="gi-sub">Intimate folk songs that shimmer in the quiet</div>
+  </div>
+
+  <!-- Item 5: col 3–6, row 2, 3:2 — offset down 3% -->
+  <div class="gallery-item gi-5">
+    <div class="gi-img-wrap">
+      <mux-player
+        playback-id="nKvFlOUhcND5yK3OL1gbQYnHocMWO2YI5bkIx1P02akM"
+        metadata-video-title="Post_JohnRoseboro_Fools_1_V1"
+        autoplay="muted"
+        loop
+        style="--controls:none;cursor:pointer;"
+      ></mux-player>
+    </div>
+    <div class="gi-title">John Roseboro Whispers Sage Perspective in 'Fools'</div>
+    <div class="gi-sub">Ancient ghazal tradition reborn through jazz and electronics</div>
+  </div>
+
+  <!-- Item 6: col 7–9, row 2, 1:1 — bottom-right -->
+  <div class="gallery-item gi-6">
+    <div class="gi-img-wrap">
+      <mux-player
+        playback-id="8htdcuw1iGSu2AwOSS5ewrU9cZf7yvQcN005MCqnvw8o"
+        metadata-video-title="Focus_ThisIsLoreLei_WYLN_1x1"
+        autoplay="muted"
+        loop
+        style="--controls:none;cursor:pointer;"
+      ></mux-player>
+    </div>
+    <div class="gi-title">Floating Points Finds Beauty in Electronic Restraint</div>
+    <div class="gi-sub">Minimal electronic textures that reward patient listening</div>
+  </div>
+
+</div>
+
+<hr class="section-rule">
+
+<!-- ── GALLERY 2: Large hero article ── -->
+<div class="block-a">
+  <div class="ba-main">
+    <div class="ba-img">
+      <mux-player
+        playback-id="BG3VVnxR1czMIlVOnPhykzSOoPoqgPiuOPHQSKOSpRU"
+        metadata-video-title="2026-01-18_MeiSemones_Interview_Full_V1"
+        poster="https://res.cloudinary.com/de3dixf7f/image/upload/v1772829137/Artboard_7_2x_ea4lnn.jpg"
+        style="width:100%;height:100%;display:block;--seek-backward-button:none;--seek-forward-button:none;--media-pip-button-display:none;--play-button:none;--pip-button:none;--playback-rate-button:none;--duration-display:none;"
+      >
+        <div slot="centered-chrome"></div>
+        <media-control-bar slot="bottom-chrome">
+          <media-time-display></media-time-display>
+          <media-time-range style="flex:1"></media-time-range>
+          <media-mute-button></media-mute-button>
+          <media-fullscreen-button></media-fullscreen-button>
+        </media-control-bar>
+      </mux-player>
+    </div>
+    <div class="ba-text">
+      <div class="ba-left">
+        <span class="art-label">Interview</span>
+        <div class="block-title block-title-lg">Mei Semons on her first full length album 'Animaru'</div>
+        <span class="art-byline">By Priya Mehta · Feb 27, 2025 · 12 min</span>
+      </div>
+      <div class="ba-right">
+        <div class="stagger-text">
+          <p>A generation of musicians quietly rebuilding British jazz from the inside out.</p>
+          <p>From Nubya Garcia to Shabaka Hutchings, the scene has never felt more alive.</p>
+          <p>We spoke to every key player about what comes next.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ba-feature">
+    <div class="ba-feature-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772820712/a2547523506_16_x39qx6.jpg" alt="Villagerrr" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div class="ba-feature-title">Villaggerrrs latest single rocks</div>
+    <div class="ba-feature-player">
+      <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1776242545/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=none/transparent=true/" seamless><a href="https://villagerrr.bandcamp.com/album/carousel">Carousel by villagerrr</a></iframe>
+    </div>
+    <div class="ba-feature-body">The Atlanta trio returns with their most confident release to date, a sprawling indie-rock cut that builds from a whisper into something enormous. Guitarist Mara Chen leads the charge with a riff that feels instantly familiar yet completely new. Producer Jay Hollow strips the arrangement back to its bones, letting every note breathe. It's the kind of song that sounds better every time you hear it.</div>
+  </div>
+</div>
+
+<hr class="section-rule" style="margin-top:3rem">
+
+<!-- ── BLOCK LATEST: Quick cards + list rows ── -->
+<div class="block-latest">
+
+  <!-- 4 quick cards -->
+  <div class="bl-top">
+
+    <div class="bl-card">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Aphex Twin" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Album · ★★★★★</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Starcleaner' Café Life Stands Out</div>
+      <span class="art-byline">James Fletcher · Feb 27</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817952/P1010583-2_po8bhm.jpg" alt="Daniel Avery" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Interview · Techno</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Daniel Avery<br>on Techno</div>
+      <span class="art-byline">Priya Mehta · Feb 26</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758422/Screenshot_2026-03-05_at_7.53.16_PM_zcckdn.png" alt="Mdou Moctar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
+      <span class="art-label">Live · ★★★★</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar<br>Live</div>
+      <span class="art-byline">Tomás Rivera · Feb 25</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
+      <div class="bl-card-img"><div class="ph-warm"></div></div>
+      <span class="art-label">News</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">MIA —<br>World Tour</div>
+      <span class="art-byline">Leon Park · Feb 23</span>
+    </div>
+
+  </div>
+
+  </div>
+</div>
+
+<!-- ── NEWSLETTER WIDGET ── -->
+<div class="newsletter-widget">
+  <div class="nw-inner">
+    <div class="nw-label">Newsletter</div>
+    <form class="nw-form" onsubmit="return false;">
+      <input class="nw-input" type="email" placeholder="your@email.com">
+      <button class="nw-btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-left">
+    <div class="foot-logo"><img src="20260131_HS_Logo.png" alt="Home Scene"></div>
+    <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
+  </div>
+  <nav class="foot-nav">
+    <a href="articles/">Articles</a>
+    <a href="shows.html">Shows</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  // Click to play/pause for gallery videos
+  document.addEventListener('DOMContentLoaded', function () {
+    ['.gi-5 mux-player', '.gi-6 mux-player'].forEach(function (sel) {
+      const player = document.querySelector(sel);
+      if (player) {
+        player.addEventListener('click', function () {
+          if (player.paused) player.play();
+          else player.pause();
+        });
+      }
+    });
+  });
+
+  // Parallax background
+  (function () {
+    const bg = document.querySelector('.bg-parallax');
+    if (bg) {
+      window.addEventListener('scroll', function () {
+        bg.style.backgroundPositionY = 'calc(50% + ' + (window.scrollY * 0.2) + 'px)';
+      }, { passive: true });
+    }
+  })();
+
+  (function () {
+    const widget = document.querySelector('.newsletter-widget');
+    function checkScroll() {
+      const scrolled = window.scrollY + window.innerHeight;
+      const total = document.documentElement.scrollHeight;
+      if (scrolled >= total - 80) {
+        widget.classList.add('nw-visible');
+      } else {
+        widget.classList.remove('nw-visible');
+      }
+    }
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+  })();
+</script>
+</body>
+</html>
