@@ -10,17 +10,17 @@
 
 @font-face {
   font-family: 'Exposure';
-  src: url('Fonts/ExposureTrial[-20].otf') format('opentype');
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrial[-20].otf') format('opentype');
   font-weight: 400; font-style: normal;
 }
 @font-face {
   font-family: 'Exposure';
-  src: url('Fonts/ExposureItalicTrial[-20].otf') format('opentype');
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureItalicTrial[-20].otf') format('opentype');
   font-weight: 400; font-style: italic;
 }
 @font-face {
   font-family: 'ExposureVAR';
-  src: url('Fonts/ExposureTrialVAR.ttf') format('truetype');
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrialVAR.ttf') format('truetype');
   font-weight: 400; font-style: normal;
 }
 @font-face {
@@ -98,47 +98,47 @@
 }
 @font-face {
   font-family: 'Immortel';
-  src: url('Fonts/ImmortelVenaG1Trial-Roman.otf') format('opentype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG1Trial-Roman.otf') format('opentype');
   font-weight: 400; font-style: normal;
 }
 @font-face {
   font-family: 'Immortel';
-  src: url('Fonts/ImmortelVenaG1Trial-Italic.otf') format('opentype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG1Trial-Italic.otf') format('opentype');
   font-weight: 400; font-style: italic;
 }
 @font-face {
   font-family: 'Immortel';
-  src: url('Fonts/ImmortelVenaG1Trial-Median.otf') format('opentype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG1Trial-Median.otf') format('opentype');
   font-weight: 500; font-style: normal;
 }
 @font-face {
   font-family: 'Immortel';
-  src: url('Fonts/ImmortelVenaG2Trial-Roman.otf') format('opentype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelVenaG2Trial-Roman.otf') format('opentype');
   font-weight: 600; font-style: normal;
 }
 @font-face {
   font-family: 'Immortel';
-  src: url('Fonts/ImmortelColeraTrial-Roman.otf') format('opentype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelColeraTrial-Roman.otf') format('opentype');
   font-weight: 700; font-style: normal;
 }
 @font-face {
   font-family: 'Immortel';
-  src: url('Fonts/ImmortelColeraTrial-Italic.otf') format('opentype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelColeraTrial-Italic.otf') format('opentype');
   font-weight: 700; font-style: italic;
 }
 @font-face {
   font-family: 'ImmortelVar';
-  src: url('Fonts/ImmortelInfraTrialVAR-Roman.ttf') format('truetype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraTrialVAR-Roman.ttf') format('truetype');
   font-weight: 100 900; font-style: normal;
 }
 @font-face {
   font-family: 'ImmortelVar';
-  src: url('Fonts/ImmortelInfraTrialVAR-Italic.ttf') format('truetype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraTrialVAR-Italic.ttf') format('truetype');
   font-weight: 100 900; font-style: italic;
 }
 @font-face {
   font-family: 'ImmortelInfraG2';
-  src: url('Fonts/ImmortelInfraG2Trial-Roman.otf') format('opentype');
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraG2Trial-Roman.otf') format('opentype');
   font-weight: 400; font-style: normal;
 }
 
@@ -191,7 +191,7 @@
 html { font-size: 14px; }
 
 body {
-  background: var(--white);
+  background: rgba(255,255,255,0.82);
   color: var(--black);
   font-family: 'ImmortelInfraG2', serif;
   font-weight: 400;
@@ -210,6 +210,70 @@ body {
   will-change: background-position;
 }
 
+/* Glass morphism blobs */
+@keyframes blob-drift-1 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(30px, 20px) scale(1.06); }
+  66%  { transform: translate(-15px, 35px) scale(0.96); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob-drift-2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(-25px, 30px) scale(1.05); }
+  66%  { transform: translate(20px, -20px) scale(0.97); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob-drift-3 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(25px, -30px) scale(1.05); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob-drift-4 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(-20px, -25px) scale(1.04); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.glass-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Top fade — subtle colour wash across the top edge */
+.glass-blob-1 {
+  width: 100%;
+  height: 280px;
+  border-radius: 0;
+  background: linear-gradient(to bottom, rgba(167,139,250,0.22) 0%, transparent 100%);
+  top: 0;
+  left: 0;
+  filter: blur(30px);
+  animation: none;
+}
+.glass-blob-2 { display: none; }
+/* Bottom left — purple/blue */
+.glass-blob-3 {
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle at center, #a78bfa, #93c5fd, transparent 70%);
+  bottom: -280px;
+  left: -250px;
+  animation: blob-drift-3 26s ease-in-out infinite;
+}
+/* Bottom right — pink/purple */
+.glass-blob-4 {
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle at center, #e0407a, #818cf8, transparent 70%);
+  bottom: -250px;
+  right: -250px;
+  animation: blob-drift-4 22s ease-in-out infinite;
+}
+
 a { color: inherit; text-decoration: none; }
 img { display: block; }
 
@@ -218,14 +282,19 @@ img { display: block; }
 ───────────────────────────── */
 header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  padding: calc(2.2rem - 20px) calc(3rem + 75px) 2rem;
+  padding: 0.4rem 2rem 1.2rem;
+  width: 80%;
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 5px auto 0;
   position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.95);
+  top: 5px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 0;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
 }
 
@@ -240,7 +309,7 @@ nav {
   flex: 1;
   justify-content: space-evenly;
   padding-left: 4rem;
-  transform: translateY(-12px);
+  transform: translateY(-6px);
 }
 @keyframes nav-float {
   0%, 100% { transform: translateY(0px); }
@@ -265,7 +334,7 @@ nav a:nth-child(2) { animation-delay: 0.4s; }
 nav a:nth-child(3) { animation-delay: 0.8s; }
 
 nav a:hover {
-  color: #e0407a;
+  color: #2a52d4;
   font-variation-settings: 'EXPO' -80;
 }
 
@@ -282,7 +351,65 @@ nav a:hover {
   max-width: 1500px;
 }
 
-.gallery-item { cursor: pointer; }
+/* Gallery item auto-glow animation */
+@keyframes gi-glow {
+  0%, 100% { opacity: 0; }
+  15%, 85% { opacity: 1; }
+}
+
+.gallery-item {
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 0.5rem 0.5rem 1.4rem;
+  background: transparent;
+  position: relative;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+/* Auto-glow overlay on each item */
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  opacity: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+  animation: none;
+  transition: opacity 2.8s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gallery-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gi-1::before { background: linear-gradient(135deg, rgba(224,64,122,0.12), rgba(255,255,255,0.4)); }
+.gi-2::before { background: linear-gradient(135deg, rgba(147,197,253,0.15), rgba(255,255,255,0.4)); }
+.gi-3::before { background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(255,255,255,0.4)); }
+.gi-4::before { background: linear-gradient(135deg, rgba(253,230,138,0.18), rgba(255,255,255,0.4)); }
+.gi-5::before { background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(255,255,255,0.4)); }
+.gi-6::before { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.4)); }
+
+/* JS-controlled active state */
+.gi-active::before { opacity: 1 !important; }
+.gi-active .gi-sub { opacity: 1 !important; animation: none !important; }
+
+.gallery-item:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.6);
+  transform: scale(1.02);
+}
+
+/* Per-item colour tints on hover */
+.gi-1:hover { background: linear-gradient(135deg, rgba(224,64,122,0.12), rgba(255,255,255,0.4)); }
+.gi-2:hover { background: linear-gradient(135deg, rgba(147,197,253,0.15), rgba(255,255,255,0.4)); }
+.gi-3:hover { background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(255,255,255,0.4)); }
+.gi-4:hover { background: linear-gradient(135deg, rgba(253,230,138,0.18), rgba(255,255,255,0.4)); }
+.gi-5:hover { background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(255,255,255,0.4)); }
+.gi-6:hover { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.4)); }
 .gallery-item:hover .gi-title {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -324,10 +451,11 @@ nav a:hover {
   color: var(--mid);
   margin-top: 0.3rem;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 2.8s ease;
 }
 .gallery-item:hover .gi-sub {
   opacity: 1;
+  animation: none;
 }
 .gi-label {
   font-family: 'ImmortelInfraG2', serif;
@@ -485,6 +613,16 @@ nav a:hover {
 .ba-main {
   flex: 0 0 70%;
   min-width: 0;
+  border-radius: 12px;
+  padding: 0.5rem 0.5rem 1.4rem;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+.ba-main:hover {
+  background: linear-gradient(135deg, rgba(147,197,253,0.14), rgba(255,255,255,0.45));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.6);
+  transform: scale(1.01);
 }
 
 .ba-feature {
@@ -492,6 +630,17 @@ nav a:hover {
   min-width: 0;
   padding-top: 0.2rem;
   border-left: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 0.5rem 0.5rem 1.4rem;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+.ba-feature:hover {
+  background: linear-gradient(135deg, rgba(110,231,183,0.14), rgba(255,255,255,0.45));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.6);
+  transform: scale(1.01);
+  border-left: none;
   padding-left: 1.5rem;
 }
 
@@ -533,12 +682,36 @@ nav a:hover {
   width: 90%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  position: relative;
 }
 .ba-img > * {
   width: 100%;
   height: 100%;
   display: block;
   transition: transform 0.6s ease;
+}
+
+/* ── Video poster overlay ── */
+.ba-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.ba-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ba-hover-block {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.ba-img:hover .ba-poster {
+  opacity: 0;
 }
 
 .ba-text {
@@ -573,10 +746,23 @@ nav a:hover {
   border-bottom: 1px solid var(--rule);
 }
 .bl-card {
-  padding: 0 1.4rem 1.5rem 0;
+  padding: 0.5rem 0.5rem 1.4rem;
   border-right: 1px solid var(--rule);
   cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
+.bl-card:hover {
+  background: linear-gradient(135deg, rgba(167,139,250,0.14), rgba(255,255,255,0.45));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.6);
+  transform: scale(1.02);
+  border-right: none;
+}
+.bl-card:nth-child(2):hover { background: linear-gradient(135deg, rgba(253,230,138,0.18), rgba(255,255,255,0.45)); }
+.bl-card:nth-child(3):hover { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.45)); }
+.bl-card:nth-child(4):hover { background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(255,255,255,0.45)); }
 .bl-card:first-child { padding-left: 0; }
 .bl-card:last-child  { border-right: none; padding-right: 0; }
 .bl-card:hover .block-title {
@@ -966,6 +1152,10 @@ footer {
 <body>
 
 <div class="bg-parallax"></div>
+<div class="glass-blob glass-blob-1"></div>
+<div class="glass-blob glass-blob-2"></div>
+<div class="glass-blob glass-blob-3"></div>
+<div class="glass-blob glass-blob-4"></div>
 
 <!-- ── HEADER ── -->
 <header>
@@ -993,18 +1183,18 @@ footer {
   </a>
 
   <!-- Item 2: col 5–9, row 1, 16:6 — wide shallow crop, offset down 4% -->
-  <div class="gallery-item gi-2">
+  <a class="gallery-item gi-2" href="chanel-beads.html" style="text-decoration:none;color:inherit;cursor:pointer;">
     <div class="gi-img-wrap">
-      <div class="ph-blue"></div>
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;">
     </div>
-    <div class="gi-title">Charli XCX Takes the Brat Tour Global</div>
-    <div class="gi-sub">Hyperpop meets stadium energy on her world tour</div>
-  </div>
+    <div class="gi-title">Chanel Beads Erupts at 'Your Day Will Come' Release Show</div>
+    <div class="gi-sub">An incendiary night at TV Eye in Ridgewood, Queens</div>
+  </a>
 
   <!-- Item 3: col 10–12, rows 1+2, 9:16 — portrait, spans both rows -->
   <div class="gallery-item gi-3">
     <div class="gi-img-wrap">
-      <img src="img3.jpg" alt="Live — guitarist on stage, blue lighting">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774121442/P1010152_gd8hhi.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
     <div class="gi-title">Sword II Swoops in from Atlanta</div>
     <div class="gi-sub">The DIY duo bringing raw southern rock back</div>
@@ -1057,20 +1247,16 @@ footer {
 <div class="block-a">
   <div class="ba-main">
     <div class="ba-img">
-      <mux-player
-        playback-id="BG3VVnxR1czMIlVOnPhykzSOoPoqgPiuOPHQSKOSpRU"
-        metadata-video-title="2026-01-18_MeiSemones_Interview_Full_V1"
-        poster="https://res.cloudinary.com/de3dixf7f/image/upload/v1772829137/Artboard_7_2x_ea4lnn.jpg"
-        style="width:100%;height:100%;display:block;--seek-backward-button:none;--seek-forward-button:none;--media-pip-button-display:none;--play-button:none;--pip-button:none;--playback-rate-button:none;--duration-display:none;"
-      >
-        <div slot="centered-chrome"></div>
-        <media-control-bar slot="bottom-chrome">
-          <media-time-display></media-time-display>
-          <media-time-range style="flex:1"></media-time-range>
-          <media-mute-button></media-mute-button>
-          <media-fullscreen-button></media-fullscreen-button>
-        </media-control-bar>
-      </mux-player>
+      <iframe
+        id="mei-player"
+        src="https://iframe.mediadelivery.net/embed/622638/0d62192e-b090-49d3-b3a6-a92976bf11da?autoplay=true&loop=true&muted=true&preload=true&responsive=true&primaryColor=e0407a"
+        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <div class="ba-hover-block"></div>
+      <div class="ba-poster" id="mei-poster">
+        <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772829137/Artboard_7_2x_ea4lnn.jpg" alt="Mei Semones">
+      </div>
     </div>
     <div class="ba-text">
       <div class="ba-left">
@@ -1176,6 +1362,21 @@ footer {
     });
   });
 
+  // Random gallery glow
+  (function () {
+    const items = Array.from(document.querySelectorAll('.gallery .gallery-item'));
+    let currentIndex = 0;
+
+    function cycleGlow() {
+      items.forEach(function(el) { el.classList.remove('gi-active'); });
+      items[currentIndex].classList.add('gi-active');
+      currentIndex = (currentIndex + 1) % items.length;
+      setTimeout(cycleGlow, 5500);
+    }
+
+    cycleGlow();
+  })();
+
   // Parallax background
   (function () {
     const bg = document.querySelector('.bg-parallax');
@@ -1200,6 +1401,7 @@ footer {
     window.addEventListener('scroll', checkScroll, { passive: true });
     checkScroll();
   })();
+
 </script>
 </body>
 </html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chanel Beads Erupts at 'Your Day Will Come' Release Show — Home Scene</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@mux/mux-player" defer></script>
+<style>
+
+@font-face {
+  font-family: 'Exposure';
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrial[-20].otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Exposure';
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureItalicTrial[-20].otf') format('opentype');
+  font-weight: 400; font-style: italic;
+}
+@font-face {
+  font-family: 'ExposureVAR';
+  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrialVAR.ttf') format('truetype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'ImmortelInfraG2';
+  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraG2Trial-Roman.otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #111;
+  --mid:   #777;
+  --light: #bbb;
+  --rule:  #e5e5e5;
+  --white: #fff;
+  --pink:  #e0407a;
+}
+
+html { font-size: 14px; }
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'ImmortelInfraG2', serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+.bg-parallax {
+  position: fixed;
+  inset: 0;
+  background-image: url('https://res.cloudinary.com/de3dixf7f/image/upload/v1772836830/Artboard_3_3x_r8c9sm.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  opacity: 0.10;
+  z-index: -1;
+  pointer-events: none;
+  will-change: background-position;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+
+/* ── HEADER ── */
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: calc(2.2rem - 20px) calc(3rem + 75px) 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 100;
+}
+
+.logo img {
+  height: clamp(52px, 5.5vw, 92px);
+  width: auto;
+  display: block;
+}
+
+nav {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  padding-left: 4rem;
+  transform: translateY(-12px);
+}
+
+@keyframes nav-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+nav a {
+  font-family: 'ExposureVAR', serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.7vw, 21px);
+  letter-spacing: 0.02em;
+  color: #2a52d4;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  font-variation-settings: 'EXPO' 0;
+  transition: font-variation-settings 0.4s ease;
+  animation: nav-float 3s ease-in-out infinite;
+}
+
+nav a:nth-child(2) { animation-delay: 0.4s; }
+nav a:nth-child(3) { animation-delay: 0.8s; }
+
+nav a:hover {
+  color: #e0407a;
+  font-variation-settings: 'EXPO' -80;
+}
+
+/* ── TITLE BLOCK ── */
+.title-block {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 3rem calc(3rem + 75px) 2rem;
+}
+
+.article-label {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 1rem;
+}
+
+.article-title {
+  font-family: 'Exposure', serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  color: var(--black);
+  margin-bottom: 1.2rem;
+}
+
+.article-byline {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.78rem;
+  color: var(--mid);
+  letter-spacing: 0.04em;
+}
+
+/* ── HERO VIDEO ── */
+.hero-wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 calc(3rem + 75px) 3.5rem;
+}
+
+.hero-img {
+  width: calc(100% - 30px);
+  margin: 0 15px;
+  aspect-ratio: 16 / 8.2;
+  position: relative;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.hero-img iframe {
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: -8px;
+  right: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 20px);
+  border: none;
+  display: block;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #0a0a0a;
+  transition: opacity 0.4s ease;
+}
+.hero-overlay.gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* ── TWO-COL BODY ── */
+.article-body {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 calc(3rem + 75px) 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.article-body p {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--black);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.article-body p.para-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── PHOTO GRID ── */
+.photo-grid-wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 calc(3rem + 75px) 6rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.photo-grid-item {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.photo-grid-item:nth-child(2) { transition-delay: 0.1s; }
+.photo-grid-item:nth-child(3) { transition-delay: 0.18s; }
+.photo-grid-item:nth-child(4) { transition-delay: 0.28s; }
+
+.photo-grid-item.photo-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.photo-grid-item:hover img {
+  transform: scale(1.03);
+}
+
+.photo-grid-item:nth-child(1) img {
+  object-position: 15% center;
+}
+
+.photo-grid-item:nth-child(2) img {
+  object-position: 35% center;
+}
+
+.photo-grid-item:nth-child(3) img {
+  object-position: 0% center;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2.4rem calc(3rem + 75px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.foot-left { display: flex; align-items: center; gap: 1.4rem; }
+.foot-logo img { height: 36px; width: auto; }
+.foot-tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+}
+
+.foot-nav { display: flex; gap: 2.2rem; }
+
+.foot-nav a {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+  text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+
+<div class="bg-parallax"></div>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="20260131_HS_Logo.png" alt="Home Scene"></a>
+  </div>
+  <nav>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#features">Features</a>
+    <a href="index.html#shows">Shows</a>
+  </nav>
+</header>
+
+<!-- ── TITLE ── -->
+<div class="title-block">
+  <div class="article-label">Live Review · Indie Rock</div>
+  <h1 class="article-title">Chanel Beads Erupts at<br>'Your Day Will Come'<br>Release Show</h1>
+  <div class="article-byline">By Marcus Webb · May 17, 2024 · TV Eye, Ridgewood, Queens</div>
+</div>
+
+<!-- ── HERO VIDEO ── -->
+<div class="hero-wrap">
+  <div class="hero-img">
+    <iframe
+      id="chanel-player"
+      src="https://iframe.mediadelivery.net/embed/622638/aadc5e67-b5f7-457f-bd0f-ddf53567b433?autoplay=true&loop=true&muted=true&preload=true&responsive=true&primaryColor=e0407a"
+      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <div class="hero-overlay"></div>
+  </div>
+</div>
+
+<!-- ── BODY ── -->
+<div class="article-body">
+  <p>There are nights when a room simply catches fire, and the show at TV Eye on a warm Friday in May was one of them. Chanel Beads arrived with a set list drawn almost entirely from their debut album <em>Your Day Will Come</em>, and the crowd — packed shoulder to shoulder beneath the low industrial ceiling — received every song like it had already been lived with for years.</p>
+
+  <p>Singer and multi-instrumentalist Maya Bon played the opening section solo, her voice threading through the club's PA with an intimacy that felt almost inappropriate for the size of the room. The band joined incrementally: first drums, sparse and deliberate, then bass, then layers of guitar and synth that built the sound into something enormous without ever seeming to rush.</p>
+</div>
+
+<!-- ── PHOTO GRID ── -->
+<div class="photo-grid-wrap">
+  <div class="photo-grid">
+    <div class="photo-grid-item">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125359/Screenshot_2024-05-19_at_2.07.55_PM_bd6p27.png" alt="Chanel Beads at TV Eye">
+    </div>
+    <div class="photo-grid-item">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125354/Screenshot_2024-05-19_at_2.09.40_PM_yisci1.png" alt="Chanel Beads at TV Eye">
+    </div>
+    <div class="photo-grid-item">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads at TV Eye">
+    </div>
+    <div class="photo-grid-item">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125332/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_06_26_02.Still006_z1smyn.jpg" alt="Chanel Beads at TV Eye">
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-left">
+    <div class="foot-logo"><img src="20260131_HS_Logo.png" alt="Home Scene"></div>
+    <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
+  </div>
+  <nav class="foot-nav">
+    <a href="articles/">Articles</a>
+    <a href="shows.html">Shows</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  (function () {
+    const bg = document.querySelector('.bg-parallax');
+    if (bg) {
+      window.addEventListener('scroll', function () {
+        bg.style.backgroundPositionY = 'calc(50% + ' + (window.scrollY * 0.2) + 'px)';
+      }, { passive: true });
+    }
+
+    const fadeEls = document.querySelectorAll('.article-body p, .photo-grid-item');
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('para-visible', 'photo-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(function (el) { observer.observe(el); });
+  })();
+
+  // ── Hide player controls on initial autoplay load ──
+  setTimeout(function () {
+    var overlay = document.querySelector('.hero-overlay');
+    if (overlay) overlay.classList.add('gone');
+  }, 2000);
+</script>
+
+</body>
+</html>
