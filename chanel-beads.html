@@ -10,22 +10,22 @@
 
 @font-face {
   font-family: 'Exposure';
-  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrial[-20].otf') format('opentype');
+  src: url('Fonts/ExposureTrial[-20].otf') format('opentype');
   font-weight: 400; font-style: normal;
 }
 @font-face {
   font-family: 'Exposure';
-  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureItalicTrial[-20].otf') format('opentype');
+  src: url('Fonts/ExposureItalicTrial[-20].otf') format('opentype');
   font-weight: 400; font-style: italic;
 }
 @font-face {
   font-family: 'ExposureVAR';
-  src: url('Fonts/205TF_235079_Trial/205TF_Exposure_Trial/ExposureTrialVAR.ttf') format('truetype');
+  src: url('Fonts/ExposureTrialVAR.ttf') format('truetype');
   font-weight: 400; font-style: normal;
 }
 @font-face {
   font-family: 'ImmortelInfraG2';
-  src: url('Fonts/205TF_256337_Trial/CLTN-Immortel_Trial/ImmortelInfraG2Trial-Roman.otf') format('opentype');
+  src: url('Fonts/ImmortelInfraG2Trial-Roman.otf') format('opentype');
   font-weight: 400; font-style: normal;
 }
 
@@ -70,7 +70,7 @@ header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: calc(2.2rem - 20px) calc(3rem + 75px) 2rem;
+  padding: calc(2.2rem - 20px) calc(3rem + 75px) calc(2rem - 15px);
   max-width: 1300px;
   margin: 0 auto;
   position: sticky;
@@ -303,6 +303,27 @@ footer {
   text-transform: uppercase;
 }
 
+/* ── BLOCK LATEST ── */
+.ph-warm { background: linear-gradient(150deg, #c4b4a0, #9a8070); }
+.art-label { font-family: 'ImmortelInfraG2', serif; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #2a52d4; display: block; }
+.art-byline { font-family: 'ImmortelInfraG2', serif; font-size: 0.5rem; letter-spacing: 0.06em; color: var(--black); display: block; margin-top: 0.3rem; }
+.block-title { font-family: 'Exposure', serif; font-weight: 400; letter-spacing: 0.02em; line-height: 0.88; color: var(--black); margin-top: 0.3rem; }
+.block-title-sm { font-size: 1.4rem; }
+.block-latest { max-width: 1100px; padding: 3rem 60px 0; margin: 0 auto; }
+.block-latest .block-title { font-style: italic; }
+.bl-top { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--rule); }
+.bl-card { padding: 0.5rem 0.5rem 1.4rem; border-right: 1px solid var(--rule); cursor: pointer; border-radius: 12px; transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease; }
+.bl-card:hover { background: linear-gradient(135deg, rgba(167,139,250,0.14), rgba(255,255,255,0.45)); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.6); transform: scale(1.02); border-right: none; }
+.bl-card:nth-child(2):hover { background: linear-gradient(135deg, rgba(253,230,138,0.18), rgba(255,255,255,0.45)); }
+.bl-card:nth-child(3):hover { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.45)); }
+.bl-card:nth-child(4):hover { background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(255,255,255,0.45)); }
+.bl-card:first-child { padding-left: 0; }
+.bl-card:last-child { border-right: none; padding-right: 0; }
+.bl-card:hover .block-title { text-decoration: underline; text-decoration-thickness: 1px; color: #e0407a; }
+.bl-card-img { width: 100%; aspect-ratio: 3 / 2; overflow: hidden; margin-bottom: 0.8rem; }
+.bl-card-img > * { width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
+.bl-card:hover .bl-card-img > * { transform: scale(1.03); }
+
 </style>
 </head>
 <body>
@@ -312,12 +333,12 @@ footer {
 <!-- ── HEADER ── -->
 <header>
   <div class="logo">
-    <a href="index.html"><img src="20260131_HS_Logo.png" alt="Home Scene"></a>
+    <a href="index.html"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene"></a>
   </div>
   <nav>
-    <a href="index.html#reviews">Reviews</a>
-    <a href="index.html#features">Features</a>
-    <a href="index.html#shows">Shows</a>
+    <a href="articles/">Articles</a>
+    <a href="shows.html">Shows</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -366,10 +387,45 @@ footer {
   </div>
 </div>
 
+<!-- ── BLOCK LATEST ── -->
+<div class="block-latest">
+  <div class="bl-top">
+
+    <div class="bl-card">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Album · ★★★★★</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">The Transcendent Luster of Starcleaner</div>
+      <span class="art-byline">James Fletcher · Feb 27</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817213/P1010152_ltifa6.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;"></div>
+      <span class="art-label">Live Review</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Sword II<br>Swoops In</div>
+      <span class="art-byline">Claire Okafor · Mar 18</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Aphex Twin" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Album · ★★★★★</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Starcleaner' Café Life Stands Out</div>
+      <span class="art-byline">James Fletcher · Feb 20</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
+      <div class="bl-card-img"><div class="ph-warm"></div></div>
+      <span class="art-label">News</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">MIA —<br>World Tour</div>
+      <span class="art-byline">Leon Park · Feb 23</span>
+    </div>
+
+  </div>
+</div>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="foot-left">
-    <div class="foot-logo"><img src="20260131_HS_Logo.png" alt="Home Scene"></div>
+    <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene"></div>
     <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
   </div>
   <nav class="foot-nav">

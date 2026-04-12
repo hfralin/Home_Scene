@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Transcendent Luster of Starcleaner Reunion — Home Scene</title>
+<title>Sword II Swoops in from Atlanta — Home Scene</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
 <style>
 
@@ -46,6 +46,7 @@
   --light: #bbb;
   --rule:  #e5e5e5;
   --white: #fff;
+  --pink:  #e0407a;
 }
 
 html { font-size: 14px; }
@@ -58,7 +59,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Glass morphism blobs */
+/* ── BLOBS ── */
 @keyframes blob-drift-3 {
   0%   { transform: translate(0px, 0px) scale(1); }
   50%  { transform: translate(25px, -30px) scale(1.05); }
@@ -78,35 +79,26 @@ body {
   pointer-events: none;
   z-index: -1;
 }
-
-/* Top fade */
 .glass-blob-1 {
   width: 100%;
   height: 280px;
   border-radius: 0;
   background: linear-gradient(to bottom, rgba(167,139,250,0.22) 0%, transparent 100%);
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   filter: blur(30px);
 }
-
-/* Bottom left — purple/blue */
 .glass-blob-3 {
   width: 680px;
   height: 680px;
   background: radial-gradient(circle at center, #a78bfa, #93c5fd, transparent 70%);
-  bottom: -280px;
-  left: -250px;
+  bottom: -280px; left: -250px;
   animation: blob-drift-3 26s ease-in-out infinite;
 }
-
-/* Bottom right — pink/purple */
 .glass-blob-4 {
   width: 620px;
   height: 620px;
   background: radial-gradient(circle at center, #e0407a, #818cf8, transparent 70%);
-  bottom: -250px;
-  right: -250px;
+  bottom: -250px; right: -250px;
   animation: blob-drift-4 22s ease-in-out infinite;
 }
 
@@ -139,7 +131,6 @@ header {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-radius: 0;
   box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
 }
@@ -176,10 +167,8 @@ nav a {
   transition: font-variation-settings 0.4s ease;
   animation: nav-float 3s ease-in-out infinite;
 }
-
 nav a:nth-child(2) { animation-delay: 0.4s; }
 nav a:nth-child(3) { animation-delay: 0.8s; }
-
 nav a:hover {
   color: #e0407a;
   font-variation-settings: 'EXPO' -80;
@@ -201,7 +190,7 @@ nav a:hover {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #e0407a;
+  color: var(--pink);
   margin-bottom: 1.4rem;
 }
 
@@ -213,23 +202,24 @@ nav a:hover {
   letter-spacing: 0.01em;
   color: var(--black);
   margin: 0;
-  text-align: right;
-  margin-left: clamp(-330px, -23.5vw, 0px);
-  margin-right: clamp(0px, calc(28% + 1.2rem - 20px), 60%);
+  text-align: left;
+  margin-right: clamp(-330px, -23.5vw, 0px);
+  margin-left: clamp(0px, calc(28% + 1.2rem - 20px), 60%);
 }
 
 .article-hero-row {
   display: flex;
+  flex-direction: row-reverse;
   gap: 1.2rem;
   align-items: stretch;
   margin-bottom: 2.8rem;
-  margin-left: clamp(-330px, -23.5vw, 0px);
-  margin-right: clamp(-170px, -12vw, 0px);
+  margin-right: clamp(-330px, -23.5vw, 0px);
+  margin-left: clamp(-170px, -12vw, 0px);
 }
 
 .article-hero {
   flex: 1;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 
@@ -244,46 +234,47 @@ nav a:hover {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: flex-start;
   gap: 1.2rem;
+  text-align: right;
 }
 
 @media (max-width: 1000px) {
   .article-hero-row {
-    margin-left: clamp(-200px, -15vw, 0px);
-    margin-right: clamp(-100px, -8vw, 0px);
+    margin-right: clamp(-200px, -15vw, 0px);
+    margin-left: clamp(-100px, -8vw, 0px);
   }
   .article-title {
-    margin-left: clamp(-200px, -15vw, 0px);
-    margin-right: clamp(0px, calc(28% + 0.8rem), 50%);
+    margin-right: clamp(-200px, -15vw, 0px);
+    margin-left: clamp(0px, calc(28% + 0.8rem), 50%);
   }
 }
-
 @media (max-width: 700px) {
   .article-hero-row {
-    margin-left: clamp(-80px, -8vw, 0px);
-    margin-right: clamp(-40px, -4vw, 0px);
+    margin-right: clamp(-80px, -8vw, 0px);
+    margin-left: clamp(-40px, -4vw, 0px);
   }
   .article-title {
-    margin-left: clamp(-80px, -8vw, 0px);
-    margin-right: clamp(0px, calc(28% + 0.4rem), 40%);
+    margin-right: clamp(-80px, -8vw, 0px);
+    margin-left: clamp(0px, calc(28% + 0.4rem), 40%);
   }
 }
-
 @media (max-width: 520px) {
   .article-title {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
     text-align: left;
   }
   .article-hero-row {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
     flex-direction: column;
   }
   .article-side-title {
     width: 100%;
+    text-align: left;
+    align-items: flex-start;
   }
 }
 
@@ -291,6 +282,7 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 15%;
   display: block;
 }
 
@@ -323,7 +315,7 @@ nav a:hover {
   float: left;
   margin-right: 0.08em;
   margin-top: 0.05em;
-  color: #e0407a;
+  color: var(--pink);
 }
 
 .article-pullquote {
@@ -339,6 +331,95 @@ nav a:hover {
   letter-spacing: 0.01em;
 }
 
+/* ── BODY IMAGES — orientations SWAPPED vs starcleaner ── */
+.img2-wrap,
+.img3-wrap {
+  margin-bottom: 2rem;
+}
+.img2-wrap::after,
+.img3-wrap::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* img2 — floats LEFT, bleeds left */
+.img2-frame {
+  float: left;
+  width: clamp(180px, 28vw, 420px);
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  margin-left: clamp(-80px, -6vw, 0px);
+}
+
+/* img2 group — floats LEFT, bleeds left */
+.img2-group {
+  float: left;
+  position: relative;
+  width: clamp(180px, 28vw, 420px);
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  margin-left: clamp(-80px, -6vw, 0px);
+}
+
+.img2-group .img2-frame {
+  float: none;
+  width: 100%;
+  margin: 0;
+}
+
+.img2-companion {
+  position: absolute;
+  width: 41.4%;
+  aspect-ratio: 3/4;
+  top: -14%;
+  left: calc(-41.4% - 8px);
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+.img2-companion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* img3 — floats RIGHT, bleeds right */
+.img3-frame {
+  float: right;
+  width: clamp(180px, 28vw, 420px);
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  margin-right: clamp(-80px, -6vw, 0px);
+}
+
+
+.img2-frame img,
+.img3-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .img2-frame {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .img3-frame {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
 /* ── FOOTER ── */
 footer {
   display: flex;
@@ -350,7 +431,6 @@ footer {
   margin: 0 auto;
 }
 
-.foot-left {}
 .foot-logo img {
   height: 38px;
   width: auto;
@@ -383,71 +463,12 @@ footer {
 
 .foot-nav a:hover { color: var(--black); }
 
-/* ── BODY IMAGES ── */
-.img2-wrap,
-.img3-wrap {
-  margin-bottom: 2rem;
-}
-/* clearfix — contains the float without clipping bleed */
-.img2-wrap::after,
-.img3-wrap::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-/* img2 — floats right, bleeds right */
-.img2-frame {
-  float: right;
-  width: clamp(180px, 28vw, 420px);
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  margin-left: 2rem;
-  margin-bottom: 1rem;
-  margin-right: clamp(-80px, -6vw, 0px);
-}
-
-/* img3 — floats left, bleeds left */
-.img3-frame {
-  float: left;
-  width: clamp(180px, 28vw, 420px);
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-  margin-left: clamp(-80px, -6vw, 0px);
-}
-
-.img2-frame img,
-.img3-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-@media (max-width: 700px) {
-  .img2-frame {
-    float: none;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .img3-frame {
-    float: none;
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
 /* ── RECOMMENDED ── */
 .recommended {
   max-width: 420px;
   margin: 4rem auto 3rem;
   padding: 0 1rem;
 }
-.rec-label { display: none; }
 .rec-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -463,7 +484,6 @@ footer {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
 }
-/* glassmorphism overlay */
 .rec-item::before {
   content: '';
   position: absolute;
@@ -478,19 +498,12 @@ footer {
   z-index: 0;
 }
 .rec-item > * { position: relative; z-index: 1; }
-
-/* per-item color tints */
 .rec-item:nth-child(1)::before { background: linear-gradient(135deg, rgba(224,64,122,0.12), rgba(255,255,255,0.4)); }
 .rec-item:nth-child(2)::before { background: linear-gradient(135deg, rgba(147,197,253,0.15), rgba(255,255,255,0.4)); }
 .rec-item:nth-child(3)::before { background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(255,255,255,0.4)); }
 .rec-item:nth-child(4)::before { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.4)); }
-
-.rec-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-}
+.rec-item:hover { transform: scale(1.02); box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
 .rec-item:hover::before { opacity: 1; }
-
 .rec-item:nth-child(even) { margin-top: 24px; }
 .rec-img-wrap {
   width: 100%;
@@ -517,17 +530,13 @@ footer {
   font-variation-settings: 'EXPO' 0;
 }
 .rec-item:hover .rec-title {
-  color: #e0407a;
+  color: var(--pink);
   font-variation-settings: 'EXPO' -40;
 }
 .rec-sub {
   font-family: 'ImmortelInfraG2', serif;
   font-size: 0.62rem;
   color: var(--mid);
-}
-@media (max-width: 700px) {
-  .recommended { max-width: 100%; padding: 0 1.2rem; }
-  .rec-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ── PARAGRAPH PARALLAX REVEAL ── */
@@ -539,64 +548,6 @@ footer {
 .article-body p.para-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* ── IMG2 COMPANION ── */
-.img2-group {
-  float: right;
-  position: relative;
-  width: clamp(180px, 28vw, 420px);
-  margin-left: 2rem;
-  margin-bottom: 1rem;
-  margin-right: clamp(-80px, -6vw, 0px);
-}
-.img2-group .img2-frame {
-  float: none;
-  width: 100%;
-  margin: 0;
-}
-.img2-companion {
-  position: absolute;
-  width: 41.4%;
-  aspect-ratio: 3/4;
-  top: -14%;
-  right: calc(-41.4% - 8px);
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-}
-.img2-companion img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ── IMG3 COMPANION ── */
-.img3-group {
-  float: left;
-  position: relative;
-  width: clamp(180px, 28vw, 420px);
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-  margin-left: clamp(-80px, -6vw, 0px);
-}
-.img3-group .img3-frame {
-  float: none;
-  width: 100%;
-  margin: 0;
-}
-.img3-companion {
-  position: absolute;
-  width: 41.4%;
-  aspect-ratio: 3/4;
-  bottom: -8%;
-  left: calc(-41.4% - 8px);
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-}
-.img3-companion img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* ── BLOCK LATEST ── */
@@ -619,6 +570,41 @@ footer {
 .bl-card-img { width: 100%; aspect-ratio: 3 / 2; overflow: hidden; margin-bottom: 0.8rem; }
 .bl-card-img > * { width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
 .bl-card:hover .bl-card-img > * { transform: scale(1.03); }
+
+/* ── VIDEO COMPANION ── */
+.img3-video-group {
+  float: right;
+  position: relative;
+  width: clamp(180px, 28vw, 420px);
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  margin-right: clamp(-80px, -6vw, 0px);
+}
+.img3-video-group .img3-frame {
+  float: none;
+  width: 100%;
+  margin: 0;
+}
+.video-companion {
+  position: absolute;
+  width: 42%;
+  aspect-ratio: 9 / 16;
+  top: -8%;
+  right: calc(-42% - 8px);
+  background: #0a0a0a;
+  overflow: hidden;
+}
+.video-companion iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -22%;
+  right: -22%;
+  width: 144%;
+  height: 100%;
+  border: none;
+  display: block;
+}
 
 </style>
 </head>
@@ -644,68 +630,70 @@ footer {
 <!-- ── ARTICLE ── -->
 <div class="article-wrap">
 
-  <h1 class="article-title">The Transcendent<br>Luster</h1>
+  <h1 class="article-title">Sword II<br>Swoops in</h1>
 
   <div class="article-hero-row">
     <div class="article-hero">
-      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817213/P1010152_ltifa6.jpg" alt="Sword II">
     </div>
-    <div class="article-side-title">of Starcleaner Reunion</div>
+    <div class="article-side-title">from Atlanta</div>
   </div>
 
   <div class="article-body">
 
-    <div class="article-label" style="margin-bottom: 0.4rem;">Album Review · Indie Rock</div>
-    <div class="article-byline" style="margin-bottom: 1.8rem;">By Marcus Webb &nbsp;·&nbsp; March 12, 2026 &nbsp;·&nbsp; 8 min read</div>
+    <div class="article-label" style="margin-bottom: 0.4rem;">Live Review · Southern Rock</div>
+    <div class="article-byline" style="margin-bottom: 1.8rem;">By Claire Okafor &nbsp;·&nbsp; March 18, 2026 &nbsp;·&nbsp; 6 min read</div>
 
-    <div style="float: right; width: 38%; margin-left: 2rem; margin-bottom: 1rem; aspect-ratio: 9/16; overflow: hidden;">
-      <iframe
-        src="https://player.mux.com/qilxpT5JT01Nojo6aqkqHt6ugaPmNo6FXDtcBUO9fSTQ?metadata-video-title=IMG_7528&video-title=IMG_7528&autoplay=1&muted=1&loop=1"
-        style="width: 100%; height: 100%; border: none; --play-button: none; --controls: none;"
-        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
-    <p class="drop-cap" style="margin-left: auto; margin-right: auto; max-width: 520px;">There are records that arrive quietly and rearrange everything around them. Starcleaner Reunion's self-titled debut is one of those. Recorded over three weeks in a converted barn outside of Asheville, it carries the particular stillness of a place with no cell service and too many stars — a sound that is unhurried, deliberate, and quietly devastating.</p>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
 
-    <p style="margin-left: auto; margin-right: auto; max-width: 520px;">The band, a five-piece led by vocalist and guitarist Lena Park, has been trading demos for the better part of four years. What emerges here is less a collection of songs than a single sustained mood: a widescreen American melancholy that calls to mind Mazzy Star at their most patient, or the gentler passages of Phosphorescent's <em>Muchacho</em>. Park's voice is the album's spine — dry and close-miked, with a slight tremor that suggests emotion held at careful distance.</p>
-
-    <div style="clear: both;"></div>
-
-    <div class="article-pullquote">"It carries the particular stillness of a place with no cell service and too many stars."</div>
+    <div class="article-pullquote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."</div>
 
     <div class="img2-wrap">
       <div class="img2-group">
         <div class="img2-frame">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817461/Artboard_8_3x_qiogck.png" alt="">
+          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817211/P1010070_vy57h2.jpg" alt="">
         </div>
         <div class="img2-companion">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_5_3x_a9nxdo.jpg" alt="">
+          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817209/P1010111_jqtzax.jpg" alt="">
         </div>
       </div>
-      <p>Album centrepiece "Luster" opens on a single guitar figure that repeats for nearly two minutes before anything else enters. It's a bold choice, and it works. By the time the pedal steel drifts in — played with extraordinary restraint by Cole Dunbar — the song has already created the space it needs. Nothing feels added. Everything feels inevitable.</p>
-      <p>Producer Nia Walsh deserves significant credit for the album's texture. She has a gift for recording rooms rather than instruments: you can hear the wood of the barn, the slight hum of amplifiers left on too long, the breath before a vocal phrase. These are not accidents. They are decisions, and they give the record a physical presence that most studio albums spend fortunes trying to manufacture.</p>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+      <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</p>
     </div>
 
+    <div class="article-pullquote">"Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."</div>
 
     <div class="img3-wrap">
-      <div class="img3-group">
+      <div class="img3-video-group">
         <div class="img3-frame">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1773706551/Artboard_4_3x_ree0ga.jpg" alt="">
+          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817212/P1010095_ydnj19.jpg" alt="" style="object-position: 20% center;">
         </div>
-        <div class="img3-companion">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817671/Artboard_6_3x_iqsq7p.jpg" alt="">
+        <div class="video-companion">
+          <iframe
+            src="https://iframe.mediadelivery.net/embed/622638/b6bdc8e4-b959-4452-a087-cbc9e5bef79e?autoplay=true&loop=true&muted=true&preload=true&primaryColor=e0407a"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
-      <p>Not every moment lands with equal weight. "Carousel Drive" reaches for a grander dynamic than the album's atmosphere can quite sustain, and its bridge feels borrowed from a different, louder record. But these are minor frictions in something otherwise remarkably cohesive. Starcleaner Reunion have made an album that knows exactly what it is — and has the patience to let you find out for yourself.</p>
-      <p>The record closes on "Winter Kept Us," a song so still it barely seems to breathe. Park's voice drops to a near-whisper over a single sustained chord, and then it's over. No resolution. No grand finish. Just silence where the music used to be — which, it turns out, is exactly the right ending for an album that understands the power of what's left unsaid.</p>
+      <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
+      <p>Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+    </div>
+
+    <div class="img2-wrap">
+      <div class="img2-frame">
+        <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817204/P1010257_jlbqaj.jpg" alt="">
+      </div>
+      <p>Ut labore et dolore magnam aliquam quaerat voluptatem. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+      <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
     </div>
 
   </div>
 
-
 </div>
+
 
 <!-- ── RECOMMENDED ── -->
 <!-- ── BLOCK LATEST ── -->
@@ -713,6 +701,13 @@ footer {
   <div class="bl-top">
 
     <div class="bl-card">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Album · ★★★★★</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">The Transcendent Luster of Starcleaner</div>
+      <span class="art-byline">James Fletcher · Feb 27</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;"></div>
       <span class="art-label">Live Review</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Chanel Beads Erupts at 'Your Day Will Come'</div>
@@ -720,24 +715,17 @@ footer {
     </div>
 
     <div class="bl-card" style="padding-left:1.4rem">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817213/P1010152_ltifa6.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;"></div>
-      <span class="art-label">Live Review</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Sword II<br>Swoops In</div>
-      <span class="art-byline">Claire Okafor · Mar 18</span>
-    </div>
-
-    <div class="bl-card" style="padding-left:1.4rem">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758422/Screenshot_2026-03-05_at_7.53.16_PM_zcckdn.png" alt="Mdou Moctar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
-      <span class="art-label">Live · ★★★★</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar<br>Live</div>
-      <span class="art-byline">Tomás Rivera · Feb 25</span>
-    </div>
-
-    <div class="bl-card" style="padding-left:1.4rem">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817952/P1010583-2_po8bhm.jpg" alt="Daniel Avery" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <span class="art-label">Interview · Techno</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Daniel Avery<br>on Techno</div>
       <span class="art-byline">Priya Mehta · Feb 26</span>
+    </div>
+
+    <div class="bl-card" style="padding-left:1.4rem">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772675536/Screenshot_2026-01-05_at_7.08.38_PM_tsdojf.png" alt="Otto Benson" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Album</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Otto Benson's 'Peanut' Is a Quiet Revelation</div>
+      <span class="art-byline">Leon Park · Feb 20</span>
     </div>
 
   </div>
@@ -765,7 +753,6 @@ footer {
       }, { passive: true });
     }
 
-    // Paragraph reveal on scroll
     const paras = document.querySelectorAll('.article-body p');
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
