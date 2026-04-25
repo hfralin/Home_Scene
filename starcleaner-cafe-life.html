@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Otto Benson's 'Peanut' Is a Quiet Revelation — Home Scene</title>
+<title>Starcleaner Reunion's 'Café Life' Stands Out — Home Scene</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
 <style>
 
@@ -58,7 +58,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Glass morphism blobs */
 @keyframes blob-drift-3 {
   0%   { transform: translate(0px, 0px) scale(1); }
   50%  { transform: translate(25px, -30px) scale(1.05); }
@@ -79,34 +78,26 @@ body {
   z-index: -1;
 }
 
-/* Top fade */
 .glass-blob-1 {
   width: 100%;
   height: 280px;
   border-radius: 0;
   background: linear-gradient(to bottom, rgba(167,139,250,0.22) 0%, transparent 100%);
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   filter: blur(30px);
 }
 
-/* Bottom left — purple/blue */
 .glass-blob-3 {
-  width: 680px;
-  height: 680px;
+  width: 680px; height: 680px;
   background: radial-gradient(circle at center, #a78bfa, #93c5fd, transparent 70%);
-  bottom: -280px;
-  left: -250px;
+  bottom: -280px; left: -250px;
   animation: blob-drift-3 26s ease-in-out infinite;
 }
 
-/* Bottom right — pink/purple */
 .glass-blob-4 {
-  width: 620px;
-  height: 620px;
+  width: 620px; height: 620px;
   background: radial-gradient(circle at center, #e0407a, #818cf8, transparent 70%);
-  bottom: -250px;
-  right: -250px;
+  bottom: -250px; right: -250px;
   animation: blob-drift-4 22s ease-in-out infinite;
 }
 
@@ -125,30 +116,24 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display: block; }
 
-/* ── HEADER ── */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.4rem 2rem 0.25rem;
   width: 80%;
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 5px auto 0;
   position: sticky;
   top: 5px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-radius: 0;
   box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
 }
 
-.logo img {
-  height: clamp(52px, 5.5vw, 92px);
-  width: auto;
-  display: block;
-}
+.logo img { height: clamp(52px, 5.5vw, 92px); width: auto; display: block; }
 
 nav {
   display: flex;
@@ -165,7 +150,6 @@ nav {
 
 nav a {
   font-family: 'ExposureVAR', serif;
-  font-weight: 400;
   font-size: clamp(14px, 1.7vw, 21px);
   letter-spacing: 0.02em;
   color: #2a52d4;
@@ -176,25 +160,17 @@ nav a {
   transition: font-variation-settings 0.4s ease;
   animation: nav-float 3s ease-in-out infinite;
 }
-
 nav a:nth-child(2) { animation-delay: 0.4s; }
 nav a:nth-child(3) { animation-delay: 0.8s; }
+nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
 
-nav a:hover {
-  color: #e0407a;
-  font-variation-settings: 'EXPO' -80;
-}
-
-/* ── ARTICLE ── */
 .article-wrap {
   max-width: 820px;
   margin: 0 auto;
   padding: 4rem calc(3rem + 85px) 6rem;
 }
 
-.article-body {
-  overflow-x: visible;
-}
+.article-body { overflow-x: visible; }
 
 .article-label {
   font-family: 'ImmortelInfraG2', serif;
@@ -226,13 +202,10 @@ nav a:hover {
   overflow: hidden;
 }
 
-.article-title-col {
-  flex: 1;
-}
+.article-title-col { flex: 1; }
 
 .article-title {
   font-family: 'Exposure', serif;
-  font-weight: 400;
   font-size: clamp(2rem, 4vw, 3.6rem);
   line-height: 0.95;
   letter-spacing: 0.01em;
@@ -249,8 +222,6 @@ nav a:hover {
   letter-spacing: 0.02em;
   margin: 0 0 0.8rem;
   text-align: right;
-  opacity: 1;
-  transform: none;
 }
 
 .article-byline-hero {
@@ -260,44 +231,21 @@ nav a:hover {
   color: var(--light);
   margin: 0;
   text-align: right;
-  opacity: 1;
-  transform: none;
-}
-
-@media (max-width: 700px) {
-  .article-hero {
-    width: 80%;
-  }
 }
 
 .article-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.article-byline {
-  font-family: 'ImmortelInfraG2', serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: var(--mid);
-  margin-bottom: 2.4rem;
-  padding-bottom: 1.4rem;
-  border-bottom: 1px solid var(--rule);
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
 }
 
 .article-body {
   font-family: 'ImmortelInfraG2', serif;
-  font-weight: 400;
   font-size: 1.15rem;
   line-height: 1.72;
   color: var(--black);
 }
 
-.article-body p {
-  margin-bottom: 1.5em;
-}
+.article-body p { margin-bottom: 1.5em; }
 
 .article-body p.drop-cap::first-letter {
   font-family: 'Exposure', serif;
@@ -311,7 +259,6 @@ nav a:hover {
 
 .article-pullquote {
   font-family: 'Exposure', serif;
-  font-weight: 400;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   line-height: 1.15;
   color: var(--black);
@@ -322,7 +269,6 @@ nav a:hover {
   letter-spacing: 0.01em;
 }
 
-/* ── FOOTER ── */
 footer {
   display: flex;
   align-items: center;
@@ -333,130 +279,49 @@ footer {
   margin: 0 auto;
 }
 
-.foot-left {}
-.foot-logo img {
-  height: 38px;
-  width: auto;
-  display: block;
-}
-
-.foot-tagline {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
-  color: var(--light);
-  margin-top: 0.5rem;
-  display: block;
-}
-
-.foot-nav {
-  display: flex;
-  gap: 2.2rem;
-}
-
-.foot-nav a {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.06em;
-  color: var(--mid);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-
+.foot-logo img { height: 38px; width: auto; display: block; }
+.foot-tagline { font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; color: var(--light); margin-top: 0.5rem; display: block; }
+.foot-nav { display: flex; gap: 2.2rem; }
+.foot-nav a { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.06em; color: var(--mid); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .foot-nav a:hover { color: var(--black); }
 
-/* ── BODY IMAGES ── */
-.img2-wrap,
-.img3-wrap {
-  margin-bottom: 2rem;
-}
-.img2-wrap::after,
-.img3-wrap::after {
-  content: '';
-  display: table;
-  clear: both;
-}
+.img2-wrap, .img3-wrap { margin-bottom: 2rem; }
+.img2-wrap::after, .img3-wrap::after { content: ''; display: table; clear: both; }
 
-/* img2 — floats right, bleeds right */
 .img2-frame {
   float: right;
   width: clamp(180px, 28vw, 420px);
   aspect-ratio: 3/4;
   overflow: hidden;
-  margin-left: 2rem;
-  margin-bottom: 1rem;
+  margin-left: 2rem; margin-bottom: 1rem;
   margin-right: clamp(-80px, -6vw, 0px);
 }
 
-/* img3 — floats left, bleeds left */
 .img3-frame {
   float: left;
   width: clamp(180px, 28vw, 420px);
   aspect-ratio: 3/4;
   overflow: hidden;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
+  margin-right: 2rem; margin-bottom: 1rem;
   margin-left: clamp(-80px, -6vw, 0px);
 }
 
-.img2-frame img,
-.img3-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.img2-frame img, .img3-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-@media (max-width: 700px) {
-  .img2-frame {
-    float: none;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .img3-frame {
-    float: none;
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-
-/* ── RECOMMENDED ── */
-.recommended {
-  max-width: 420px;
-  margin: 4rem auto 3rem;
-  padding: 0 1rem;
-}
 .rec-label { display: none; }
-.rec-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
+.rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.recommended { max-width: 420px; margin: 4rem auto 3rem; padding: 0 1rem; }
 .rec-item {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  border-radius: 10px;
-  padding: 0.35rem 0.35rem 0.8rem;
+  text-decoration: none; color: inherit; display: block;
+  border-radius: 10px; padding: 0.35rem 0.35rem 0.8rem;
   position: relative;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
 }
 .rec-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 10px;
-  opacity: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  content: ''; position: absolute; inset: 0; border-radius: 10px;
+  opacity: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 0;
+  transition: opacity 0.4s ease; pointer-events: none; z-index: 0;
 }
 .rec-item > * { position: relative; z-index: 1; }
 .rec-item:nth-child(1)::before { background: linear-gradient(135deg, rgba(224,64,122,0.12), rgba(255,255,255,0.4)); }
@@ -466,51 +331,20 @@ footer {
 .rec-item:hover { transform: scale(1.02); box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
 .rec-item:hover::before { opacity: 1; }
 .rec-item:nth-child(even) { margin-top: 24px; }
-.rec-img-wrap {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  background: #ece8e3;
-  border-radius: 6px;
-}
-.rec-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
+.rec-img-wrap { width: 100%; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 0.5rem; background: #ece8e3; border-radius: 6px; }
+.rec-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
 .rec-item:hover .rec-img-wrap img { transform: scale(1.04); }
-.rec-title {
-  font-family: 'ExposureVAR', serif;
-  font-size: 0.78rem;
-  line-height: 1.2;
-  margin-bottom: 0.25rem;
-  transition: color 0.3s ease, font-variation-settings 0.4s ease;
-  font-variation-settings: 'EXPO' 0;
-}
+.rec-title { font-family: 'ExposureVAR', serif; font-size: 0.78rem; line-height: 1.2; margin-bottom: 0.25rem; transition: color 0.3s ease, font-variation-settings 0.4s ease; font-variation-settings: 'EXPO' 0; }
 .rec-item:hover .rec-title { color: #e0407a; font-variation-settings: 'EXPO' -40; }
 .rec-sub { font-family: 'ImmortelInfraG2', serif; font-size: 0.62rem; color: var(--mid); }
 
-@media (max-width: 700px) {
-  .recommended { max-width: 100%; padding: 0 1.2rem; }
-  .rec-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* ── PARAGRAPH PARALLAX REVEAL ── */
 .article-body p {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
-.article-body p.para-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.article-body p.para-visible { opacity: 1; transform: translateY(0); }
 
-/* ── BLOCK LATEST ── */
-.ph-warm { background: linear-gradient(150deg, #c4b4a0, #9a8070); }
 .art-label { font-family: 'ImmortelInfraG2', serif; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #2a52d4; display: block; }
 .art-byline { font-family: 'ImmortelInfraG2', serif; font-size: 0.5rem; letter-spacing: 0.06em; color: var(--black); display: block; margin-top: 0.3rem; }
 .block-title { font-family: 'Exposure', serif; font-weight: 400; letter-spacing: 0.02em; line-height: 0.88; color: var(--black); margin-top: 0.3rem; }
@@ -520,13 +354,10 @@ footer {
 .bl-top { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--rule); }
 .bl-card { padding: 0.5rem 0.5rem 1.4rem; border-right: 1px solid var(--rule); cursor: pointer; border-radius: 12px; transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease; }
 .bl-card:hover { background: linear-gradient(135deg, rgba(167,139,250,0.14), rgba(255,255,255,0.45)); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.6); transform: scale(1.02); border-right: none; }
-.bl-card:nth-child(2):hover { background: linear-gradient(135deg, rgba(253,230,138,0.18), rgba(255,255,255,0.45)); }
-.bl-card:nth-child(3):hover { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.45)); }
-.bl-card:nth-child(4):hover { background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(255,255,255,0.45)); }
 .bl-card:first-child { padding-left: 0; }
 .bl-card:last-child { border-right: none; padding-right: 0; }
 .bl-card:hover .block-title { text-decoration: underline; text-decoration-thickness: 1px; color: #e0407a; }
-.bl-card-img { width: 100%; aspect-ratio: 3 / 2; overflow: hidden; margin-bottom: 0.8rem; }
+.bl-card-img { width: 100%; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 0.8rem; }
 .bl-card-img > * { width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
 .bl-card:hover .bl-card-img > * { transform: scale(1.03); }
 
@@ -539,7 +370,6 @@ footer {
 <div class="glass-blob glass-blob-3"></div>
 <div class="glass-blob glass-blob-4"></div>
 
-<!-- ── HEADER ── -->
 <header>
   <a href="index.html" class="logo">
     <img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene">
@@ -551,47 +381,47 @@ footer {
   </nav>
 </header>
 
-<!-- ── ARTICLE ── -->
 <div class="article-wrap">
 
   <div class="article-hero-row">
     <div class="article-hero-col">
       <div class="article-hero">
-        <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772675536/Screenshot_2026-01-05_at_7.08.38_PM_tsdojf.png" alt="Otto Benson — Peanut">
+        <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Starcleaner Reunion — Café Life">
       </div>
     </div>
     <div class="article-title-col">
-      <h1 class="article-title">Otto Benson's 'Peanut' Is a Quiet Revelation</h1>
-      <p class="article-subhead">Intimate folk songs that shimmer in the quiet</p>
-      <p class="article-label" style="margin-top:0.6rem;text-align:right;">Album Review · Folk</p>
-      <iframe style="border: 0; width: calc(100% - 50px); height: 42px; margin-top: 1rem; margin-left: auto; display: block;" src="https://bandcamp.com/EmbeddedPlayer/album=581079333/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless><a href="https://wnoadiarwb.bandcamp.com/album/peanut">Peanut by Otto Benson</a></iframe>
+      <h1 class="article-title">Starcleaner Reunion's 'Café Life' Stands Out</h1>
+      <p class="article-subhead">A slow-burning masterwork that rewards every listen</p>
+      <p class="article-byline-hero" style="margin-top:0.6rem;">By James Fletcher &nbsp;·&nbsp; February 27, 2026</p>
+      <p class="article-label" style="margin-top:0.6rem;text-align:right;">Album Review · ★★★★★</p>
+      <iframe style="border:0; width:calc(100% - 50px); height:42px; margin-top:1rem; margin-left:auto; display:block;" src="https://bandcamp.com/EmbeddedPlayer/album=581079333/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless></iframe>
     </div>
   </div>
 
   <div class="article-body">
 
-    <p class="article-byline-hero" style="margin-bottom: 1.2rem; opacity:1; transform:none; text-align:center; font-size: 0.85rem; color: #e0407a; font-family: 'ExposureVAR', serif; font-variation-settings: 'EXPO' 10;">By Claire Okafor &nbsp;·&nbsp; January 8, 2026</p>
+    <p class="article-byline-hero" style="margin-bottom:1.2rem; opacity:1; transform:none; text-align:center; font-size:0.85rem; color:#e0407a; font-family:'ExposureVAR',serif; font-variation-settings:'EXPO' 10;">By James Fletcher &nbsp;·&nbsp; February 27, 2026</p>
 
-    <p class="drop-cap" style="margin-left: auto; margin-right: auto; max-width: 520px;">There is a specific kind of quiet that only folk music can produce — not the absence of sound, but the presence of space. Otto Benson understands this instinctively. On <em>Peanut</em>, his debut full-length, every note is placed with the deliberateness of someone who has thought long and hard about what to leave out. The result is one of the most intimate records to arrive this year: small in scale, enormous in feeling.</p>
+    <p class="drop-cap" style="margin-left:auto; margin-right:auto; max-width:520px;">There is an argument to be made that the best albums do not announce themselves. They arrive quietly, do their work without ceremony, and only reveal their full dimensions over repeated visits — weeks, sometimes months after you first put them on. <em>Café Life</em>, the third record from Starcleaner Reunion, is that kind of album. On first listen it sounds pleasant, even modest. On the fifth it sounds like one of the better things you have heard in years.</p>
 
-    <p style="margin-left: auto; margin-right: auto; max-width: 520px;">Benson, a 27-year-old songwriter from rural Vermont, built the album across two winters in a home studio cobbled together from borrowed gear and salvaged furniture. That circumstance is audible — not as limitation, but as texture. The recordings breathe differently than something made in a professional space. There are imperfections that no producer would sanction and no algorithm could replicate: a creak underfoot, a window rattling faintly behind a chorus, the particular warmth of a room that has been lived in.</p>
+    <p style="margin-left:auto; margin-right:auto; max-width:520px;">The band — a five-piece centred around the songwriting partnership of Marlowe Hendricks and Saoirse Fenn — has always traded in a certain quality of restraint. Their debut was praised for its economy; their second record for its texture. <em>Café Life</em> synthesises both impulses into something more cohesive than either. The production, handled largely in-house with contributions from longtime collaborator Dae-Jung Park, is warm and immediate without sacrificing depth. Every element has been placed exactly where it needs to be, and not one inch further.</p>
 
-    <div class="article-pullquote">"Every note is placed with the deliberateness of someone who has thought long and hard about what to leave out."</div>
+    <div class="article-pullquote">"On first listen it sounds pleasant. On the fifth it sounds like one of the better things you have heard in years."</div>
 
     <div class="img2-wrap">
       <div class="img2-frame">
-        <img src="https://picsum.photos/seed/otto-a/600/800" alt="">
+        <img src="https://picsum.photos/seed/star-cafe-a/600/800" alt="">
       </div>
-      <p>The album opens with "Slow Burn," a two-chord meditation that establishes the record's tempo and intention in equal measure. Benson's voice sits low in the mix — not buried, but close, the way a person sounds when they are speaking directly to you rather than performing for a room. His guitar playing is economical to the point of minimalism, favouring single-note runs over chord voicings and sustain over attack. It is a style that demands patience from the listener and rewards it generously.</p>
-      <p>Centrepiece track "Peanut" — the album's title song and its emotional heart — arrives at the midpoint with the force of something held back for a long time. Built around a single fingerpicked figure that loops gently for five minutes, it is the kind of song that does not announce itself. It simply begins, and then you realise, somewhere in the middle of it, that you have stopped thinking about anything else.</p>
+      <p>The album opens with "Morning Counter," a track built on a single guitar figure and a drum pattern so unhurried it initially reads as almost ambient. Fenn's vocal enters two minutes in, unaccompanied, describing a small domestic scene with the specificity of someone who has been paying close attention: a coffee cup left on a sill, the sound of a street outside a window, the particular quality of light at a certain hour of a certain kind of day. It is, on paper, nothing. In practice it is quietly devastating.</p>
+      <p>The middle section of the record is where <em>Café Life</em> earns its five stars. "Tableside" and its companion piece "The Long Afternoon" form a continuous passage of music that runs to nearly sixteen minutes, the two tracks blurring into each other through a long instrumental coda that shifts key twice without ever seeming to try. It is the most ambitious thing Starcleaner Reunion have attempted, and it works completely.</p>
     </div>
 
     <div class="img3-wrap">
       <div class="img3-frame">
-        <img src="https://picsum.photos/seed/otto-b/600/800" alt="">
+        <img src="https://picsum.photos/seed/star-cafe-b/600/800" alt="">
       </div>
-      <p>Not every song reaches those heights. "Juniper Road" strains slightly against the album's prevailing stillness, its melody a little too eager to resolve, its arrangement a shade too tidy. But it is an exception in a record of otherwise impressive restraint. Benson seems to know, instinctively, when to stay still and when to move — and on <em>Peanut</em>, he stays still far more often than not, to quietly devastating effect.</p>
-      <p>The album closes on "After the Rain," a spare two-minute coda that consists of little more than a sustained chord and a murmured vocal phrase repeated until it loses its meaning and gains something else. It is the record's quietest moment and its most affecting: a reminder that folk music, at its best, does not tell you what to feel. It simply makes a space, and trusts you to bring something of your own.</p>
+      <p>Not every choice lands. "Closing Time," the penultimate track, strains a little against the album's prevailing stillness — its melody more insistent than the surrounding material seems to want, its arrangement slightly overworked in a way that calls attention to itself. It is the one moment where the record's careful equilibrium feels disrupted rather than complicated. But it is a single misstep in a record that is otherwise almost entirely free of them.</p>
+      <p>The final track, "After Hours," closes the album the way the best last tracks do: not by resolving everything that has come before, but by making it feel inevitable. A single piano note, a held chord, a voice dropping to almost nothing. Then silence. Then you sit there for a moment before pressing play again. That is the thing about <em>Café Life</em>. It earns the replay. Every single time.</p>
     </div>
 
   </div>
@@ -602,33 +432,33 @@ footer {
 <div class="block-latest">
   <div class="bl-top">
 
-    <a href="starcleaner-reunion.html" class="bl-card" style="text-decoration:none;color:inherit;">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-      <span class="art-label">Album · ★★★★★</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">The Transcendent Luster of Starcleaner Reunion</div>
-      <span class="art-byline">Marcus Webb · Mar 12</span>
+    <a href="otto-benson.html" class="bl-card" style="text-decoration:none;color:inherit;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772675536/Screenshot_2026-01-05_at_7.08.38_PM_tsdojf.png" alt="Otto Benson" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Album Review · Folk</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Otto Benson's 'Peanut' Is a Quiet Revelation</div>
+      <span class="art-byline">Claire Okafor · Jan 8</span>
     </a>
 
-    <a href="chanel-beads.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;"></div>
-      <span class="art-label">Live Review</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Chanel Beads Erupts at 'Your Day Will Come'</div>
-      <span class="art-byline">Sofia Reyes · Mar 2</span>
+    <a href="villagerrr.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772820712/a2547523506_16_x39qx6.jpg" alt="Villagerrr" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Album Review · Indie Rock</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Villagerrr's 'Carousel' Is Their Most Confident Yet</div>
+      <span class="art-byline">Sofia Reyes · Jan 15</span>
     </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817952/P1010583-2_po8bhm.jpg" alt="Daniel Avery" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-      <span class="art-label">Interview · Techno</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Daniel Avery<br>on Techno</div>
-      <span class="art-byline">Priya Mehta · Feb 26</span>
-    </div>
-
-    <div class="bl-card" style="padding-left:1.4rem">
+    <a href="mdou-moctar.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758422/Screenshot_2026-03-05_at_7.53.16_PM_zcckdn.png" alt="Mdou Moctar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
       <span class="art-label">Live · ★★★★</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar<br>Live</div>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar Sets the Desert Ablaze</div>
       <span class="art-byline">Tomás Rivera · Feb 25</span>
-    </div>
+    </a>
+
+    <a href="mia-world-tour.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758420/Screenshot_2026-03-05_at_7.52.33_PM_w2xkgi.png" alt="MIA World Tour" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">News · Pop</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">M.I.A. Is Back and Ready to Rule the World</div>
+      <span class="art-byline">Leon Park · Feb 23</span>
+    </a>
 
   </div>
 </div>
@@ -654,7 +484,6 @@ footer {
         bg.style.backgroundPositionY = 'calc(50% + ' + (window.scrollY * 0.2) + 'px)';
       }, { passive: true });
     }
-
     const paras = document.querySelectorAll('.article-body p');
     const observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -667,6 +496,5 @@ footer {
     paras.forEach(function (p) { observer.observe(p); });
   })();
 </script>
-
 </body>
 </html>

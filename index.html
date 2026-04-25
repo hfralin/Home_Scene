@@ -368,23 +368,22 @@ nav a:hover {
   padding: 0.5rem 0.5rem 1.4rem;
   background: transparent;
   position: relative;
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
-/* Auto-glow overlay on each item */
+/* Specular highlight overlay — hidden until hover */
 .gallery-item::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 12px;
   opacity: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
-  animation: none;
-  transition: opacity 2.8s ease;
   pointer-events: none;
   z-index: 0;
+  transition: opacity 0.4s ease;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.85),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
 }
 
 .gallery-item > * {
@@ -392,40 +391,23 @@ nav a:hover {
   z-index: 1;
 }
 
-.gi-1::before { background: linear-gradient(135deg, rgba(224,64,122,0.12), rgba(255,255,255,0.4)); }
-.gi-2::before { background: linear-gradient(135deg, rgba(147,197,253,0.15), rgba(255,255,255,0.4)); }
-.gi-3::before { background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(255,255,255,0.4)); }
-.gi-4::before { background: linear-gradient(135deg, rgba(253,230,138,0.18), rgba(255,255,255,0.4)); }
-.gi-5::before { background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(255,255,255,0.4)); }
-.gi-6::before { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.4)); }
+.gi-1::before { background: linear-gradient(145deg, rgba(224,64,122,0.38) 0%, rgba(167,139,250,0.28) 55%, rgba(255,255,255,0.18) 100%); }
+.gi-2::before { background: linear-gradient(145deg, rgba(96,165,250,0.38) 0%, rgba(110,231,183,0.25) 55%, rgba(255,255,255,0.18) 100%); }
+.gi-3::before { background: linear-gradient(145deg, rgba(110,231,183,0.38) 0%, rgba(96,165,250,0.25) 55%, rgba(255,255,255,0.18) 100%); }
+.gi-4::before { background: linear-gradient(145deg, rgba(253,186,116,0.38) 0%, rgba(224,64,122,0.22) 55%, rgba(255,255,255,0.18) 100%); }
+.gi-5::before { background: linear-gradient(145deg, rgba(167,139,250,0.38) 0%, rgba(96,165,250,0.25) 55%, rgba(255,255,255,0.18) 100%); }
+.gi-6::before { background: linear-gradient(145deg, rgba(252,165,165,0.38) 0%, rgba(253,186,116,0.25) 55%, rgba(255,255,255,0.18) 100%); }
 
 /* JS-controlled active state */
 .gi-active::before { opacity: 1 !important; }
 .gi-active .gi-sub { opacity: 1 !important; animation: none !important; }
 
 .gallery-item:hover {
-  background: linear-gradient(135deg,
-    rgba(224,64,122,0.22),
-    rgba(147,197,253,0.25),
-    rgba(167,139,250,0.22),
-    rgba(110,231,183,0.18),
-    rgba(253,230,138,0.18),
-    rgba(255,255,255,0.35),
-    rgba(224,64,122,0.22)
-  );
-  background-size: 500% 500%;
-  animation: iridescent 4s ease infinite;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.75), inset 0 1px 0 rgba(255,255,255,0.9);
   transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10), inset 0 0 0 1px rgba(255,255,255,0.5);
 }
 
-/* Per-item colour tints on hover */
-.gi-1:hover { background: linear-gradient(135deg, rgba(224,64,122,0.12), rgba(255,255,255,0.4)); }
-.gi-2:hover,
-.gi-3:hover,
-.gi-4:hover,
-.gi-5:hover,
-.gi-6:hover { background: none; }
+.gallery-item:hover::before { opacity: 1; }
 .gallery-item:hover .gi-title {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -443,7 +425,7 @@ nav a:hover {
   height: 100%;
   transition: transform 0.5s ease;
 }
-.gi-img-wrap img { object-fit: cover; }
+.gi-img-wrap img { object-fit: cover; transform: scale(1.09); }
 
 .gi-title {
   font-family: 'ExposureVAR', serif;
@@ -484,16 +466,23 @@ nav a:hover {
 
 /* Item positions per brief */
 /* Item 1: col 1–4, row 1, 3:2 */
-.gi-1 { grid-column: 1 / 5; grid-row: 1; }
+.gi-1 { grid-column: 1 / 4; grid-row: 1; }
 .gi-1 .gi-img-wrap { aspect-ratio: 3 / 2; }
 
 /* Item 2: col 5–9, row 1, 16:6, offset down 4% */
-.gi-2 { grid-column: 5 / 10; grid-row: 1; margin-top: 4%; }
-.gi-2 .gi-img-wrap { aspect-ratio: 16 / 6; }
+.gi-2 { grid-column: 4 / 10; grid-row: 1; margin-top: 4%; transform: scale(0.9); transform-origin: top center; }
+.gi-2:hover { transform: scale(0.91) !important; transform-origin: top center; }
+.gi-2 .gi-img-wrap { aspect-ratio: 21 / 8; }
 
 /* Item 3: col 10–12, rows 1+2, 9:16 */
 .gi-3 { grid-column: 10 / 13; grid-row: 1 / 3; }
 .gi-3 .gi-img-wrap { aspect-ratio: 9 / 16; }
+.gi-3 .gi-img-wrap img {
+  transition: filter 0.6s ease, transform 0.5s ease;
+}
+.gi-3:hover .gi-img-wrap img {
+  filter: brightness(1.35) contrast(1.05) saturate(1.1);
+}
 
 /* Item 4: col 1–2, row 2, 1:1 */
 .gi-4 { grid-column: 1 / 3; grid-row: 2; }
@@ -1206,9 +1195,9 @@ footer {
     <img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene">
   </a>
   <nav>
-    <a href="articles/">Articles</a>
+    <a href="articles.html">Articles</a>
+    <a href="reviews.html">Reviews</a>
     <a href="shows.html">Shows</a>
-    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -1227,8 +1216,8 @@ footer {
 
   <!-- Item 2: col 5–9, row 1, 16:6 — wide shallow crop, offset down 4% -->
   <a class="gallery-item gi-2" href="chanel-beads.html" style="text-decoration:none;color:inherit;cursor:pointer;">
-    <div class="gi-img-wrap">
-      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;">
+    <div class="gi-img-wrap" style="position:relative;overflow:hidden;clip-path:inset(7px 19px);">
+      <iframe src="https://player.mediadelivery.net/embed/622638/540b242d-eac0-46ce-b0de-a7b6d821a679?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false&t=30" loading="lazy" style="border:0;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260%;height:150%;min-width:100%;min-height:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="false"></iframe>
     </div>
     <div class="gi-title">Chanel Beads Erupts at 'Your Day Will Come' Release Show</div>
     <div class="gi-sub">An incendiary night at TV Eye in Ridgewood, Queens</div>
@@ -1236,8 +1225,9 @@ footer {
 
   <!-- Item 3: col 10–12, rows 1+2, 9:16 — portrait, spans both rows -->
   <a class="gallery-item gi-3" href="sword-ii.html" style="text-decoration:none;color:inherit;cursor:pointer;">
-    <div class="gi-img-wrap">
-      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774121442/P1010152_gd8hhi.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="gi-img-wrap" style="display:flex;flex-direction:column;">
+      <div style="flex:1;overflow:hidden;"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817209/P1010111_jqtzax.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.25);"></div>
+      <div style="flex:1;overflow:hidden;margin-top:-30px;"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774121442/P1010152_gd8hhi.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
     </div>
     <div class="gi-title">Sword II Swoops in from Atlanta</div>
     <div class="gi-sub">The DIY duo bringing raw southern rock back</div>
@@ -1270,13 +1260,7 @@ footer {
   <!-- Item 6: col 7–9, row 2, 1:1 — bottom-right -->
   <div class="gallery-item gi-6">
     <div class="gi-img-wrap">
-      <mux-player
-        playback-id="8htdcuw1iGSu2AwOSS5ewrU9cZf7yvQcN005MCqnvw8o"
-        metadata-video-title="Focus_ThisIsLoreLei_WYLN_1x1"
-        autoplay="muted"
-        loop
-        style="--controls:none;cursor:pointer;"
-      ></mux-player>
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1776029903/Artboard_1_0.75x_k8tyxm.jpg" alt="Floating Points" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
     <div class="gi-title">Floating Points Finds Beauty in Electronic Restraint</div>
     <div class="gi-sub">Minimal electronic textures that reward patient listening</div>
@@ -1331,12 +1315,12 @@ footer {
   <!-- 4 quick cards -->
   <div class="bl-top">
 
-    <div class="bl-card">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Aphex Twin" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <a href="starcleaner-cafe-life.html" class="bl-card" style="text-decoration:none;color:inherit;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <span class="art-label">Album · ★★★★★</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Starcleaner' Café Life Stands Out</div>
       <span class="art-byline">James Fletcher · Feb 27</span>
-    </div>
+    </a>
 
     <div class="bl-card" style="padding-left:1.4rem">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817952/P1010583-2_po8bhm.jpg" alt="Daniel Avery" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
@@ -1345,19 +1329,19 @@ footer {
       <span class="art-byline">Priya Mehta · Feb 26</span>
     </div>
 
-    <div class="bl-card" style="padding-left:1.4rem">
+    <a href="mdou-moctar.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758422/Screenshot_2026-03-05_at_7.53.16_PM_zcckdn.png" alt="Mdou Moctar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
       <span class="art-label">Live · ★★★★</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar<br>Live</div>
       <span class="art-byline">Tomás Rivera · Feb 25</span>
-    </div>
+    </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
-      <div class="bl-card-img"><div class="ph-warm"></div></div>
+    <a href="mia-world-tour.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758420/Screenshot_2026-03-05_at_7.52.33_PM_w2xkgi.png" alt="MIA World Tour" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <span class="art-label">News</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">MIA —<br>World Tour</div>
       <span class="art-byline">Leon Park · Feb 23</span>
-    </div>
+    </a>
 
   </div>
 
@@ -1382,9 +1366,9 @@ footer {
     <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
   </div>
   <nav class="foot-nav">
-    <a href="articles/">Articles</a>
+    <a href="articles.html">Articles</a>
+    <a href="reviews.html">Reviews</a>
     <a href="shows.html">Shows</a>
-    <a href="contact.html">Contact</a>
   </nav>
 </footer>
 
@@ -1427,6 +1411,7 @@ footer {
       }, { passive: true });
     }
   })();
+
 
   (function () {
     const widget = document.querySelector('.newsletter-widget');

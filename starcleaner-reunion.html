@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Transcendent Luster of Starcleaner Reunion — Home Scene</title>
+<title>The Transcending Luster of Starcleaner Reunion — Home Scene</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
 <style>
 
@@ -535,10 +535,12 @@ footer {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.9s ease, transform 0.9s ease;
+  pointer-events: none;
 }
 .article-body p.para-visible {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* ── IMG2 COMPANION ── */
@@ -575,7 +577,7 @@ footer {
   float: left;
   position: relative;
   width: clamp(180px, 28vw, 420px);
-  margin-right: 2rem;
+  margin-right: calc(2rem - 8px);
   margin-bottom: 1rem;
   margin-left: clamp(-80px, -6vw, 0px);
 }
@@ -635,41 +637,37 @@ footer {
     <img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene">
   </a>
   <nav>
-    <a href="articles/">Articles</a>
+    <a href="articles.html">Articles</a>
+    <a href="reviews.html">Reviews</a>
     <a href="shows.html">Shows</a>
-    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <!-- ── ARTICLE ── -->
 <div class="article-wrap">
 
-  <h1 class="article-title">The Transcendent<br>Luster</h1>
+  <h1 class="article-title">The Transcending<br>Luster</h1>
 
   <div class="article-hero-row">
     <div class="article-hero">
       <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion">
     </div>
-    <div class="article-side-title">of Starcleaner Reunion</div>
+    <div class="article-side-title">of <span style="color:#e0407a;">Starcleaner Reunion</span></div>
   </div>
 
   <div class="article-body">
 
-    <div class="article-label" style="margin-bottom: 0.4rem;">Album Review · Indie Rock</div>
-    <div class="article-byline" style="margin-bottom: 1.8rem;">By Marcus Webb &nbsp;·&nbsp; March 12, 2026 &nbsp;·&nbsp; 8 min read</div>
+    <div class="article-label" style="margin-bottom: 0.4rem;">Focus</div>
+    <div class="article-byline" style="margin-bottom: 1.8rem;">By Hayden Fralin &nbsp;·&nbsp; March 12, 2026 &nbsp;·&nbsp; 8 min read</div>
 
-    <div style="float: right; width: 38%; margin-left: 2rem; margin-bottom: 1rem; aspect-ratio: 9/16; overflow: hidden;">
-      <iframe
-        src="https://player.mux.com/qilxpT5JT01Nojo6aqkqHt6ugaPmNo6FXDtcBUO9fSTQ?metadata-video-title=IMG_7528&video-title=IMG_7528&autoplay=1&muted=1&loop=1"
-        style="width: 100%; height: 100%; border: none; --play-button: none; --controls: none;"
-        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-        allowfullscreen
-      ></iframe>
+    <div id="sc-video-wrap" style="float: right; width: 46%; margin-left: 2rem; margin-bottom: 1rem; aspect-ratio: 1080/1350; overflow: hidden; position: relative; z-index: 10;">
+      <iframe id="sc-video" src="https://player.mediadelivery.net/embed/622638/87f90478-3e83-49a0-a89d-262408591280?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
     </div>
 
-    <p class="drop-cap" style="margin-left: auto; margin-right: auto; max-width: 520px;">There are records that arrive quietly and rearrange everything around them. Starcleaner Reunion's self-titled debut is one of those. Recorded over three weeks in a converted barn outside of Asheville, it carries the particular stillness of a place with no cell service and too many stars — a sound that is unhurried, deliberate, and quietly devastating.</p>
+    <p class="drop-cap" style="margin-left: auto; margin-right: auto; max-width: 520px;">The full-spirited, five-piece psych/dream pop band has recently found a strong hold on live shows across New York. In headlining Baby's All Right and Elsewhere this past winter, the band has placed itself alongside rising groups in the city like Blood Sports, Anastasia Coope, and Crate.</p>
 
-    <p style="margin-left: auto; margin-right: auto; max-width: 520px;">The band, a five-piece led by vocalist and guitarist Lena Park, has been trading demos for the better part of four years. What emerges here is less a collection of songs than a single sustained mood: a widescreen American melancholy that calls to mind Mazzy Star at their most patient, or the gentler passages of Phosphorescent's <em>Muchacho</em>. Park's voice is the album's spine — dry and close-miked, with a slight tremor that suggests emotion held at careful distance.</p>
+    <p style="margin-left: auto; margin-right: auto; max-width: 520px;">As a live band, Starcleaner Reunion excels in arranging their surreal tracks across all five members. Guitarists Pat Drummond and Neil Torman exchange lead moments of thrashing psychedelic melodies where both utilize heavy tonal manipulation to a tee. Lead singer, synth, and excellent tambourine player Jo Roman drives the spirit of the songs forward with her bright, welcoming presence and awe-inducing vocals. Bassist Adam Kenter hoists up the high-flying songs with steady bass lines that contribute head-nodding oomph to all of the band's arrangements.</p>
+
 
     <div style="clear: both;"></div>
 
@@ -678,24 +676,29 @@ footer {
     <div class="img2-wrap">
       <div class="img2-group">
         <div class="img2-frame">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817461/Artboard_8_3x_qiogck.png" alt="">
+          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817671/Artboard_6_3x_iqsq7p.jpg" alt="">
         </div>
         <div class="img2-companion">
           <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_5_3x_a9nxdo.jpg" alt="">
         </div>
       </div>
-      <p>Album centrepiece "Luster" opens on a single guitar figure that repeats for nearly two minutes before anything else enters. It's a bold choice, and it works. By the time the pedal steel drifts in — played with extraordinary restraint by Cole Dunbar — the song has already created the space it needs. Nothing feels added. Everything feels inevitable.</p>
-      <p>Producer Nia Walsh deserves significant credit for the album's texture. She has a gift for recording rooms rather than instruments: you can hear the wood of the barn, the slight hum of amplifiers left on too long, the breath before a vocal phrase. These are not accidents. They are decisions, and they give the record a physical presence that most studio albums spend fortunes trying to manufacture.</p>
+      <p>The band's most recent of three EPs, "Café Life", marked a heightened cohesion around the group's cosmically-explorative type of sound. With mixing help from Model/Actriz member Ruben Radlauer the EP brought together different creative elements with a sense of play and open-mindedness — sprinkled in the depths of the 4-track project you'll find samples of thunderstorms and faintly whispered poetry readings. On a larger level, the band's noisy psych-rock took on razor-sharp precision in rhythm and structure, giving the entire project a seasoned, finely-crafted sound. As a listener, <em>Café Life</em> amasses excitement in how psychedelic music can take meaningful form in today's music. The group is not straining to reach the places of abstract artistry they live in — rather it manifests from the experienced talent and connectedness they share.</p>
     </div>
 
 
     <div class="img3-wrap">
       <div class="img3-group">
-        <div class="img3-frame">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1773706551/Artboard_4_3x_ree0ga.jpg" alt="">
+        <!-- Main frame: video -->
+        <div class="img3-frame" style="position:relative;overflow:hidden;aspect-ratio:1080/1920;z-index:10;transform:scale(0.9);transform-origin:top left;">
+          <iframe src="https://player.mediadelivery.net/embed/622638/ded364fc-e23f-4030-a23d-cbc76088f9f7?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
+        <!-- Top-left companion: displaced image -->
+        <div style="position:absolute;width:41%;aspect-ratio:3/4;top:-6%;left:calc(-41% - 8px);overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.18);z-index:11;">
+          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1773706551/Artboard_4_3x_ree0ga.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <!-- Original bottom companion -->
         <div class="img3-companion">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817671/Artboard_6_3x_iqsq7p.jpg" alt="">
+          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817461/Artboard_8_3x_qiogck.png" alt="">
         </div>
       </div>
       <p>Not every moment lands with equal weight. "Carousel Drive" reaches for a grander dynamic than the album's atmosphere can quite sustain, and its bridge feels borrowed from a different, louder record. But these are minor frictions in something otherwise remarkably cohesive. Starcleaner Reunion have made an album that knows exactly what it is — and has the patience to let you find out for yourself.</p>
@@ -750,9 +753,9 @@ footer {
     <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
   </div>
   <nav class="foot-nav">
-    <a href="articles/">Articles</a>
+    <a href="articles.html">Articles</a>
+    <a href="reviews.html">Reviews</a>
     <a href="shows.html">Shows</a>
-    <a href="contact.html">Contact</a>
   </nav>
 </footer>
 
