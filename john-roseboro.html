@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sword II Swoops in from Atlanta — Home Scene</title>
+<title>John Roseboro Whispers Sage Perspective in 'Fools' — Home Scene</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
 <style>
 
@@ -26,16 +26,6 @@
   font-family: 'ImmortelInfraG2';
   src: url('Fonts/ImmortelInfraG2Trial-Roman.otf') format('opentype');
   font-weight: 400; font-style: normal;
-}
-@font-face {
-  font-family: 'Clarel Serif';
-  src: url('Fonts/ClarelSerifTRIAL-Regular.ttf') format('truetype');
-  font-weight: 400; font-style: normal;
-}
-@font-face {
-  font-family: 'Clarel Serif';
-  src: url('Fonts/ClarelSerifTRIAL-Light.ttf') format('truetype');
-  font-weight: 300; font-style: normal;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,23 +70,18 @@ body {
   z-index: -1;
 }
 .glass-blob-1 {
-  width: 100%;
-  height: 280px;
-  border-radius: 0;
+  width: 100%; height: 280px; border-radius: 0;
   background: linear-gradient(to bottom, rgba(167,139,250,0.22) 0%, transparent 100%);
-  top: 0; left: 0;
-  filter: blur(30px);
+  top: 0; left: 0; filter: blur(30px);
 }
 .glass-blob-3 {
-  width: 680px;
-  height: 680px;
+  width: 680px; height: 680px;
   background: radial-gradient(circle at center, #a78bfa, #93c5fd, transparent 70%);
   bottom: -280px; left: -250px;
   animation: blob-drift-3 26s ease-in-out infinite;
 }
 .glass-blob-4 {
-  width: 620px;
-  height: 620px;
+  width: 620px; height: 620px;
   background: radial-gradient(circle at center, #e0407a, #818cf8, transparent 70%);
   bottom: -250px; right: -250px;
   animation: blob-drift-4 22s ease-in-out infinite;
@@ -128,18 +113,14 @@ header {
   margin: 5px auto 0;
   position: sticky;
   top: 5px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
 }
 
-.logo img {
-  height: clamp(52px, 5.5vw, 92px);
-  width: auto;
-  display: block;
-}
+.logo img { height: clamp(52px, 5.5vw, 92px); width: auto; display: block; }
 
 nav {
   display: flex;
@@ -169,20 +150,13 @@ nav a {
 }
 nav a:nth-child(2) { animation-delay: 0.4s; }
 nav a:nth-child(3) { animation-delay: 0.8s; }
-nav a:hover {
-  color: #e0407a;
-  font-variation-settings: 'EXPO' -80;
-}
+nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
 
 /* ── ARTICLE ── */
 .article-wrap {
   max-width: 820px;
   margin: 0 auto;
   padding: 4rem calc(3rem + 85px) 6rem;
-}
-
-.article-body {
-  overflow-x: visible;
 }
 
 .article-label {
@@ -194,96 +168,57 @@ nav a:hover {
   margin-bottom: 1.4rem;
 }
 
-.article-title {
+/* ── HERO TITLE ── */
+.article-hero-title {
+  text-align: left;
+  margin-bottom: 1.8rem;
+  margin-left: calc(-3rem - 85px);
+  margin-right: calc(-3rem - 85px);
+  width: calc(100% + (3rem + 85px) * 2);
+  padding-right: calc(40px + 2rem);
+}
+
+.article-hero-title h1 {
   font-family: 'Exposure', serif;
   font-weight: 400;
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   line-height: 0.92;
   letter-spacing: 0.01em;
   color: var(--black);
-  margin: 0;
-  text-align: left;
-  margin-right: clamp(-330px, -23.5vw, 0px);
-  margin-left: clamp(0px, calc(28% + 1.2rem - 20px), 60%);
 }
 
-.article-hero-row {
+/* ── HERO SECTION ── */
+.article-hero-section {
   display: flex;
-  flex-direction: row-reverse;
-  gap: 1.2rem;
-  align-items: stretch;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: -55px;
   margin-bottom: 2.8rem;
-  margin-right: clamp(-330px, -23.5vw, 0px);
-  margin-left: clamp(-170px, -12vw, 0px);
+  margin-left: calc(-3rem - 85px);
+  margin-right: calc(-3rem - 85px);
+  width: calc(100% + (3rem + 85px) * 2);
 }
 
-.article-hero {
+.article-hero-full {
+  position: relative;
   flex: 1;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  margin-top: 30px;
+  margin-left: max(-150px, calc(10px - (100vw - 820px) / 2));
+  z-index: 10;
 }
 
-.article-side-title {
-  font-family: 'Exposure', serif;
-  font-weight: 400;
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  line-height: 0.92;
-  letter-spacing: 0.01em;
-  color: var(--black);
-  width: 28%;
+.article-bandcamp {
   flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 1.2rem;
-  text-align: right;
+  width: 340px;
+  height: 401px;
+  overflow: hidden;
 }
 
-@media (max-width: 1000px) {
-  .article-hero-row {
-    margin-right: clamp(-200px, -15vw, 0px);
-    margin-left: clamp(-100px, -8vw, 0px);
-  }
-  .article-title {
-    margin-right: clamp(-200px, -15vw, 0px);
-    margin-left: clamp(0px, calc(28% + 0.8rem), 50%);
-  }
-}
-@media (max-width: 700px) {
-  .article-hero-row {
-    margin-right: clamp(-80px, -8vw, 0px);
-    margin-left: clamp(-40px, -4vw, 0px);
-  }
-  .article-title {
-    margin-right: clamp(-80px, -8vw, 0px);
-    margin-left: clamp(0px, calc(28% + 0.4rem), 40%);
-  }
-}
-@media (max-width: 520px) {
-  .article-title {
-    margin-right: 0;
-    margin-left: 0;
-    text-align: left;
-  }
-  .article-hero-row {
-    margin-right: 0;
-    margin-left: 0;
-    flex-direction: column;
-  }
-  .article-side-title {
-    width: 100%;
-    text-align: left;
-    align-items: flex-start;
-  }
-}
-
-.article-hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-  display: block;
+.article-bandcamp iframe {
+  transform: scale(0.85);
+  transform-origin: top left;
 }
 
 .article-byline {
@@ -302,11 +237,10 @@ nav a:hover {
   font-size: 1.15rem;
   line-height: 1.72;
   color: var(--black);
+  overflow-x: visible;
 }
 
-.article-body p {
-  margin-bottom: 1.5em;
-}
+.article-body p { margin-bottom: 1.5em; }
 
 .article-body p.drop-cap::first-letter {
   font-family: 'Exposure', serif;
@@ -331,7 +265,15 @@ nav a:hover {
   letter-spacing: 0.01em;
 }
 
-/* ── BODY IMAGES — orientations SWAPPED vs starcleaner ── */
+.article-video-block {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 2.4rem 0;
+  z-index: 10;
+}
+
+/* ── BODY IMAGES ── */
 .img2-wrap,
 .img3-wrap {
   margin-bottom: 2rem;
@@ -343,18 +285,18 @@ nav a:hover {
   clear: both;
 }
 
-/* img2 — floats LEFT, bleeds left */
+/* img2 — floats LEFT */
 .img2-frame {
   float: left;
   width: clamp(180px, 28vw, 420px);
-  aspect-ratio: 3/4;
+  aspect-ratio: 9/16;
   overflow: hidden;
+  position: relative;
   margin-right: 2rem;
   margin-bottom: 1rem;
   margin-left: clamp(-80px, -6vw, 0px);
 }
 
-/* img2 group — floats LEFT, bleeds left */
 .img2-group {
   float: left;
   position: relative;
@@ -371,7 +313,6 @@ nav a:hover {
   position: relative;
 }
 
-
 .img2-companion {
   position: absolute;
   width: 41.4%;
@@ -387,40 +328,63 @@ nav a:hover {
   object-fit: cover;
 }
 
-/* img3 — floats RIGHT, bleeds right */
-.img3-frame {
+/* img3-video-group — floats RIGHT */
+.img3-video-group {
   float: right;
+  position: relative;
   width: clamp(180px, 28vw, 420px);
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  margin-right: clamp(-150px, -11vw, -40px);
+}
+
+.img3-video-group .img3-frame {
+  float: none;
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+.img3-frame {
   aspect-ratio: 9/16;
   overflow: hidden;
   position: relative;
-  margin-left: 2rem;
-  margin-bottom: 1rem;
-  margin-right: clamp(-80px, -6vw, 0px);
 }
 
-
-.img2-frame img,
-.img3-frame img {
+.video-companion {
+  position: absolute;
+  width: 42%;
+  aspect-ratio: 3/4;
+  top: -8%;
+  right: calc(-42% - 8px);
+  overflow: hidden;
+}
+.video-companion img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-@media (max-width: 700px) {
-  .img2-frame {
-    float: none;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .img3-frame {
-    float: none;
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-  }
+/* ── PARAGRAPH FLOAT IMAGE ── */
+.para-float-img {
+  float: left;
+  width: clamp(110px, 17vw, 210px);
+  margin-right: 1.4rem;
+  margin-bottom: 0.6rem;
+  margin-left: clamp(-60px, -4vw, 0px);
+  display: block;
+}
+
+/* ── PARAGRAPH REVEAL ── */
+.article-body p {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.article-body p.para-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── FOOTER ── */
@@ -434,127 +398,13 @@ footer {
   margin: 0 auto;
 }
 
-.foot-logo img {
-  height: 38px;
-  width: auto;
-  display: block;
-}
-
-.foot-tagline {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
-  color: var(--light);
-  margin-top: 0.5rem;
-  display: block;
-}
-
-.foot-nav {
-  display: flex;
-  gap: 2.2rem;
-}
-
-.foot-nav a {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.06em;
-  color: var(--mid);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-
+.foot-logo img { height: 38px; width: auto; display: block; }
+.foot-tagline { font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; color: var(--light); margin-top: 0.5rem; display: block; }
+.foot-nav { display: flex; gap: 2.2rem; }
+.foot-nav a { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.06em; color: var(--mid); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .foot-nav a:hover { color: var(--black); }
 
-/* ── RECOMMENDED ── */
-.recommended {
-  max-width: 420px;
-  margin: 4rem auto 3rem;
-  padding: 0 1rem;
-}
-.rec-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-.rec-item {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  border-radius: 10px;
-  padding: 0.35rem 0.35rem 0.8rem;
-  position: relative;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-}
-.rec-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 10px;
-  opacity: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 0;
-}
-.rec-item > * { position: relative; z-index: 1; }
-.rec-item:nth-child(1)::before { background: linear-gradient(135deg, rgba(224,64,122,0.12), rgba(255,255,255,0.4)); }
-.rec-item:nth-child(2)::before { background: linear-gradient(135deg, rgba(147,197,253,0.15), rgba(255,255,255,0.4)); }
-.rec-item:nth-child(3)::before { background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(255,255,255,0.4)); }
-.rec-item:nth-child(4)::before { background: linear-gradient(135deg, rgba(252,165,165,0.15), rgba(255,255,255,0.4)); }
-.rec-item:hover { transform: scale(1.02); box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
-.rec-item:hover::before { opacity: 1; }
-.rec-item:nth-child(even) { margin-top: 24px; }
-.rec-img-wrap {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  background: #ece8e3;
-  border-radius: 6px;
-}
-.rec-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.rec-item:hover .rec-img-wrap img { transform: scale(1.04); }
-.rec-title {
-  font-family: 'ExposureVAR', serif;
-  font-size: 0.78rem;
-  line-height: 1.2;
-  margin-bottom: 0.25rem;
-  transition: color 0.3s ease, font-variation-settings 0.4s ease;
-  font-variation-settings: 'EXPO' 0;
-}
-.rec-item:hover .rec-title {
-  color: var(--pink);
-  font-variation-settings: 'EXPO' -40;
-}
-.rec-sub {
-  font-family: 'ImmortelInfraG2', serif;
-  font-size: 0.62rem;
-  color: var(--mid);
-}
-
-/* ── PARAGRAPH PARALLAX REVEAL ── */
-.article-body p {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
-}
-.article-body p.para-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ── BLOCK LATEST ── */
-.ph-warm { background: linear-gradient(150deg, #c4b4a0, #9a8070); }
 .art-label { font-family: 'ImmortelInfraG2', serif; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #2a52d4; display: block; }
 .art-byline { font-family: 'ImmortelInfraG2', serif; font-size: 0.5rem; letter-spacing: 0.06em; color: var(--black); display: block; margin-top: 0.3rem; }
 .block-title { font-family: 'Exposure', serif; font-weight: 400; letter-spacing: 0.02em; line-height: 0.88; color: var(--black); margin-top: 0.3rem; }
@@ -570,181 +420,150 @@ footer {
 .bl-card:first-child { padding-left: 0; }
 .bl-card:last-child { border-right: none; padding-right: 0; }
 .bl-card:hover .block-title { text-decoration: underline; text-decoration-thickness: 1px; color: #e0407a; }
-.bl-card-img { width: 100%; aspect-ratio: 3 / 2; overflow: hidden; margin-bottom: 0.8rem; }
+.bl-card-img { width: 100%; aspect-ratio: 3/2; overflow: hidden; margin-bottom: 0.8rem; }
 .bl-card-img > * { width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
 .bl-card:hover .bl-card-img > * { transform: scale(1.03); }
 
-/* ── VIDEO COMPANION ── */
-.img3-video-group {
-  float: right;
-  position: relative;
-  width: clamp(180px, 28vw, 420px);
-  margin-left: 2rem;
-  margin-bottom: 1rem;
-  margin-right: clamp(-80px, -6vw, 0px);
-}
-.img3-video-group .img3-frame {
-  float: none;
-  width: 100%;
-  margin: 0;
-}
-.video-companion {
-  position: absolute;
-  width: 42%;
-  aspect-ratio: 3 / 4;
-  top: -8%;
-  right: calc(-42% - 8px);
-  overflow: hidden;
-}
-.video-companion iframe {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -22%;
-  right: -22%;
-  width: 144%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-/* ── MOBILE ── */
+/* ─────────────────────────────
+   MOBILE — max 768px
+───────────────────────────── */
 @media (max-width: 768px) {
-  /* Header */
-  header { width: 94%; padding: 0.4rem 1rem 0.3rem; }
-  .logo img { height: 36px; }
-  nav {
-    flex: 0 1 72%;
-    justify-content: space-between;
-    padding-left: 0;
-    transform: none;
-    margin-left: 80px;
-    gap: 0;
+
+  /* ── HEADER ── */
+  header {
+    width: 94% !important;
+    padding: 0.4rem 1rem 0.3rem !important;
   }
-  nav a { font-size: 1.26rem; }
+  .logo img { height: 36px !important; }
+  nav {
+    flex: 0 1 72% !important;
+    justify-content: space-between !important;
+    padding-left: 0 !important;
+    transform: none !important;
+    margin-left: 80px !important;
+    gap: 0 !important;
+  }
+  nav a { font-size: 1.26rem !important; animation: none !important; }
 
-  /* Article wrap */
-  .article-wrap { padding: calc(2rem + 15px) 1.2rem 3.5rem; }
+  /* ── ARTICLE WRAP ── */
+  .article-wrap {
+    padding: 1.5rem 16px 3rem !important;
+    max-width: 100% !important;
+  }
 
-  /* Title + hero row — reset bleed, go column */
-  .article-title {
-    text-align: left !important;
+  /* ── HERO TITLE: reset breakout, sit naturally above video ── */
+  .article-hero-title {
     margin-left: 0 !important;
     margin-right: 0 !important;
+    width: 100% !important;
+    padding-right: 0 !important;
+    margin-bottom: 1rem !important;
   }
-  .article-title br { display: none; }
-  .article-hero-row {
+  .article-hero-title h1 {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  /* ── HERO SECTION: stack — video on top, Bandcamp below ── */
+  .article-hero-section {
     flex-direction: column !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-  }
-  .article-side-title {
     width: 100% !important;
-    text-align: left !important;
-    align-items: flex-start !important;
-    order: -1;
+    margin-top: -40px !important;
+    gap: 1rem !important;
+    margin-bottom: 1.6rem !important;
   }
-  .article-hero { order: 1; }
 
-  /* Paragraphs — reveal + full width */
-  .article-body p {
-    opacity: 1 !important;
-    transform: none !important;
-    max-width: 100% !important;
+  /* Hero video: full width */
+  .article-hero-full {
+    width: 100% !important;
     margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-top: 0 !important;
+    aspect-ratio: 4 / 3 !important;
   }
 
-  /* img2-group — flex row-reverse: companion LEFT, main RIGHT */
+  /* Bandcamp: full width below video */
+  .article-bandcamp {
+    width: 100% !important;
+    height: 330px !important;
+    flex-shrink: unset !important;
+  }
+  .article-bandcamp iframe {
+    transform: none !important;
+    width: 100% !important;
+    height: 330px !important;
+  }
+
+  /* ── ARTICLE BODY ── */
+  .article-body {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* ── img2: un-float, full width above text ── */
+  .img2-wrap { margin-top: 0 !important; }
   .img2-group {
     float: none !important;
     width: 100% !important;
-    margin: 0 0 2rem !important;
-    display: flex !important;
-    flex-direction: row-reverse;
-    gap: 4px;
-    align-items: flex-start;
-    position: relative;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 1.2rem !important;
   }
   .img2-group .img2-frame {
-    flex: 0 0 calc(70% - 2px) !important;
-    width: auto !important;
-    margin: 0 !important;
-    aspect-ratio: 3/4;
-  }
-  .img2-companion {
-    position: static !important;
-    flex: 0 0 calc(30% - 2px) !important;
-    width: auto !important;
-    aspect-ratio: 3/4;
-    top: auto !important;
-    left: auto !important;
-    margin-top: -20px !important;
-    box-shadow: none !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
   }
 
-  /* Standalone img2-frame (bottom wrap, no group) — full width */
-  .img2-wrap > .img2-frame {
+  /* ── img3: un-float, full width above text ── */
+  .img3-video-group {
     float: none !important;
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-bottom: 1.2rem !important;
   }
 
-  /* img3-video-group — flex row: main LEFT, video companion RIGHT */
-  .img3-video-group {
-    float: none !important;
-    width: 100% !important;
-    margin: 0 0 2rem !important;
-    position: static !important;
-    display: flex !important;
-    flex-direction: row;
-    gap: 4px;
-    align-items: flex-start;
-  }
-  .img3-video-group .img3-frame {
-    float: none !important;
-    flex: 0 0 calc(70% - 2px) !important;
-    width: auto !important;
-    margin: 0 !important;
-    aspect-ratio: 9/16 !important;
-  }
-  .video-companion {
-    position: relative !important;
-    flex: 0 0 calc(30% - 2px) !important;
-    width: auto !important;
-    aspect-ratio: 3/4 !important;
-    top: auto !important;
-    right: auto !important;
-    margin-top: 10px !important;
+  /* ── Float image: left-aligned block, 45% wide ── */
+  .para-float-img {
+    float: left !important;
+    width: 42% !important;
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+    margin-bottom: 0.5rem !important;
   }
 
-  /* Screenshot image — centered between final two paragraphs on mobile */
-  .para-screenshot {
-    float: none !important;
-    display: block !important;
-    width: 65% !important;
-    margin: 1.2rem auto !important;
-    shape-outside: none !important;
+  /* ── Pullquote: tighten font ── */
+  .article-pullquote {
+    font-size: 1.3rem !important;
+    margin: 1.6rem 0 !important;
   }
 
-  /* Block latest — 2 column */
-  .block-latest { padding: 2rem 1.2rem 0; }
-  .bl-top { grid-template-columns: repeat(2, 1fr); }
-  .bl-card,
-  .bl-card:first-child,
-  .bl-card:last-child {
-    padding: 0.5rem 0.5rem 1rem;
-    border-right: none;
+  /* ── BLOCK LATEST: 2×2 grid ── */
+  .block-latest {
+    padding: 2rem 16px 0 !important;
+    max-width: 100% !important;
+  }
+  .bl-top {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .bl-card:first-child { padding-left: 0.5rem !important; }
+  .bl-card:nth-child(3),
+  .bl-card:nth-child(4) {
+    border-top: 1px solid var(--rule) !important;
+    padding-top: 0.8rem !important;
+    margin-top: 0.4rem !important;
   }
 
-  /* Footer — stacked */
+  /* ── FOOTER ── */
   footer {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1.5rem 1.2rem;
-    gap: 1.2rem;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 2rem 1rem !important;
+    gap: 1rem !important;
   }
+
 }
 
 </style>
@@ -771,19 +590,23 @@ footer {
 <!-- ── ARTICLE ── -->
 <div class="article-wrap">
 
-  <h1 class="article-title">Sword II <br>Swoops in</h1>
+  <div class="article-hero-title">
+    <h1>John Roseboro Whispers<br>Sage Perspective<br>in 'Fools'</h1>
+  </div>
 
-  <div class="article-hero-row">
-    <div class="article-hero">
-      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817213/P1010152_ltifa6.jpg" alt="Sword II">
+  <div class="article-hero-section">
+    <div class="article-hero-full">
+      <iframe src="https://player.mediadelivery.net/embed/622638/f0ae6c75-9753-412d-b321-c8a393dae420?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
     </div>
-    <div class="article-side-title">from Atlanta</div>
+    <div class="article-bandcamp">
+      <iframe style="border: 0; width: 400px; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=988025234/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="https://johnroseboro.bandcamp.com/album/fools">Fools by John Roseboro</a></iframe>
+    </div>
   </div>
 
   <div class="article-body">
 
-    <div class="article-label" style="margin-bottom: 0.4rem;">Live Review · Southern Rock</div>
-    <div class="article-byline" style="margin-bottom: 1.8rem;">By Hayden Fralin &nbsp;·&nbsp; March 18, 2026 &nbsp;·&nbsp; 6 min read</div>
+    <div class="article-label" style="margin-bottom: 0.4rem;">Feature · Jazz</div>
+    <div class="article-byline" style="margin-bottom: 1.8rem;">By Hayden Fralin &nbsp;·&nbsp; April 26, 2026 &nbsp;·&nbsp; 6 min read</div>
 
     <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
@@ -791,49 +614,32 @@ footer {
 
     <div class="article-pullquote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."</div>
 
-    <div class="img2-wrap">
+    <div class="img2-wrap" style="margin-top: -1.5rem;">
       <div class="img2-group">
-        <div class="img2-frame" style="aspect-ratio: 1080/1350; z-index: 10;">
-          <iframe src="https://player.mediadelivery.net/embed/622638/e7905dfd-fafd-465f-ad22-37aa9882fc9d?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
-        </div>
-        <div class="img2-companion">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817211/P1010070_vy57h2.jpg" alt="">
+        <div class="img2-frame" style="z-index: 10; aspect-ratio: 1/1;">
+          <iframe src="https://player.mediadelivery.net/embed/622638/d15db13c-35b2-4fea-be36-75909153b7e3?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
         </div>
       </div>
       <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
       <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</p>
     </div>
 
-    <div class="article-pullquote">"Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."</div>
-
-    <div class="img3-wrap">
-      <div class="img3-video-group">
-        <div class="img3-frame" style="z-index: 10;">
-          <iframe src="https://player.mediadelivery.net/embed/622638/c7b95960-5414-4409-9be2-6b0efb716ec9?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
-        </div>
-        <div class="video-companion">
-          <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817212/P1010095_ydnj19.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:20% center;display:block;">
-        </div>
-      </div>
-      <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
-      <p>Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+    <div class="article-video-block">
+      <iframe src="https://player.mediadelivery.net/embed/622638/f4f2b2da-d0f8-4458-af63-48c1475b3879?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
     </div>
 
-    <div class="img2-wrap">
-      <div class="img2-frame">
-        <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817204/P1010257_jlbqaj.jpg" alt="">
-      </div>
-      <p>Ut labore et dolore magnam aliquam quaerat voluptatem. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-      <img class="para-screenshot" src="https://res.cloudinary.com/de3dixf7f/image/upload/v1777685371/Screenshot_2026-05-01_at_9.29.18_PM_v7dxux.png" alt="" style="float:right; width:clamp(96px, 16vw, 216px); margin-left:1.5rem; margin-bottom:0.5rem; margin-right:calc(clamp(-60px, -5vw, 0px) - 70px); display:block; shape-outside:border-box; shape-margin:1.2rem;">
-      <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+    <div class="img3-wrap">
+      <img class="para-float-img" src="https://res.cloudinary.com/de3dixf7f/image/upload/v1777245498/Fools_rlfzrg.png" alt="Fools">
+      <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
+      <p>Ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
     </div>
 
   </div>
 
 </div>
 
-
-<!-- ── RECOMMENDED ── -->
 <!-- ── BLOCK LATEST ── -->
 <div class="block-latest">
   <div class="bl-top">
@@ -842,28 +648,28 @@ footer {
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <span class="art-label">Album · ★★★★★</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">The Transcendent Luster of Starcleaner</div>
-      <span class="art-byline">James Fletcher · Feb 27</span>
+      <span class="art-byline">Hayden Fralin · Mar 12</span>
     </a>
 
-    <a class="bl-card" href="chanel-beads.html" style="text-decoration:none;color:inherit;display:block;">
+    <a class="bl-card" href="chanel-beads.html" style="padding-left:1.4rem;text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;"></div>
       <span class="art-label">Live Review</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Chanel Beads Erupts at 'Your Day Will Come'</div>
       <span class="art-byline">Sofia Reyes · Mar 2</span>
     </a>
 
-    <a class="bl-card" href="#" style="text-decoration:none;color:inherit;display:block;">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817952/P1010583-2_po8bhm.jpg" alt="Daniel Avery" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-      <span class="art-label">Interview · Techno</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Daniel Avery<br>on Techno</div>
-      <span class="art-byline">Priya Mehta · Feb 26</span>
+    <a class="bl-card" href="sword-ii.html" style="padding-left:1.4rem;text-decoration:none;color:inherit;display:block;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774121442/P1010152_gd8hhi.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Live Review · Southern Rock</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Sword II Swoops in from Atlanta</div>
+      <span class="art-byline">Hayden Fralin · Mar 18</span>
     </a>
 
-    <a class="bl-card" href="otto-benson.html" style="text-decoration:none;color:inherit;display:block;">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772675536/Screenshot_2026-01-05_at_7.08.38_PM_tsdojf.png" alt="Otto Benson" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-      <span class="art-label">Album</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Otto Benson's 'Peanut' Is a Quiet Revelation</div>
-      <span class="art-byline">Leon Park · Feb 20</span>
+    <a class="bl-card" href="mei-semones.html" style="padding-left:1.4rem;text-decoration:none;color:inherit;display:block;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772836830/Artboard_3_3x_r8c9sm.jpg" alt="Mei Semones" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <span class="art-label">Interview</span>
+      <div class="block-title block-title-sm" style="margin-top:0.4rem">Mei Semones on Her First Full-Length Album 'Animaru'</div>
+      <span class="art-byline">Priya Mehta · Feb 27</span>
     </a>
 
   </div>

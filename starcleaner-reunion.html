@@ -249,6 +249,17 @@ nav a:hover {
   gap: 1.2rem;
 }
 
+@media (min-width: 1001px) and (max-width: 1200px) {
+  .article-hero-row {
+    margin-left: clamp(-160px, -13vw, 0px);
+    margin-right: clamp(-90px, -7vw, 0px);
+  }
+  .article-title {
+    margin-left: clamp(-160px, -13vw, 0px);
+    margin-right: clamp(0px, calc(28% + 0.8rem), 50%);
+  }
+}
+
 @media (max-width: 1000px) {
   .article-hero-row {
     margin-left: clamp(-200px, -15vw, 0px);
@@ -601,6 +612,197 @@ footer {
   object-fit: cover;
 }
 
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    width: 94%;
+    padding: 0.4rem 1rem 0.3rem;
+  }
+  .logo img { height: 36px; }
+  nav {
+    flex: 0 1 72%;
+    justify-content: space-between;
+    padding-left: 0;
+    transform: none;
+    margin-left: 80px;
+    gap: 0;
+  }
+  nav a { font-size: 1.26rem; }
+
+  /* Article wrap */
+  .article-wrap {
+    padding: calc(2rem + 15px) 1.2rem 3.5rem;
+  }
+
+  /* Title — left aligned, no bleed, two lines total */
+  .article-title {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .article-title br { display: none !important; }
+  .article-hero-row {
+    flex-direction: column !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .article-side-title {
+    width: 100% !important;
+    order: -1 !important;
+    white-space: nowrap !important;
+    font-size: clamp(1.6rem, 7vw, 3rem) !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 0.25em !important;
+  }
+  .article-hero {
+    order: 1 !important;
+  }
+
+  /* Float video — full width, stacked, reordered after paragraphs */
+  #sc-video-wrap {
+    float: none !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    margin-bottom: 1.5rem !important;
+    order: 5;
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+
+  /* Paragraphs — full width */
+  .article-body p {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Reorder article body so paragraphs appear before first video */
+  .article-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .article-body > .article-label  { order: 1; }
+  .article-body > .article-byline { order: 2; }
+  .article-body > p:nth-child(4)  { order: 3; } /* drop-cap paragraph */
+  .article-body > p:nth-child(5)  { order: 4; } /* second paragraph */
+  .article-body > div[style*="clear"] { order: 6; }
+  .article-body > .article-pullquote { order: 7; margin-top: -18vw; }
+  .article-body > .img2-wrap { order: 8; }
+  .article-body > .img3-wrap { order: 9; }
+
+  /* img2 group — flex pair, companion to the right */
+  .img2-group {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 2rem !important;
+    display: flex !important;
+    flex-direction: row;
+    gap: 4px;
+    align-items: flex-start;
+  }
+  .img2-group .img2-frame {
+    flex: 0 0 calc(70% - 2px) !important;
+    width: auto !important;
+    margin: 0 !important;
+    aspect-ratio: 3/4;
+  }
+  .img2-companion {
+    position: static !important;
+    flex: 0 0 calc(30% - 2px) !important;
+    width: auto !important;
+    aspect-ratio: 3/4;
+    top: auto !important;
+    right: auto !important;
+    margin-top: 10px !important;
+    box-shadow: none !important;
+  }
+
+  /* img3 group — grid layout: companions left column, video right */
+  .img3-group {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 2rem !important;
+    display: grid !important;
+    grid-template-columns: 32% 3px 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    position: static !important;
+  }
+  /* Video frame: right column, spans both rows */
+  .img3-group .img3-frame {
+    grid-column: 3 !important;
+    grid-row: 1 / 3 !important;
+    float: none !important;
+    width: auto !important;
+    margin: 0 0 0 -8px !important;
+    transform: none !important;
+    aspect-ratio: 9/16 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  /* Top companion (inline div): top-left corner, nudged up */
+  .img3-group > div:not(.img3-frame):not(.img3-companion) {
+    display: block !important;
+    position: static !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    aspect-ratio: 3/4 !important;
+    top: auto !important;
+    left: auto !important;
+    align-self: start !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+    transform: scale(0.66) translateY(-15px) !important;
+    transform-origin: top center !important;
+  }
+  /* Bottom companion: bottom-left corner, nudged down */
+  .img3-companion {
+    position: static !important;
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: auto !important;
+    aspect-ratio: 3/4 !important;
+    bottom: auto !important;
+    left: auto !important;
+    align-self: end !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+    transform: scale(0.66) translateY(30px) !important;
+    transform-origin: bottom center !important;
+  }
+
+  /* Block latest — 2×2 grid */
+  .block-latest {
+    padding: 2rem 16px 0 !important;
+    max-width: 100% !important;
+  }
+  .bl-top {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .bl-card,
+  .bl-card:first-child,
+  .bl-card:last-child {
+    padding: 0.5rem 0.5rem 1rem !important;
+    border-right: none !important;
+  }
+  .bl-card:nth-child(3),
+  .bl-card:nth-child(4) {
+    border-top: 1px solid var(--rule) !important;
+    padding-top: 0.8rem !important;
+    margin-top: 0.4rem !important;
+  }
+
+  /* Footer — stacked */
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.2rem;
+    gap: 1.2rem;
+  }
+}
+
 /* ── BLOCK LATEST ── */
 .ph-warm { background: linear-gradient(150deg, #c4b4a0, #9a8070); }
 .art-label { font-family: 'ImmortelInfraG2', serif; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #2a52d4; display: block; }
@@ -646,7 +848,7 @@ footer {
 <!-- ── ARTICLE ── -->
 <div class="article-wrap">
 
-  <h1 class="article-title">The Transcending<br>Luster</h1>
+  <h1 class="article-title">The Transcending <br>Luster</h1>
 
   <div class="article-hero-row">
     <div class="article-hero">
@@ -715,33 +917,33 @@ footer {
 <div class="block-latest">
   <div class="bl-top">
 
-    <div class="bl-card">
+    <a class="bl-card" href="chanel-beads.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads" style="width:100%;height:100%;object-fit:cover;object-position:center bottom;display:block;"></div>
       <span class="art-label">Live Review</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Chanel Beads Erupts at 'Your Day Will Come'</div>
       <span class="art-byline">Sofia Reyes · Mar 2</span>
-    </div>
+    </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
+    <a class="bl-card" href="sword-ii.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817213/P1010152_ltifa6.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;"></div>
       <span class="art-label">Live Review</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Sword II<br>Swoops In</div>
       <span class="art-byline">Claire Okafor · Mar 18</span>
-    </div>
+    </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
+    <a class="bl-card" href="mdou-moctar.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758422/Screenshot_2026-03-05_at_7.53.16_PM_zcckdn.png" alt="Mdou Moctar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
       <span class="art-label">Live · ★★★★</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar<br>Live</div>
       <span class="art-byline">Tomás Rivera · Feb 25</span>
-    </div>
+    </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
+    <a class="bl-card" href="#" style="text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817952/P1010583-2_po8bhm.jpg" alt="Daniel Avery" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <span class="art-label">Interview · Techno</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Daniel Avery<br>on Techno</div>
       <span class="art-byline">Priya Mehta · Feb 26</span>
-    </div>
+    </a>
 
   </div>
 </div>

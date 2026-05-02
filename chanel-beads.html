@@ -324,6 +324,23 @@ footer {
 .bl-card-img > * { width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
 .bl-card:hover .bl-card-img > * { transform: scale(1.03); }
 
+@media (max-width: 768px) {
+  header { width: 94% !important; padding: 0.4rem 1rem 0.3rem !important; }
+  .logo img { height: 36px !important; }
+  nav { flex: 0 1 72% !important; justify-content: space-between !important; padding-left: 0 !important; transform: none !important; margin-left: 80px !important; gap: 0 !important; }
+  nav a { font-size: 1.26rem !important; animation: none !important; }
+
+  .block-latest { padding: 2rem 16px 0 !important; max-width: 100% !important; }
+  .bl-top { grid-template-columns: 1fr 1fr !important; }
+  .bl-card,
+  .bl-card:first-child,
+  .bl-card:last-child { padding: 0.5rem 0.5rem 1rem !important; border-right: none !important; }
+  .bl-card:nth-child(3),
+  .bl-card:nth-child(4) { border-top: 1px solid var(--rule) !important; padding-top: 0.8rem !important; margin-top: 0.4rem !important; }
+
+  footer { flex-direction: column !important; align-items: center !important; text-align: center !important; padding: 2rem 1rem !important; gap: 1rem !important; }
+}
+
 </style>
 </head>
 <body>
@@ -391,33 +408,33 @@ footer {
 <div class="block-latest">
   <div class="bl-top">
 
-    <div class="bl-card">
+    <a class="bl-card" href="starcleaner-reunion.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <span class="art-label">Album · ★★★★★</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">The Transcendent Luster of Starcleaner</div>
       <span class="art-byline">James Fletcher · Feb 27</span>
-    </div>
+    </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
+    <a class="bl-card" href="sword-ii.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817213/P1010152_ltifa6.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;"></div>
       <span class="art-label">Live Review</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Sword II<br>Swoops In</div>
       <span class="art-byline">Claire Okafor · Mar 18</span>
-    </div>
+    </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
-      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Aphex Twin" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <a class="bl-card" href="starcleaner-cafe-life.html" style="text-decoration:none;color:inherit;display:block;">
+      <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Starcleaner Café Life" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <span class="art-label">Album · ★★★★★</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">Starcleaner' Café Life Stands Out</div>
       <span class="art-byline">James Fletcher · Feb 20</span>
-    </div>
+    </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
+    <a class="bl-card" href="mia-world-tour.html" style="text-decoration:none;color:inherit;display:block;">
       <div class="bl-card-img"><div class="ph-warm"></div></div>
       <span class="art-label">News</span>
       <div class="block-title block-title-sm" style="margin-top:0.4rem">MIA —<br>World Tour</div>
       <span class="art-byline">Leon Park · Feb 23</span>
-    </div>
+    </a>
 
   </div>
 </div>

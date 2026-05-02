@@ -470,8 +470,8 @@ nav a:hover {
 .gi-1 .gi-img-wrap { aspect-ratio: 3 / 2; }
 
 /* Item 2: col 5–9, row 1, 16:6, offset down 4% */
-.gi-2 { grid-column: 4 / 10; grid-row: 1; margin-top: 4%; transform: scale(0.9); transform-origin: top center; }
-.gi-2:hover { transform: scale(0.91) !important; transform-origin: top center; }
+.gi-2 { grid-column: 4 / 10; grid-row: 1; margin-top: 4%; transform: scale(0.99); transform-origin: top center; }
+.gi-2:hover { transform: scale(1.0) !important; transform-origin: top center; }
 .gi-2 .gi-img-wrap { aspect-ratio: 21 / 8; }
 
 /* Item 3: col 10–12, rows 1+2, 9:16 */
@@ -490,7 +490,7 @@ nav a:hover {
 
 /* Item 5: col 3–6, row 2, 3:2, offset down 3% — video cover */
 .gi-5 { grid-column: 3 / 7; grid-row: 2; margin-top: calc(3% + 15px); }
-.gi-5 .gi-img-wrap { aspect-ratio: 3 / 2; position: relative; overflow: hidden; }
+.gi-5 .gi-img-wrap { aspect-ratio: 16 / 9; position: relative; overflow: hidden; }
 .gi-5 .gi-img-wrap mux-player {
   position: absolute;
   top: 50%;
@@ -1179,6 +1179,214 @@ footer {
   color: #fff;
 }
 
+/* ─────────────────────────────
+   MOBILE — max 768px
+───────────────────────────── */
+@media (max-width: 768px) {
+
+  /* ── HEADER ── */
+  header {
+    width: 94% !important;
+    padding: 0.4rem 1rem 0.3rem !important;
+  }
+  .logo img { height: 36px !important; }
+  nav {
+    flex: 0 1 72% !important;
+    justify-content: space-between !important;
+    padding-left: 0 !important;
+    transform: none !important;
+    margin-left: 80px !important;
+    gap: 0 !important;
+  }
+  nav a { font-size: 1.26rem !important; animation: none !important; }
+
+  /* ── GALLERY ── */
+  .gallery {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important;
+    grid-template-rows: none !important;
+    align-items: start !important;
+    padding: 1.2rem 12px 0 !important;
+    gap: 9px !important;
+    max-width: 100% !important;
+  }
+
+  /* Reset ALL desktop grid placements so 2fr/1fr auto-flow works */
+  .gi-1, .gi-2, .gi-3, .gi-4, .gi-5, .gi-6 {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+
+  /* Stagger: right-column items drop down */
+  .gi-2, .gi-4, .gi-6 { margin-top: 28px !important; }
+
+  /* gi-1: 60% of its 2fr column — clipped so nothing bleeds into gi-2 */
+  .gi-1 {
+    width: 60% !important;
+    overflow: hidden !important;
+  }
+
+  /* gi-2: right-anchored — grows/shrinks leftward, stays clear of gi-1 */
+  .gi-2 {
+    width: min(182%, 53.5vw) !important;
+    justify-self: end !important;
+    margin-left: 0 !important;
+    margin-right: 15px !important;
+  }
+
+  /* gi-3 Sword II: left col, row 2 */
+  .gi-3 {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 77% !important;
+    justify-self: start !important;
+  }
+  .gi-3 .gi-img-wrap { aspect-ratio: 3 / 4 !important; }
+  .gi-3 .gi-title    { text-align: left !important; }
+
+  /* gi-4 Otto Benson: right col, row 2 — 20% larger, 15px right */
+  .gi-4 {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    justify-self: end !important;
+    margin-left: 0 !important;
+    margin-right: 30px !important;
+    margin-top: 3px !important;
+  }
+
+  /* gi-6 Floating Points: right col, row 3 — below Otto Benson, left-aligned with it */
+  .gi-6 {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    width: 113% !important;
+    margin-top: calc(58px - 36vw) !important;
+    margin-left: -45% !important;
+  }
+
+  /* gi-5 John Roseboro: full-width row 4, left-aligned */
+  .gi-5 {
+    grid-column: 1 / -1 !important;
+    grid-row: 4 !important;
+    margin-top: 0 !important;
+    justify-self: start !important;
+    width: 54% !important;
+    margin-left: 50px !important;
+  }
+
+  /* gi-2 video: strip clip-path, reset iframe */
+  .gi-2 .gi-img-wrap {
+    aspect-ratio: 16 / 9 !important;
+    clip-path: none !important;
+    position: relative !important;
+  }
+  .gi-2 .gi-img-wrap iframe {
+    position: absolute !important;
+    top: 0 !important; left: 0 !important;
+    width: 100% !important; height: 100% !important;
+    transform: none !important;
+    min-width: unset !important; min-height: unset !important;
+  }
+
+  /* gi-5 video: 16:9 */
+  .gi-5 .gi-img-wrap { aspect-ratio: 16 / 9 !important; }
+
+  /* gi-6: fix title alignment */
+  .gi-6 .gi-title { text-align: left !important; }
+
+  /* Sub labels: show on mobile (no hover) */
+  .gi-sub { opacity: 1 !important; transition: none !important; }
+
+  /* ── SECTION RULE ── */
+  .section-rule { margin: 0 12px !important; }
+
+  /* ── BLOCK A ── */
+  .block-a {
+    flex-direction: column !important;
+    padding: 1.5rem 12px 0 !important;
+    gap: 0 !important;
+  }
+  .ba-main {
+    flex: none !important;
+    width: 100% !important;
+  }
+  .ba-img {
+    width: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    position: relative !important;
+  }
+  .ba-text {
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-top: 0.9rem !important;
+    gap: 0.8rem !important;
+  }
+  .block-title-lg { font-size: 2rem !important; }
+  .ba-left  { width: 100% !important; }
+  .ba-right {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+  }
+  .stagger-text p {
+    text-align: left !important;
+    max-width: 100% !important;
+    margin-right: 0 !important;
+  }
+  .stagger-text p:nth-child(even) { margin-right: 0 !important; }
+  .ba-feature {
+    flex: none !important;
+    width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-left: none !important;
+    border-top: 1px solid var(--rule) !important;
+    padding: 1.2rem 0 0 !important;
+    margin-top: 1.2rem !important;
+  }
+
+  /* ── BLOCK LATEST ── */
+  .block-latest {
+    padding: 2rem 12px 0 !important;
+    max-width: 100% !important;
+  }
+  .bl-top {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .bl-card:first-child { padding-left: 0.5rem !important; }
+  .bl-card:nth-child(3),
+  .bl-card:nth-child(4) {
+    border-top: 1px solid var(--rule) !important;
+    padding-top: 0.8rem !important;
+    margin-top: 0.4rem !important;
+  }
+
+  /* ── NEWSLETTER WIDGET ── */
+  .newsletter-widget {
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(110%) !important;
+    width: min(300px, 88vw) !important;
+  }
+  .newsletter-widget.nw-visible {
+    transform: translateX(-50%) translateY(0) !important;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 2rem 1rem !important;
+    gap: 1rem !important;
+    margin-top: 3rem !important;
+  }
+
+}
+
 </style>
 </head>
 <body>
@@ -1225,9 +1433,8 @@ footer {
 
   <!-- Item 3: col 10–12, rows 1+2, 9:16 — portrait, spans both rows -->
   <a class="gallery-item gi-3" href="sword-ii.html" style="text-decoration:none;color:inherit;cursor:pointer;">
-    <div class="gi-img-wrap" style="display:flex;flex-direction:column;">
-      <div style="flex:1;overflow:hidden;"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817209/P1010111_jqtzax.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.25);"></div>
-      <div style="flex:1;overflow:hidden;margin-top:-30px;"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774121442/P1010152_gd8hhi.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
+    <div class="gi-img-wrap">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817211/P1010070_vy57h2.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.4);">
     </div>
     <div class="gi-title">Sword II Swoops in from Atlanta</div>
     <div class="gi-sub">The DIY duo bringing raw southern rock back</div>
@@ -1243,19 +1450,13 @@ footer {
   </a>
 
   <!-- Item 5: col 3–6, row 2, 3:2 — offset down 3% -->
-  <div class="gallery-item gi-5">
-    <div class="gi-img-wrap">
-      <mux-player
-        playback-id="nKvFlOUhcND5yK3OL1gbQYnHocMWO2YI5bkIx1P02akM"
-        metadata-video-title="Post_JohnRoseboro_Fools_1_V1"
-        autoplay="muted"
-        loop
-        style="--controls:none;cursor:pointer;"
-      ></mux-player>
+  <a class="gallery-item gi-5" href="john-roseboro.html" style="text-decoration:none;color:inherit;cursor:pointer;">
+    <div class="gi-img-wrap" style="position:relative;">
+      <iframe src="https://player.mediadelivery.net/embed/622638/f0ae6c75-9753-412d-b321-c8a393dae420?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
     </div>
     <div class="gi-title">John Roseboro Whispers Sage Perspective in 'Fools'</div>
     <div class="gi-sub">Ancient ghazal tradition reborn through jazz and electronics</div>
-  </div>
+  </a>
 
   <!-- Item 6: col 7–9, row 2, 1:1 — bottom-right -->
   <div class="gallery-item gi-6">
@@ -1351,7 +1552,7 @@ footer {
 <!-- ── NEWSLETTER WIDGET ── -->
 <div class="newsletter-widget">
   <div class="nw-inner">
-    <div class="nw-label">Newsletter</div>
+    <div class="nw-label">Email List</div>
     <form class="nw-form" onsubmit="return false;">
       <input class="nw-input" type="email" placeholder="your@email.com">
       <button class="nw-btn" type="submit">Subscribe</button>
