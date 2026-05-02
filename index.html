@@ -301,6 +301,7 @@ header {
   border-radius: 0;
   box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
+  overflow: hidden;
 }
 
 .logo img {
@@ -312,7 +313,6 @@ header {
 nav {
   display: flex;
   flex: 1;
-  justify-content: space-evenly;
   padding-left: 4rem;
   transform: translateY(-6px);
 }
@@ -331,16 +331,38 @@ nav a {
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   font-variation-settings: 'EXPO' 0;
-  transition: font-variation-settings 0.4s ease;
+  transition: color 0.2s ease, font-variation-settings 0.4s ease;
   animation: nav-float 3s ease-in-out infinite;
+  position: relative;
+  flex: 1;
+  text-align: center;
 }
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  bottom: -200px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+
+nav a:nth-child(1)::before { background: #2a52d4; }
+nav a:nth-child(2)::before { background: #e0407a; }
+nav a:nth-child(3)::before { background: #2a52d4; }
+
+nav a:hover::before { opacity: 1; }
 
 nav a:nth-child(2) { animation-delay: 0.4s; }
 nav a:nth-child(3) { animation-delay: 0.8s; }
 
 nav a:hover {
-  color: #2a52d4;
+  color: #fff;
   font-variation-settings: 'EXPO' -80;
+  text-decoration-color: rgba(255,255,255,0.5);
 }
 
 /* ─────────────────────────────
@@ -368,7 +390,12 @@ nav a:hover {
   padding: 0.5rem 0.5rem 1.4rem;
   background: transparent;
   position: relative;
-  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transition: opacity 1.5s ease, background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item.gi-visible {
+  opacity: 1;
 }
 
 /* Specular highlight overlay — hidden until hover */
@@ -1300,6 +1327,19 @@ footer {
   /* Sub labels: show on mobile (no hover) */
   .gi-sub { opacity: 1 !important; transition: none !important; }
 
+  /* ── FONT SCALING ── */
+  .gi-title { font-size: clamp(0.65rem, 2.8vw, 1.3rem) !important; }
+  .gi-sub   { font-size: clamp(0.55rem, 1.9vw, 0.78rem) !important; }
+  .gi-label { font-size: clamp(0.55rem, 1.9vw, 0.75rem) !important; }
+  .block-title-lg { font-size: clamp(1.2rem, 5vw, 2rem) !important; }
+  .block-title-sm { font-size: clamp(0.75rem, 3vw, 1.4rem) !important; }
+  .block-title-md { font-size: clamp(0.9rem, 3.8vw, 2rem) !important; }
+  .art-label  { font-size: clamp(0.5rem, 1.8vw, 0.62rem) !important; }
+  .art-byline { font-size: clamp(0.45rem, 1.6vw, 0.5rem) !important; }
+  .stagger-text p { font-size: clamp(0.72rem, 2.8vw, 0.88rem) !important; }
+  .ba-feature-title { font-size: clamp(0.8rem, 3.2vw, 1rem) !important; }
+  .ba-feature-body  { font-size: clamp(0.65rem, 2.4vw, 0.78rem) !important; }
+
   /* ── SECTION RULE ── */
   .section-rule { margin: 0 12px !important; }
 
@@ -1427,7 +1467,7 @@ footer {
     <div class="gi-img-wrap" style="position:relative;overflow:hidden;clip-path:inset(7px 19px);">
       <iframe src="https://player.mediadelivery.net/embed/622638/540b242d-eac0-46ce-b0de-a7b6d821a679?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false&t=30" loading="lazy" style="border:0;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260%;height:150%;min-width:100%;min-height:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="false"></iframe>
     </div>
-    <div class="gi-title">Chanel Beads Erupts at 'Your Day Will Come' Release Show</div>
+    <div class="gi-title"><span style="color:#e60000;">Chanel Beads</span> Erupts at 'Your Day Will Come' Release Show</div>
     <div class="gi-sub">An incendiary night at TV Eye in Ridgewood, Queens</div>
   </a>
 
@@ -1454,18 +1494,18 @@ footer {
     <div class="gi-img-wrap" style="position:relative;">
       <iframe src="https://player.mediadelivery.net/embed/622638/f0ae6c75-9753-412d-b321-c8a393dae420?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" style="border:0;position:absolute;top:0;left:0;height:100%;width:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
     </div>
-    <div class="gi-title">John Roseboro Whispers Sage Perspective in 'Fools'</div>
+    <div class="gi-title">John Roseboro Whispers Sage Perspective <span style="color:#6ee7b7;">'Fools'</span></div>
     <div class="gi-sub">Ancient ghazal tradition reborn through jazz and electronics</div>
   </a>
 
   <!-- Item 6: col 7–9, row 2, 1:1 — bottom-right -->
-  <div class="gallery-item gi-6">
+  <a class="gallery-item gi-6" href="threshold.html" style="text-decoration:none;color:inherit;cursor:pointer;">
     <div class="gi-img-wrap">
       <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1776029903/Artboard_1_0.75x_k8tyxm.jpg" alt="Floating Points" style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
-    <div class="gi-title">Floating Points Finds Beauty in Electronic Restraint</div>
+    <div class="gi-title">A Night Where <span style="color:#e0407a;">Threshold</span> Came to Light</div>
     <div class="gi-sub">Minimal electronic textures that reward patient listening</div>
-  </div>
+  </a>
 
 </div>
 
@@ -1473,7 +1513,7 @@ footer {
 
 <!-- ── GALLERY 2: Large hero article ── -->
 <div class="block-a">
-  <div class="ba-main">
+  <a class="ba-main" href="mei-semones.html" style="text-decoration:none;color:inherit;display:block;">
     <div class="ba-img">
       <iframe
         id="mei-player"
@@ -1497,7 +1537,7 @@ footer {
         </div>
       </div>
     </div>
-  </div>
+  </a>
   <a class="ba-feature" href="villagerrr.html" style="text-decoration:none;color:inherit;">
     <div class="ba-feature-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772820712/a2547523506_16_x39qx6.jpg" alt="Villagerrr" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="ba-feature-title">Villaggerrrs latest single rocks</div>
@@ -1601,6 +1641,38 @@ footer {
     }
 
     cycleGlow();
+  })();
+
+  // Gallery stagger fade-in
+  (function () {
+    var delays = { 'gi-1': 0, 'gi-6': 160, 'gi-4': 240, 'gi-2': 480, 'gi-3': 520, 'gi-5': 800 };
+    Object.keys(delays).forEach(function (cls) {
+      var el = document.querySelector('.gallery .' + cls);
+      if (el) setTimeout(function () { el.classList.add('gi-visible'); }, delays[cls]);
+    });
+  })();
+
+  // Below-gallery left-to-right fade-in
+  (function () {
+    var items = [
+      { sel: '.ba-feature',                       delay: 200  },
+      { sel: '.ba-main',                          delay: 400  },
+      { sel: '.bl-top .bl-card:nth-child(1)',     delay: 560  },
+      { sel: '.bl-top .bl-card:nth-child(2)',     delay: 710  },
+      { sel: '.bl-top .bl-card:nth-child(3)',     delay: 860  },
+      { sel: '.bl-top .bl-card:nth-child(4)',     delay: 1010 },
+    ];
+
+    items.forEach(function (item) {
+      var el = document.querySelector(item.sel);
+      if (!el) return;
+      el.style.opacity = '0';
+      setTimeout(function () {
+        el.style.transition = 'opacity 1.5s ease';
+        el.style.opacity = '1';
+        setTimeout(function () { el.style.transition = ''; el.style.opacity = ''; }, 1600);
+      }, item.delay);
+    });
   })();
 
   // Parallax background
