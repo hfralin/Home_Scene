@@ -1225,7 +1225,7 @@ footer {
     margin-left: 80px !important;
     gap: 0 !important;
   }
-  nav a { font-size: clamp(0.7rem, 3.5vw, 1.26rem) !important; animation: none !important; }
+  nav a { font-size: clamp(0.6rem, 2.8vw, 0.95rem) !important; animation: none !important; }
 
   /* ── GALLERY ── */
   .gallery {
@@ -1247,8 +1247,8 @@ footer {
     margin-top: 0 !important;
   }
 
-  /* Stagger: right-column items drop down */
-  .gi-2, .gi-4, .gi-6 { margin-top: 28px !important; }
+  /* Stagger: right-column items */
+  .gi-2, .gi-4, .gi-6 { margin-top: -2px !important; }
 
   /* gi-1: 60% of its 2fr column — clipped so nothing bleeds into gi-2 */
   .gi-1 {
@@ -1261,7 +1261,7 @@ footer {
     width: min(182%, 53.5vw) !important;
     justify-self: end !important;
     margin-left: 0 !important;
-    margin-right: 15px !important;
+    margin-right: 1px !important;
   }
 
   /* gi-3 Sword II: left col, row 2 */
@@ -1274,34 +1274,36 @@ footer {
   .gi-3 .gi-img-wrap { aspect-ratio: 3 / 4 !important; }
   .gi-3 .gi-title    { text-align: left !important; }
 
-  /* gi-4 Otto Benson: right col, row 2 — 20% larger, 15px right */
+  /* gi-4 Otto Benson: right col, row 2 — flush to 13px from screen right */
   .gi-4 {
     grid-column: 2 !important;
     grid-row: 2 !important;
-    width: 100% !important;
+    width: 120% !important;
     justify-self: end !important;
     margin-left: 0 !important;
-    margin-right: 30px !important;
-    margin-top: 3px !important;
+    margin-right: 1px !important;
+    margin-top: 8px !important;
   }
 
-  /* gi-6 Floating Points: right col, row 3 — below Otto Benson, left-aligned with it */
+  /* gi-6 Threshold: right col, row 3 — 10px from screen right */
   .gi-6 {
     grid-column: 2 !important;
     grid-row: 3 !important;
     width: 113% !important;
-    margin-top: calc(58px - 36vw) !important;
+    justify-self: end !important;
+    margin-top: calc(93px - 36vw) !important;
     margin-left: -45% !important;
+    margin-right: -2px !important;
   }
 
   /* gi-5 John Roseboro: full-width row 4, left-aligned */
   .gi-5 {
     grid-column: 1 / -1 !important;
     grid-row: 4 !important;
-    margin-top: 0 !important;
+    margin-top: calc(-19vw - 62px) !important;
     justify-self: start !important;
     width: 54% !important;
-    margin-left: 50px !important;
+    margin-left: 35px !important;
   }
 
   /* gi-2 video: strip clip-path, reset iframe */
@@ -1321,8 +1323,9 @@ footer {
   /* gi-5 video: 16:9 */
   .gi-5 .gi-img-wrap { aspect-ratio: 16 / 9 !important; }
 
-  /* gi-6: fix title alignment */
+  /* gi-6: fix title alignment + 1:1 image on mobile */
   .gi-6 .gi-title { text-align: left !important; }
+  .gi-6 .gi-img-wrap { aspect-ratio: 1 / 1 !important; }
 
   /* Sub labels: show on mobile (no hover) */
   .gi-sub { opacity: 1 !important; transition: none !important; }
