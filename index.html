@@ -844,6 +844,9 @@ nav a:hover {
   transition: transform 0.4s ease;
 }
 
+/* Blurb hidden on desktop, shown only on mobile */
+.bl-card-blurb { display: none; }
+
 /* List rows */
 .bl-row {
   display: flex;
@@ -1397,14 +1400,43 @@ footer {
     max-width: 100% !important;
   }
   .bl-top {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
   }
-  .bl-card:first-child { padding-left: 0.5rem !important; }
-  .bl-card:nth-child(3),
-  .bl-card:nth-child(4) {
+  .bl-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    padding: 0.7rem 0.4rem !important;
+    border-right: none !important;
     border-top: 1px solid var(--rule) !important;
-    padding-top: 0.8rem !important;
-    margin-top: 0.4rem !important;
+  }
+  .bl-card:first-child {
+    border-top: none !important;
+  }
+  .bl-card-img {
+    width: 33% !important;
+    flex-shrink: 0 !important;
+    aspect-ratio: 1 / 1 !important;
+    margin-bottom: 0 !important;
+  }
+  .bl-card .bl-card-text {
+    flex: 1 !important;
+  }
+  /* odd cards: image left, text right */
+  .bl-card:nth-child(odd) {
+    flex-direction: row !important;
+  }
+  /* even cards: image right, text left */
+  .bl-card:nth-child(even) {
+    flex-direction: row-reverse !important;
+  }
+  .bl-card-blurb {
+    display: block !important;
+    font-size: clamp(0.62rem, 2.2vw, 0.72rem) !important;
+    color: var(--mid) !important;
+    margin: 0.3rem 0 0.3rem !important;
+    line-height: 1.4 !important;
   }
 
   /* ── NEWSLETTER WIDGET ── */
@@ -1573,30 +1605,42 @@ footer {
 
     <a href="starcleaner-cafe-life.html" class="bl-card" style="text-decoration:none;color:inherit;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758423/Screenshot_2026-03-05_at_7.51.20_PM_t2xvul.png" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-      <span class="art-label">Album · ★★★★★</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Starcleaner' Café Life Stands Out</div>
-      <span class="art-byline">James Fletcher · Feb 27</span>
+      <div class="bl-card-text">
+        <span class="art-label">Album · ★★★★★</span>
+        <div class="block-title block-title-sm" style="margin-top:0.4rem">Starcleaner' Café Life Stands Out</div>
+        <p class="bl-card-blurb">A record that lingers long after the last track fades — unhurried, intimate, and entirely its own.</p>
+        <span class="art-byline">James Fletcher · Feb 27</span>
+      </div>
     </a>
 
-    <div class="bl-card" style="padding-left:1.4rem">
+    <div class="bl-card">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817952/P1010583-2_po8bhm.jpg" alt="Daniel Avery" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-      <span class="art-label">Interview · Techno</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Daniel Avery<br>on Techno</div>
-      <span class="art-byline">Priya Mehta · Feb 26</span>
+      <div class="bl-card-text">
+        <span class="art-label">Interview · Techno</span>
+        <div class="block-title block-title-sm" style="margin-top:0.4rem">Daniel Avery<br>on Techno</div>
+        <p class="bl-card-blurb">Daniel Avery talks process, patience, and why the dancefloor still feels like the only honest place.</p>
+        <span class="art-byline">Priya Mehta · Feb 26</span>
+      </div>
     </div>
 
-    <a href="mdou-moctar.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
+    <a href="mdou-moctar.html" class="bl-card" style="text-decoration:none;color:inherit;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758422/Screenshot_2026-03-05_at_7.53.16_PM_zcckdn.png" alt="Mdou Moctar" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;"></div>
-      <span class="art-label">Live · ★★★★</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar<br>Live</div>
-      <span class="art-byline">Tomás Rivera · Feb 25</span>
+      <div class="bl-card-text">
+        <span class="art-label">Live · ★★★★</span>
+        <div class="block-title block-title-sm" style="margin-top:0.4rem">Mdou Moctar<br>Live</div>
+        <p class="bl-card-blurb">Tuareg guitar as it was meant to be heard — raw, electric, and completely alive in the room.</p>
+        <span class="art-byline">Tomás Rivera · Feb 25</span>
+      </div>
     </a>
 
-    <a href="mia-world-tour.html" class="bl-card" style="padding-left:1.4rem;text-decoration:none;color:inherit;">
+    <a href="mia-world-tour.html" class="bl-card" style="text-decoration:none;color:inherit;">
       <div class="bl-card-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758420/Screenshot_2026-03-05_at_7.52.33_PM_w2xkgi.png" alt="MIA World Tour" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-      <span class="art-label">News</span>
-      <div class="block-title block-title-sm" style="margin-top:0.4rem">MIA —<br>World Tour</div>
-      <span class="art-byline">Leon Park · Feb 23</span>
+      <div class="bl-card-text">
+        <span class="art-label">News</span>
+        <div class="block-title block-title-sm" style="margin-top:0.4rem">MIA —<br>World Tour</div>
+        <p class="bl-card-blurb">Dates confirmed across three continents — MIA returns to the stage for the first time in four years.</p>
+        <span class="art-byline">Leon Park · Feb 23</span>
+      </div>
     </a>
 
   </div>
@@ -1671,7 +1715,7 @@ footer {
   (function () {
     var items = [
       { sel: '.ba-feature',                       delay: 200  },
-      { sel: '.ba-main',                          delay: 400  },
+      { sel: '.ba-main',                          delay: window.innerWidth <= 768 ? 900 : 400  },
       { sel: '.bl-top .bl-card:nth-child(1)',     delay: 560  },
       { sel: '.bl-top .bl-card:nth-child(2)',     delay: 710  },
       { sel: '.bl-top .bl-card:nth-child(3)',     delay: 860  },
