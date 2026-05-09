@@ -1384,7 +1384,7 @@ footer {
     grid-column: 1 !important;
     grid-row: 2 !important;
     width: 100% !important;
-    min-height: 280px !important;
+    min-height: 320px !important;
     margin-bottom: 0 !important;
     transform: none !important;
   }
@@ -1392,6 +1392,7 @@ footer {
   .gi-1 .gi-img-wrap {
     aspect-ratio: 4 / 3 !important;
     height: auto !important;
+    min-height: 160px !important;
     padding-bottom: 0 !important;
     position: relative !important;
   }
@@ -1406,8 +1407,8 @@ footer {
     grid-column: 1 !important;
     grid-row: 3 !important;
     width: 100% !important;
-    min-height: 240px !important;
-    margin-top: 40px !important;
+    min-height: 280px !important;
+    margin-top: calc(40vw + 20px) !important;
     margin-left: 0 !important;
     justify-self: start !important;
     align-self: start !important;
@@ -1478,7 +1479,7 @@ footer {
   }
 
   /* gi-5 video: give container height so abs-pos iframe is visible */
-  .gi-5 .gi-img-wrap { aspect-ratio: 4 / 3 !important; height: auto !important; position: relative !important; overflow: hidden !important; }
+  .gi-5 .gi-img-wrap { aspect-ratio: 4 / 3 !important; height: auto !important; min-height: 160px !important; position: relative !important; overflow: hidden !important; }
 
   /* gi-6: fix title alignment + image on mobile */
   .gi-6 .gi-title { text-align: left !important; }
