@@ -592,6 +592,7 @@ nav a:hover {
 
 /* Item 6: col 7–9, row 2, 16:9 — video cover */
 .gi-6 { grid-column: 7 / 10; grid-row: 2; margin-top: 10px; }
+.gi-left-anchor { display: none; } /* desktop: hidden; shown only on mobile */
 .gi-6 .gi-img-wrap {
   height: clamp(202px, 16.8vw, 252px);
   position: relative;
@@ -1385,6 +1386,7 @@ footer {
     width: 100% !important;
     margin-bottom: 0 !important;
     transform: none !important;
+    min-height: 300px !important;
   }
   .gi-1:hover { transform: none !important; }
   .gi-1 .gi-img-wrap {
@@ -1409,6 +1411,7 @@ footer {
     margin-left: 0 !important;
     justify-self: start !important;
     align-self: end !important;
+    min-height: 200px !important;
   }
 
   /* gi-4 Otto Benson: left col, row 4 */
@@ -1422,6 +1425,20 @@ footer {
     margin-top: 0 !important;
   }
 
+  /* Invisible left-column height anchor — forces rows 2-3 open on iOS */
+  .gi-left-anchor {
+    display: block !important;
+    grid-column: 1 !important;
+    grid-row: 2 / 4 !important;
+    min-height: 520px !important;
+    width: 100% !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: relative !important;
+    z-index: -1 !important;
+    overflow: hidden !important;
+  }
+
   /* gi-3 Sword II: right col, rows 2-3 */
   .gi-3 {
     grid-column: 2 !important;
@@ -1433,13 +1450,13 @@ footer {
     padding-top: 20px !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: hidden !important;
+    clip-path: inset(78px 0 78px 0 round 12px) !important;
   }
   .gi-3 .gi-img-wrap {
     aspect-ratio: unset !important;
     flex: 1 !important;
-    height: auto !important;
-    min-height: 500px !important;
+    height: 364px !important;
+    min-height: 364px !important;
     padding-bottom: 0 !important;
     overflow: hidden !important;
   }
@@ -1476,7 +1493,7 @@ footer {
   }
 
   /* gi-5 video: give container height so abs-pos iframe is visible */
-  .gi-5 .gi-img-wrap { aspect-ratio: unset !important; height: 190px !important; min-height: 190px !important; position: relative !important; overflow: hidden !important; }
+  .gi-5 .gi-img-wrap { aspect-ratio: unset !important; height: 220px !important; min-height: 200px !important; max-height: 220px !important; position: relative !important; overflow: hidden !important; }
 
   /* gi-6: fix title alignment + image on mobile */
   .gi-6 .gi-title { text-align: left !important; }
@@ -1484,6 +1501,15 @@ footer {
 
   /* Sub labels: show on mobile (no hover) */
   .gi-sub { opacity: 1 !important; transition: none !important; }
+
+  /* Mobile hover: all gallery items shrink slightly */
+  .gallery-item:hover {
+    transform: scale(0.97) !important;
+    box-shadow: none !important;
+  }
+  .gi-1:hover, .gi-2:hover, .gi-4:hover, .gi-5:hover, .gi-6:hover {
+    transform: scale(0.97) !important;
+  }
 
   /* ── FONT SCALING ── */
   .gi-title { font-size: clamp(0.82rem, 3.2vw, 1.3rem) !important; }
@@ -1681,12 +1707,20 @@ footer {
 
   <!-- Item 3: col 10–12, rows 1+2, 9:16 — portrait, spans both rows -->
   <a class="gallery-item gi-3" href="sword-ii.html" style="text-decoration:none;color:inherit;cursor:pointer;">
+    <!-- Invisible top spacer (half): 78px -->
+    <div aria-hidden="true" style="height:78px;flex-shrink:0;overflow:hidden;opacity:0;pointer-events:none;">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817211/P1010070_vy57h2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
     <div class="gi-img-wrap">
       <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817211/P1010070_vy57h2.jpg" alt="Sword II" style="width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.4);">
     </div>
     <div class="gi-title">Sword II Swoops in from Atlanta</div>
     <span class="gi-date" style="color:#6ee7b7;">Feb 26, 2025</span>
     <div class="gi-sub">The DIY duo bringing raw southern rock back one riff at a time — loud, loose, and entirely on their own terms. Atlanta never sounded quite like this.</div>
+    <!-- Invisible bottom spacer (half): 78px -->
+    <div aria-hidden="true" style="height:78px;flex-shrink:0;overflow:hidden;opacity:0;pointer-events:none;">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817211/P1010070_vy57h2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
   </a>
 
   <!-- Item 4: col 1–2, row 2, 1:1 — small square, bottom-left -->
@@ -1708,6 +1742,11 @@ footer {
     <span class="gi-date" style="color:#2a52d4;text-align:right;">Feb 24, 2025</span>
     <div class="gi-sub">Ancient ghazal tradition reborn through jazz and electronics — a sound that has no obvious home and needs none. The night felt like a discovery.</div>
   </a>
+
+  <!-- Mobile-only: invisible left-column anchor spanning rows 2-3, forces iOS to keep row height open -->
+  <div class="gi-left-anchor" aria-hidden="true">
+    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817211/P1010070_vy57h2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+  </div>
 
   <!-- Item 6: col 7–9, row 2, 1:1 — bottom-right -->
   <a class="gallery-item gi-6" href="threshold.html" style="text-decoration:none;color:inherit;cursor:pointer;">
