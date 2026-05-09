@@ -1331,7 +1331,7 @@ footer {
   .gallery {
     display: grid !important;
     grid-template-columns: 1.22fr 1fr !important;
-    grid-template-rows: none !important;
+    grid-template-rows: auto minmax(260px, auto) minmax(260px, auto) auto !important;
     align-items: start !important;
     padding: 2rem 12px 0 !important;
     gap: 9px !important;
@@ -1406,10 +1406,10 @@ footer {
     grid-column: 1 !important;
     grid-row: 3 !important;
     width: 100% !important;
-    margin-top: 9px !important;
+    margin-top: 0 !important;
     margin-left: 0 !important;
     justify-self: start !important;
-    align-self: end !important;
+    align-self: start !important;
   }
 
   /* gi-4 Otto Benson: left col, row 4 */
