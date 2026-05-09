@@ -1332,7 +1332,7 @@ footer {
   .gallery {
     display: grid !important;
     grid-template-columns: 1.22fr 1fr !important;
-    grid-template-rows: auto minmax(350px, auto) minmax(280px, auto) auto !important;
+    grid-template-rows: auto auto auto auto !important;
     align-items: start !important;
     padding: 2rem 12px 0 !important;
     gap: 9px !important;
@@ -1400,7 +1400,7 @@ footer {
     height: 100% !important;
   }
 
-  /* gi-5 John Roseboro: left col, row 3 */
+  /* gi-5 John Roseboro: left col, row 3 — pinned to bottom of row */
   .gi-5 {
     grid-column: 1 !important;
     grid-row: 3 !important;
@@ -1408,7 +1408,7 @@ footer {
     margin-top: 0 !important;
     margin-left: 0 !important;
     justify-self: start !important;
-    align-self: start !important;
+    align-self: end !important;
   }
 
   /* gi-4 Otto Benson: left col, row 4 */
