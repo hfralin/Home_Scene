@@ -216,7 +216,7 @@ body {
   font-family: 'ImmortelInfraG2', serif;
   font-weight: 400;
   overflow-x: hidden;
-  padding-top: clamp(80px, 10vw, 152px);
+  padding-top: clamp(40px, 10vw, 152px);
 }
 
 .bg-parallax {
@@ -328,7 +328,7 @@ header {
 }
 
 .logo img {
-  height: clamp(52px, 5.5vw, 92px);
+  height: clamp(46px, 4.8vw, 80px);
   width: auto;
   display: block;
 }
@@ -661,6 +661,9 @@ nav a:hover {
   margin-top: 0.3rem;
 }
 .block-title-lg { font-size: calc(3.8rem - 10px); }
+.ba-main .block-title-lg {
+  font-size: clamp(1.6rem, 4.2vw, 3.4rem);
+}
 .block-title-md { font-size: 2rem; }
 .block-title-sm { font-size: 1.4rem; }
 
@@ -674,8 +677,6 @@ nav a:hover {
   max-width: 38ch;
   text-align: right;
 }
-.stagger-text p:nth-child(odd)  { margin-right: 0; }
-.stagger-text p:nth-child(even) { margin-right: 4ch; }
 .stagger-text p + p { margin-top: 0.4rem; }
 
 /* ─────────────────────────────
@@ -796,6 +797,7 @@ nav a:hover {
   width: 100%;
   height: 100%;
   display: block;
+  border: 0;
   transition: transform 0.6s ease;
 }
 
@@ -1373,7 +1375,7 @@ footer {
     justify-self: end !important;
     margin-left: 0 !important;
     margin-right: 1px !important;
-    margin-top: 8px !important;
+    margin-top: -35vw !important;
   }
 
   /* gi-6 Threshold: right col, row 3 — 10px from screen right */
@@ -1577,7 +1579,7 @@ footer {
 <!-- ── HEADER ── -->
 <header>
   <a href="index.html" class="logo">
-    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene">
+    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene">
   </a>
   <nav>
     <a href="articles.html">Articles</a>
