@@ -216,7 +216,7 @@ body {
   font-family: 'ImmortelInfraG2', serif;
   font-weight: 400;
   overflow-x: hidden;
-  padding-top: clamp(40px, 10vw, 152px);
+  padding-top: clamp(20px, 5.5vw, 85px);
 }
 
 .bg-parallax {
@@ -395,7 +395,7 @@ nav a:hover {
   padding: 2rem 58px 2rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: clamp(3px, 1.1vw, 15px);
+  gap: clamp(1px, 1.1vw, 15px);
   align-items: start;
   margin: 0 auto 4rem;
   max-width: 1500px;
@@ -416,6 +416,7 @@ nav a:hover {
   background: transparent;
   position: relative;
   opacity: 0;
+  transform: scale(1.02);
   transition: opacity 1.5s ease, background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
@@ -428,7 +429,7 @@ nav a:hover {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 12px;
+  border-radius: 0;
   opacity: 0;
   pointer-events: none;
   z-index: 0;
@@ -453,7 +454,7 @@ nav a:hover {
 .gi-active .gi-sub { opacity: 1 !important; animation: none !important; }
 
 .gallery-item:hover {
-  transform: scale(1.02);
+  transform: scale(0.98);
   box-shadow: 0 8px 32px rgba(0,0,0,0.10), inset 0 0 0 1px rgba(255,255,255,0.5);
 }
 
@@ -530,7 +531,7 @@ nav a:hover {
 
 /* Item positions per brief */
 /* Item 1: col 1–4, row 1, 3:2 */
-.gi-1 { grid-column: 1 / 4; grid-row: 1; align-self: end; width: calc(100% - 10px); margin-bottom: 50px; }
+.gi-1 { grid-column: 1 / 4; grid-row: 1; align-self: end; width: calc(100% - 10px); margin-bottom: 20px; transform-origin: bottom left; }
 .gi-1 .gi-img-wrap {
   height: clamp(175px, 17.9vw, 269px);
   position: relative;
@@ -549,7 +550,7 @@ nav a:hover {
 .gi-2 .gi-img-wrap { height: clamp(235px, 17.4vw, 261px); position: relative; }
 
 /* Item 3: col 10–12, rows 1+2, 9:16 + 130px extra at bottom */
-.gi-3 { grid-column: 10 / 13; grid-row: 1 / 3; }
+.gi-3 { grid-column: 10 / 13; grid-row: 1 / 3; transform-origin: top right; }
 .gi-3 .gi-img-wrap {
   aspect-ratio: unset;
   height: 0;
@@ -566,11 +567,11 @@ nav a:hover {
   transition: filter 0.6s ease, transform 0.5s ease;
 }
 .gi-3:hover .gi-img-wrap img {
-  filter: brightness(1.35) contrast(1.05) saturate(1.1);
+  filter: none;
 }
 
 /* Item 4: col 1–2, row 2, 1:1 */
-.gi-4 { grid-column: 1 / 3; grid-row: 2; margin-top: 60px; }
+.gi-4 { grid-column: 1 / 3; grid-row: 2; margin-top: -20px; }
 .gi-4 .gi-img-wrap { aspect-ratio: 1 / 1; }
 
 /* Item 5: col 3–6, row 2, 3:2, offset down 3% — video cover */
@@ -610,6 +611,7 @@ nav a:hover {
 .gi-3 .gi-title,
 .gi-6 .gi-title { text-align: right; }
 .gi-3:hover .gi-title { color: var(--black) !important; }
+.gi-3:hover { box-shadow: none !important; }
 
 /* Placeholder gradients */
 .ph-warm  { background: linear-gradient(150deg, #c4b4a0, #9a8070); }
@@ -722,6 +724,16 @@ nav a:hover {
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.75), inset 0 1px 0 rgba(255,255,255,0.9);
   transform: scale(1.01);
+}
+
+.sotd-label {
+  display: block;
+  font-family: 'Exposure', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e0407a;
+  margin-bottom: 0.4rem;
 }
 
 .ba-feature {
@@ -1269,12 +1281,24 @@ footer {
 
 @media (max-width: 1200px) {
   .gallery { transform: scale(1.07); }
+  .gi-1 { transform: scale(1.09); }
+  .gi-1:hover { transform: scale(1.07) !important; }
+  .gi-3 { transform: scale(1.05); }
+  .gi-3:hover { transform: scale(1.03) !important; }
 }
 @media (max-width: 1000px) {
   .gallery { transform: scale(1.12); }
+  .gi-1 { transform: scale(1.12); }
+  .gi-1:hover { transform: scale(1.10) !important; }
+  .gi-3 { transform: scale(1.06); }
+  .gi-3:hover { transform: scale(1.04) !important; }
 }
 @media (max-width: 850px) {
   .gallery { transform: scale(1.18); }
+  .gi-1 { transform: scale(1.16); }
+  .gi-1:hover { transform: scale(1.14) !important; }
+  .gi-3 { transform: scale(1.07); }
+  .gi-3:hover { transform: scale(1.05) !important; }
 }
 
 /* ─────────────────────────────
@@ -1301,12 +1325,13 @@ footer {
   /* ── GALLERY ── */
   .gallery {
     display: grid !important;
-    grid-template-columns: 2fr 1fr !important;
+    grid-template-columns: 1.22fr 1fr !important;
     grid-template-rows: none !important;
     align-items: start !important;
-    padding: 1.2rem 12px 0 !important;
+    padding: 2rem 12px 0 !important;
     gap: 9px !important;
     max-width: 100% !important;
+    transform: none !important;
   }
 
   /* Reset ALL desktop grid placements so 2fr/1fr auto-flow works */
@@ -1319,26 +1344,48 @@ footer {
   }
 
   /* Stagger: right-column items */
-  .gi-2, .gi-4, .gi-6 { margin-top: -2px !important; }
+  .gi-4 { margin-top: -2px !important; }
 
   /* Restore desktop-only changes that shouldn't affect mobile */
   .gallery-item { border-radius: 12px !important; }
-  .gi-1, .gi-2 { align-self: start !important; }
+  .gi-1 { align-self: start !important; }
   .gi-sub {
     white-space: normal !important;
     -webkit-line-clamp: unset !important;
     -webkit-mask-image: none !important;
     mask-image: none !important;
   }
+  /* gi-1 + gi-5: 2-line sub cap on mobile */
+  .gi-1 .gi-sub, .gi-5 .gi-sub {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
 
-  /* gi-1: 60% of its 2fr column — clipped so nothing bleeds into gi-2 */
+  /* gi-2 Chanel Beads: full-width top row on its own */
+  .gi-2 {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+    margin-top: 0 !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* gi-1 Starcleaner: left col, row 2 */
   .gi-1 {
-    width: 60% !important;
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
     overflow: hidden !important;
     margin-bottom: 0 !important;
+    transform: none !important;
   }
+  .gi-1:hover { transform: none !important; }
   .gi-1 .gi-img-wrap {
-    aspect-ratio: 3 / 2 !important;
+    aspect-ratio: 4 / 3 !important;
     height: auto !important;
     padding-bottom: 0 !important;
     position: relative !important;
@@ -1349,54 +1396,53 @@ footer {
     height: 100% !important;
   }
 
-  /* gi-2: right-anchored — grows/shrinks leftward, stays clear of gi-1 */
-  .gi-2 {
-    width: min(182%, 53.5vw) !important;
-    justify-self: end !important;
-    margin-left: 0 !important;
-    margin-right: 1px !important;
-  }
-
-  /* gi-3 Sword II: left col, row 2 */
-  .gi-3 {
+  /* gi-5 John Roseboro: left col, row 3 */
+  .gi-5 {
     grid-column: 1 !important;
-    grid-row: 2 !important;
-    width: 77% !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
     justify-self: start !important;
   }
-  .gi-3 .gi-img-wrap { aspect-ratio: 3 / 4 !important; }
-  .gi-3 .gi-title    { text-align: left !important; }
 
-  /* gi-4 Otto Benson: right col, row 2 — flush to 13px from screen right */
+  /* gi-4 Otto Benson: left col, row 4 */
   .gi-4 {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
-    width: 138% !important;
-    justify-self: end !important;
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+    width: 100% !important;
+    justify-self: start !important;
     margin-left: 0 !important;
-    margin-right: 1px !important;
-    margin-top: -35vw !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
   }
 
-  /* gi-6 Threshold: right col, row 3 — 10px from screen right */
+  /* gi-3 Sword II: right col, rows 2-3 — spans alongside Starcleaner + John Roseboro */
+  .gi-3 {
+    grid-column: 2 !important;
+    grid-row: 2 / 4 !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+    align-self: start !important;
+    margin-top: 80px !important;
+  }
+  .gi-3 .gi-img-wrap {
+    aspect-ratio: unset !important;
+    height: 440px !important;
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+  }
+  .gi-3 .gi-title { text-align: left !important; }
+
+  /* gi-6 Threshold: right col, row 4 — beside Otto Benson */
   .gi-6 {
     grid-column: 2 !important;
-    grid-row: 3 !important;
-    width: 113% !important;
-    justify-self: end !important;
-    margin-top: calc(93px - 36vw) !important;
-    margin-left: -45% !important;
-    margin-right: -2px !important;
-  }
-
-  /* gi-5 John Roseboro: full-width row 4, left-aligned */
-  .gi-5 {
-    grid-column: 1 / -1 !important;
     grid-row: 4 !important;
-    margin-top: calc(-19vw - 77px) !important;
-    justify-self: start !important;
-    width: 54% !important;
-    margin-left: 35px !important;
+    width: 100% !important;
+    justify-self: stretch !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   /* gi-2 video: strip clip-path, reset video */
@@ -1405,6 +1451,9 @@ footer {
     height: auto !important;
     clip-path: none !important;
     position: relative !important;
+    width: calc(100% - 24px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .gi-2 .gi-img-wrap video {
     position: absolute !important;
@@ -1415,12 +1464,12 @@ footer {
     min-width: unset !important; min-height: unset !important;
   }
 
-  /* gi-5 video: reset fixed height */
-  .gi-5 .gi-img-wrap { height: auto !important; }
+  /* gi-5 video: give container height so abs-pos iframe is visible */
+  .gi-5 .gi-img-wrap { aspect-ratio: 4 / 3 !important; height: auto !important; position: relative !important; overflow: hidden !important; }
 
-  /* gi-6: fix title alignment + 1:1 image on mobile */
+  /* gi-6: fix title alignment + image on mobile */
   .gi-6 .gi-title { text-align: left !important; }
-  .gi-6 .gi-img-wrap { aspect-ratio: 1 / 1 !important; height: auto !important; padding-bottom: 0 !important; }
+  .gi-6 .gi-img-wrap { aspect-ratio: 5 / 4 !important; height: auto !important; padding-bottom: 0 !important; }
 
   /* Sub labels: show on mobile (no hover) */
   .gi-sub { opacity: 1 !important; transition: none !important; }
@@ -1684,6 +1733,7 @@ footer {
     </div>
   </a>
   <a class="ba-feature" href="villagerrr.html" style="text-decoration:none;color:inherit;">
+    <span class="sotd-label">Song of the Day</span>
     <div class="ba-feature-img"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772820712/a2547523506_16_x39qx6.jpg" alt="Villagerrr" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="ba-feature-title">Villaggerrrs latest single rocks</div>
     <div class="ba-feature-player">
