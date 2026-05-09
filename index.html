@@ -1389,7 +1389,7 @@ footer {
   .gi-1:hover { transform: none !important; }
   .gi-1 .gi-img-wrap {
     aspect-ratio: unset !important;
-    height: 170px !important;
+    height: 200px !important;
     padding-bottom: 0 !important;
     position: relative !important;
     overflow: hidden !important;
@@ -1476,7 +1476,7 @@ footer {
   }
 
   /* gi-5 video: give container height so abs-pos iframe is visible */
-  .gi-5 .gi-img-wrap { aspect-ratio: unset !important; height: 160px !important; min-height: 160px !important; position: relative !important; overflow: hidden !important; }
+  .gi-5 .gi-img-wrap { aspect-ratio: unset !important; height: 190px !important; min-height: 190px !important; position: relative !important; overflow: hidden !important; }
 
   /* gi-6: fix title alignment + image on mobile */
   .gi-6 .gi-title { text-align: left !important; }
@@ -1523,7 +1523,13 @@ footer {
     margin-top: 0.9rem !important;
     gap: 0.8rem !important;
   }
-  .block-title-lg { font-size: 2rem !important; }
+  .block-title-lg {
+    font-size: 2rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
   .ba-left  { width: 100% !important; }
   .ba-right {
     width: 100% !important;
@@ -1669,7 +1675,7 @@ footer {
       <iframe src="https://player.mediadelivery.net/embed/622638/540b242d-eac0-46ce-b0de-a7b6d821a679?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false&t=30" loading="lazy" style="border:0;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260%;height:150%;min-width:100%;min-height:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="false"></iframe>
     </div>
     <div class="gi-title"><span style="color:#1a3a8f;">Chanel Beads</span> Erupts at<br>'Your Day Will Come' Release Show</div>
-    <span class="gi-date" style="color:#2a52d4;text-align:center;">Feb 27, 2025</span>
+    <span class="gi-date" style="color:#2a52d4;text-align:center;">Feb 28, 2025</span>
     <div class="gi-sub">An incendiary night at TV Eye in Ridgewood, Queens — the room shook and nobody wanted it to stop. Chanel Beads played like they had something to prove.</div>
   </a>
 
@@ -1732,7 +1738,7 @@ footer {
     <div class="ba-text">
       <div class="ba-left">
         <span class="art-label">Interview</span>
-        <div class="block-title block-title-lg">Mei Semons on her first full length album 'Animaru'</div>
+        <div class="block-title block-title-lg">Mei Semons on her first<br>full length album 'Animaru'</div>
         <span class="art-byline">By Priya Mehta · Feb 27, 2025 · 12 min</span>
       </div>
       <div class="ba-right">
