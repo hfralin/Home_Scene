@@ -120,20 +120,28 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.4rem 2rem 0.25rem;
-  width: 80%;
-  max-width: 1500px;
-  margin: 5px auto 0;
-  position: sticky;
-  top: 5px;
-  background: rgba(255,255,255,0.92);
+  padding: 0.4rem max(10%, calc((100% - 1500px) / 2 + 2rem)) 0.25rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  border-radius: 0;
   box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
+  overflow: hidden;
 }
 
-.logo img { height: clamp(52px, 5.5vw, 92px); width: auto; display: block; }
+.logo img {
+  height: clamp(46px, 4.8vw, 80px);
+  width: auto;
+  display: block;
+}
 
 nav {
   display: flex;
@@ -212,6 +220,21 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
   color: var(--black);
   margin: 0 0 1rem;
   text-align: right;
+}
+
+.article-title .title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(-22px);
+  transition: opacity 1.05s ease, transform 1.05s ease;
+}
+.article-title .title-line:nth-child(1) { transition-delay: 0.1s; }
+.article-title .title-line:nth-child(2) { transition-delay: 0.25s; }
+.article-title .title-line:nth-child(3) { transition-delay: 0.4s; }
+
+.article-title .title-line.title-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .article-subhead {
@@ -361,6 +384,13 @@ footer {
 .bl-card-img > * { width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
 .bl-card:hover .bl-card-img > * { transform: scale(1.03); }
 
+
+@media (max-width: 768px) {
+  header { width: 100% !important; padding: 0.4rem 1rem 0.3rem !important; }
+  .logo img { height: 36px !important; }
+  nav { flex: 0 1 60% !important; justify-content: space-between !important; padding-left: 0 !important; transform: none !important; margin-left: 40px !important; gap: 0 !important; }
+  nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; }
+}
 </style>
 </head>
 <body>
@@ -372,7 +402,7 @@ footer {
 
 <header>
   <a href="index.html" class="logo">
-    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene">
+    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene">
   </a>
   <nav>
     <a href="articles.html">Articles</a>
@@ -390,7 +420,7 @@ footer {
       </div>
     </div>
     <div class="article-title-col">
-      <h1 class="article-title">Starcleaner Reunion's 'Café Life' Stands Out</h1>
+      <h1 class="article-title"><span class="title-line">Starcleaner Reunion's 'Café Life' Stands Out</span></h1>
       <p class="article-subhead">A slow-burning masterwork that rewards every listen</p>
       <p class="article-byline-hero" style="margin-top:0.6rem;">By James Fletcher &nbsp;·&nbsp; February 27, 2026</p>
       <p class="article-label" style="margin-top:0.6rem;text-align:right;">Album Review · ★★★★★</p>
@@ -494,6 +524,14 @@ footer {
       });
     }, { threshold: 0.15 });
     paras.forEach(function (p) { observer.observe(p); });
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.article-label, .title-line, .article-byline').forEach(function (el) {
+          el.classList.add('title-visible');
+        });
+      });
+    });
   })();
 </script>
 </body>

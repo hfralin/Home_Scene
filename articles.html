@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles — Home Scene</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: 'Exposure';
+  src: url('Fonts/ExposureTrial[-20].otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'Exposure';
+  src: url('Fonts/ExposureItalicTrial[-20].otf') format('opentype');
+  font-weight: 400; font-style: italic;
+}
+@font-face {
+  font-family: 'ExposureVAR';
+  src: url('Fonts/ExposureTrialVAR.ttf') format('truetype');
+  font-weight: 400; font-style: normal;
+}
+@font-face {
+  font-family: 'ImmortelInfraG2';
+  src: url('Fonts/ImmortelInfraG2Trial-Roman.otf') format('opentype');
+  font-weight: 400; font-style: normal;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #111;
+  --mid:   #777;
+  --light: #bbb;
+  --rule:  #e5e5e5;
+  --white: #fff;
+}
+
+html { font-size: 14px; }
+
+body {
+  background: #fff;
+  color: var(--black);
+  font-family: 'ImmortelInfraG2', serif;
+  overflow-x: hidden;
+}
+
+@keyframes blob-drift-3 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(25px, -30px) scale(1.05); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob-drift-4 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(-20px, -25px) scale(1.04); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.glass-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: -1;
+}
+.glass-blob-1 {
+  width: 100%; height: 280px; border-radius: 0;
+  background: linear-gradient(to bottom, rgba(167,139,250,0.22) 0%, transparent 100%);
+  top: 0; left: 0; filter: blur(30px);
+}
+.glass-blob-3 {
+  width: 680px; height: 680px;
+  background: radial-gradient(circle at center, #a78bfa, #93c5fd, transparent 70%);
+  bottom: -280px; left: -250px;
+  animation: blob-drift-3 26s ease-in-out infinite;
+}
+.glass-blob-4 {
+  width: 620px; height: 620px;
+  background: radial-gradient(circle at center, #e0407a, #818cf8, transparent 70%);
+  bottom: -250px; right: -250px;
+  animation: blob-drift-4 22s ease-in-out infinite;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+
+/* ── HEADER ── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem max(10%, calc((100% - 1500px) / 2 + 2rem)) 0.25rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 0;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.logo img {
+  height: clamp(46px, 4.8vw, 80px);
+  width: auto;
+  display: block;
+}
+
+nav {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  padding-left: 4rem;
+  transform: translateY(-6px);
+}
+
+@keyframes nav-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+nav a {
+  font-family: 'ExposureVAR', serif;
+  font-size: clamp(14px, 1.7vw, 21px);
+  letter-spacing: 0.02em;
+  color: #2a52d4;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  font-variation-settings: 'EXPO' 0;
+  transition: font-variation-settings 0.4s ease;
+  animation: nav-float 3s ease-in-out infinite;
+}
+nav a:nth-child(2) { animation-delay: 0.4s; }
+nav a:nth-child(3) { animation-delay: 0.8s; }
+nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 3.5rem 150px 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-header-label {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.page-header-title {
+  font-family: 'Exposure', serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: var(--black);
+}
+
+/* ── ARTICLE SECTIONS ── */
+.articles-list {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 150px;
+}
+
+.article-section {
+  display: flex;
+  min-height: 32vh;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.article-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.article-section:nth-child(odd)::before  { background: linear-gradient(135deg, rgba(224,64,122,0.05), rgba(147,197,253,0.07), rgba(255,255,255,0.2)); }
+.article-section:nth-child(even)::before { background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(110,231,183,0.05), rgba(255,255,255,0.2)); }
+.article-section:hover::before { opacity: 1; }
+
+.article-section > * { position: relative; z-index: 1; }
+
+/* Even sections flip the layout */
+.article-section:nth-child(even) { flex-direction: row-reverse; }
+
+.section-img {
+  flex: 0 0 31%;
+  aspect-ratio: 1 / 1;
+  align-self: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.article-section:hover .section-img img {
+  transform: scale(1.03);
+}
+
+.section-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.2rem, 2.5vw, 2.5rem) clamp(2rem, 4vw, 5rem);
+}
+
+/* Odd: text on right = right-aligned */
+.article-section:nth-child(odd) .section-text {
+  align-items: flex-start;
+}
+
+/* Even: text on left = left-aligned */
+.article-section:nth-child(even) .section-text {
+  align-items: flex-start;
+}
+
+.section-label {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e0407a;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Exposure', serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--black);
+  margin-bottom: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.article-section:hover .section-title {
+  color: #e0407a;
+}
+
+.section-subhead {
+  font-family: 'ImmortelInfraG2', serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--mid);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.6rem;
+  max-width: 38ch;
+}
+
+.section-byline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  color: var(--light);
+  margin-bottom: 2rem;
+}
+
+.section-read {
+  font-family: 'ExposureVAR', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #2a52d4;
+  font-variation-settings: 'EXPO' 0;
+  transition: font-variation-settings 0.3s ease, color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.section-read::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.article-section:hover .section-read {
+  color: #e0407a;
+  font-variation-settings: 'EXPO' -40;
+}
+
+.article-section:hover .section-read::after {
+  transform: translateX(4px);
+}
+
+/* ── FOOTER ── */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem calc(3rem + 75px);
+  border-top: 1px solid var(--rule);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.foot-logo img { height: 38px; width: auto; display: block; }
+.foot-tagline { font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; color: var(--light); margin-top: 0.5rem; display: block; }
+.foot-nav { display: flex; gap: 2.2rem; }
+.foot-nav a { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.06em; color: var(--mid); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.foot-nav a:hover { color: var(--black); }
+
+
+@media (max-width: 768px) {
+  header { width: 100% !important; padding: 0.4rem 1rem 0.3rem !important; }
+  .logo img { height: 36px !important; }
+  nav { flex: 0 1 60% !important; justify-content: space-between !important; padding-left: 0 !important; transform: none !important; margin-left: 40px !important; gap: 0 !important; }
+  nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="glass-blob glass-blob-1"></div>
+<div class="glass-blob glass-blob-3"></div>
+<div class="glass-blob glass-blob-4"></div>
+
+<!-- ── HEADER ── -->
+<header>
+  <a href="index.html" class="logo">
+    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene">
+  </a>
+  <nav>
+    <a href="articles.html">Articles</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="shows.html">Shows</a>
+  </nav>
+</header>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <span class="page-header-label">Home Scene</span>
+  <h1 class="page-header-title">Articles</h1>
+</div>
+
+<!-- ── ARTICLES ── -->
+<div class="articles-list">
+
+  <!-- 1: image left, text right -->
+  <a class="article-section" href="starcleaner-reunion.html">
+    <div class="section-img">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion">
+    </div>
+    <div class="section-text">
+      <span class="section-label">Feature · Album</span>
+      <h2 class="section-title">The Transcendent Luster of Starcleaner Reunion</h2>
+      <p class="section-subhead">A deep dive into the band's vision, process, and the record that changed everything.</p>
+      <p class="section-byline">Marcus Webb &nbsp;·&nbsp; March 12, 2026</p>
+      <span class="section-read">Read</span>
+    </div>
+  </a>
+
+  <!-- 2: image right, text left -->
+  <a class="article-section" href="chanel-beads.html">
+    <div class="section-img">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774125337/Coverings_ChannelBeads_TVEye_2024-05-17_v2.00_26_12_10.Still004_njfcpd.jpg" alt="Chanel Beads" style="object-position: center bottom;">
+    </div>
+    <div class="section-text">
+      <span class="section-label">Live Review</span>
+      <h2 class="section-title">Chanel Beads Erupts at 'Your Day Will Come'</h2>
+      <p class="section-subhead">The Chicago group delivered a set that felt both tightly controlled and completely unhinged.</p>
+      <p class="section-byline">Sofia Reyes &nbsp;·&nbsp; March 2, 2026</p>
+      <span class="section-read">Read</span>
+    </div>
+  </a>
+
+  <!-- 3: image left, text right -->
+  <a class="article-section" href="sword-ii.html">
+    <div class="section-img">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1774121442/P1010152_gd8hhi.jpg" alt="Sword II">
+    </div>
+    <div class="section-text">
+      <span class="section-label">Feature · Indie</span>
+      <h2 class="section-title">Sword II Are Building Something That Lasts</h2>
+      <p class="section-subhead">On their second record, the New York duo refine their sound into something quietly essential.</p>
+      <p class="section-byline">Hayden Fralin &nbsp;·&nbsp; February 14, 2026</p>
+      <span class="section-read">Read</span>
+    </div>
+  </a>
+
+  <!-- 4: image right, text left -->
+  <a class="article-section" href="mei-semones.html">
+    <div class="section-img">
+      <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772836830/Artboard_3_3x_r8c9sm.jpg" alt="Mei Semones">
+    </div>
+    <div class="section-text">
+      <span class="section-label">Interview</span>
+      <h2 class="section-title">Mei Semones on Her First Full-Length Album 'Animaru'</h2>
+      <p class="section-subhead">The East London artist opens up about the record she was too afraid to make.</p>
+      <p class="section-byline">Priya Mehta &nbsp;·&nbsp; February 27, 2025</p>
+      <span class="section-read">Read</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-left">
+    <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene"></div>
+    <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
+  </div>
+  <nav class="foot-nav">
+    <a href="articles.html">Articles</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="shows.html">Shows</a>
+  </nav>
+</footer>
+
+</body>
+</html>

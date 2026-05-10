@@ -122,21 +122,25 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.4rem 2rem 0.25rem;
-  width: 80%;
-  max-width: 1300px;
-  margin: 5px auto 0;
-  position: sticky;
-  top: 5px;
+  padding: 0.4rem max(10%, calc((100% - 1500px) / 2 + 2rem)) 0.25rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  border-radius: 0;
   box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
+  overflow: hidden;
 }
 
 .logo img {
-  height: clamp(52px, 5.5vw, 92px);
+  height: clamp(46px, 4.8vw, 80px);
   width: auto;
   display: block;
 }
@@ -205,10 +209,10 @@ nav a:hover {
   letter-spacing: 0.01em;
   color: var(--black);
   margin: 0;
-  text-align: left;
+  text-align: right;
   width: 42%;
   flex-shrink: 0;
-  align-self: flex-start;
+  align-self: center;
 }
 
 .article-title .title-line {
@@ -242,7 +246,7 @@ nav a:hover {
   display: flex;
   flex-direction: row;
   gap: 2.4rem;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 2.8rem;
   margin-right: clamp(-200px, -14vw, 0px);
   margin-left: -200px;
@@ -635,17 +639,17 @@ footer {
 /* ── MOBILE ── */
 @media (max-width: 768px) {
   /* Header */
-  header { width: 94%; padding: 0.4rem 1rem 0.3rem; }
+  header { width: 100%; padding: 0.4rem 1rem 0.3rem; }
   .logo img { height: 36px; }
   nav {
-    flex: 0 1 72%;
+    flex: 0 1 60%;
     justify-content: space-between;
     padding-left: 0;
     transform: none;
-    margin-left: 80px;
+    margin-left: 40px;
     gap: 0;
   }
-  nav a { font-size: 1.26rem; }
+    nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; }
 
   /* Article wrap */
   .article-wrap { padding: calc(2rem + 15px) 1.2rem 3.5rem; }
@@ -783,7 +787,7 @@ footer {
 <!-- ── HEADER ── -->
 <header>
   <a href="index.html" class="logo">
-    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene">
+    <img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene">
   </a>
   <nav>
     <a href="articles.html">Articles</a>

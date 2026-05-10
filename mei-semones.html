@@ -67,19 +67,27 @@ img { display: block; }
 /* ── HEADER ── */
 header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  padding: calc(2.2rem - 20px) calc(3rem + 75px) calc(2rem - 15px);
-  max-width: 1300px;
-  margin: 0 auto;
-  position: sticky;
+  padding: 0.4rem max(10%, calc((100% - 1500px) / 2 + 2rem)) 0.25rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  position: fixed;
   top: 0;
-  background: rgba(255, 255, 255, 0.95);
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 0;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   z-index: 100;
+  overflow: hidden;
 }
 
 .logo img {
-  height: clamp(52px, 5.5vw, 92px);
+  height: clamp(46px, 4.8vw, 80px);
   width: auto;
   display: block;
 }
@@ -133,6 +141,9 @@ nav a:hover {
   text-transform: uppercase;
   color: var(--pink);
   margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(-14px);
+  transition: opacity 1.05s ease, transform 1.05s ease;
 }
 
 .article-title {
@@ -145,11 +156,36 @@ nav a:hover {
   margin-bottom: 1.2rem;
 }
 
+.article-title .title-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(-22px);
+  transition: opacity 1.05s ease, transform 1.05s ease;
+}
+.article-title .title-line:nth-child(1) { transition-delay: 0.1s; }
+.article-title .title-line:nth-child(2) { transition-delay: 0.25s; }
+.article-title .title-line:nth-child(3) { transition-delay: 0.4s; }
+
+.article-title .title-line.title-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .article-byline {
   font-family: 'ImmortelInfraG2', serif;
   font-size: 0.78rem;
   color: var(--mid);
   letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 1.05s ease 0.2s, transform 1.05s ease 0.2s;
+}
+
+.article-label.title-visible,
+.article-title.title-visible,
+.article-byline.title-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── HERO VIDEO ── */
@@ -162,45 +198,38 @@ nav a:hover {
 .hero-img {
   width: calc(100% - 30px);
   margin: 0 15px;
-  aspect-ratio: 16 / 8.2;
+  aspect-ratio: 16 / 9;
   position: relative;
-  background: #0a0a0a;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.hero-img.video-visible {
+  opacity: 1;
 }
 
 .hero-img iframe {
   position: absolute;
-  top: -20px;
-  bottom: 0;
-  left: -8px;
-  right: -8px;
-  width: calc(100% + 16px);
-  height: calc(100% + 20px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: none;
   display: block;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: #0a0a0a;
-  transition: opacity 0.4s ease;
-}
-
-.hero-overlay.gone {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ── TWO-COL BODY ── */
+/* ── BODY ── */
 .article-body {
-  max-width: 1300px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 calc(3rem + 75px) 3rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+}
+
+.article-body .body-img {
+  display: block;
+  width: 60%;
+  margin: 2rem auto;
 }
 
 .article-body p {
@@ -210,7 +239,7 @@ nav a:hover {
   color: var(--black);
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: opacity 1.05s ease, transform 1.05s ease;
 }
 
 .article-body p.para-visible {
@@ -269,6 +298,13 @@ footer {
 .bl-card-img > * { width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
 .bl-card:hover .bl-card-img > * { transform: scale(1.03); }
 
+
+@media (max-width: 768px) {
+  header { width: 100% !important; padding: 0.4rem 1rem 0.3rem !important; }
+  .logo img { height: 36px !important; }
+  nav { flex: 0 1 60% !important; justify-content: space-between !important; padding-left: 0 !important; transform: none !important; margin-left: 40px !important; gap: 0 !important; }
+  nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; }
+}
 </style>
 </head>
 <body>
@@ -278,7 +314,7 @@ footer {
 <!-- ── HEADER ── -->
 <header>
   <div class="logo">
-    <a href="index.html"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene"></a>
+    <a href="index.html"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene"></a>
   </div>
   <nav>
     <a href="articles.html">Articles</a>
@@ -290,7 +326,11 @@ footer {
 <!-- ── TITLE ── -->
 <div class="title-block">
   <div class="article-label">Interview</div>
-  <h1 class="article-title">Mei Semones on Her<br>First Full-Length<br>Album 'Animaru'</h1>
+  <h1 class="article-title">
+    <span class="title-line">Mei Semones on Her</span>
+    <span class="title-line">First Full-Length</span>
+    <span class="title-line">Album 'Animaru'</span>
+  </h1>
   <div class="article-byline">By Priya Mehta · February 27, 2025 · 12 min read</div>
 </div>
 
@@ -303,13 +343,14 @@ footer {
       allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
       allowfullscreen
     ></iframe>
-    <div class="hero-overlay"></div>
   </div>
 </div>
 
 <!-- ── BODY ── -->
 <div class="article-body">
   <p>When Mei Semones began recording <em>Animaru</em>, she was working out of a bedroom studio in East London with nothing but a laptop, a battered condenser mic, and a year's worth of voice memos she'd been too afraid to revisit. The result is one of the most quietly ambitious debut full-lengths in recent memory — a record that holds its own weight without ever raising its voice.</p>
+
+  <img class="body-img" src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772835572/Screenshot_2026-03-06_at_5.19.14_PM_m6fxfb.png" alt="Mei Semones">
 
   <p>We met Semones at a café in Dalston on a grey Tuesday afternoon. She arrived early, ordered tea she forgot to drink, and spent the next hour talking with the kind of focused honesty that makes you wonder how much of it ends up in the songs. The answer, it turns out, is most of it. <em>Animaru</em> is an autobiography with the names changed — or, as she puts it, "a diary written in someone else's handwriting."</p>
 </div>
@@ -382,10 +423,32 @@ footer {
     }, { threshold: 0.15 });
     fadeEls.forEach(function (el) { observer.observe(el); });
 
-    setTimeout(function () {
-      var overlay = document.querySelector('.hero-overlay');
-      if (overlay) overlay.classList.add('gone');
-    }, 2000);
+    // Title animate-in from above — delay one frame so initial hidden state paints first
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        document.querySelectorAll('.article-label, .title-line, .article-byline').forEach(function (el) {
+          el.classList.add('title-visible');
+        });
+      });
+    });
+
+    var heroImg = document.querySelector('.hero-img');
+    var iframe   = document.getElementById('mei-player');
+    var revealed = false;
+    function revealVideo() {
+      if (!revealed) {
+        revealed = true;
+        if (heroImg) heroImg.classList.add('video-visible');
+      }
+    }
+    if (iframe) {
+      iframe.addEventListener('load', function () {
+        setTimeout(revealVideo, 300);
+      });
+    }
+    // Fallback: reveal after 4s regardless
+    setTimeout(revealVideo, 4000);
+
   })();
 </script>
 
