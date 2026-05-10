@@ -41,10 +41,21 @@
 html { font-size: 14px; }
 
 body {
-  background: #fff;
+  background: rgba(255,255,255,0.82);
   color: var(--black);
   font-family: 'ImmortelInfraG2', serif;
   overflow-x: hidden;
+}
+
+.bg-parallax {
+  position: fixed;
+  inset: 0;
+  background-image: url('https://res.cloudinary.com/de3dixf7f/image/upload/v1772836830/Artboard_3_3x_r8c9sm.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  opacity: 0.10;
+  z-index: -1;
+  pointer-events: none;
 }
 
 @keyframes blob-drift-3 {
@@ -118,7 +129,6 @@ header {
 nav {
   display: flex;
   flex: 1;
-  justify-content: space-evenly;
   padding-left: 4rem;
   transform: translateY(-6px);
 }
@@ -137,19 +147,36 @@ nav a {
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   font-variation-settings: 'EXPO' 0;
-  transition: font-variation-settings 0.4s ease;
+  transition: color 0.2s ease, font-variation-settings 0.4s ease;
   animation: nav-float 3s ease-in-out infinite;
+  position: relative;
+  flex: 1;
+  text-align: center;
 }
 nav a:nth-child(2) { animation-delay: 0.4s; }
 nav a:nth-child(3) { animation-delay: 0.8s; }
-nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
+nav a::before {
+  content: '';
+  position: absolute;
+  top: -200px; bottom: -200px;
+  left: 0; right: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+nav a:nth-child(1)::before { background: #2a52d4; }
+nav a:nth-child(2)::before { background: #e0407a; }
+nav a:nth-child(3)::before { background: #2a52d4; }
+nav a:hover::before { opacity: 1; }
+nav a:hover { color: #fff; font-variation-settings: 'EXPO' -80; text-decoration-color: rgba(255,255,255,0.5); }
 
 /* ── PAGE HEADER ── */
 .page-header {
   max-width: 1500px;
   margin: 0 auto;
-  padding: 3.5rem 150px 2rem;
+  padding: calc(3.5rem + 65px) 150px 2.5rem;
   border-bottom: 1px solid var(--rule);
+  text-align: center;
 }
 
 .page-header-label {
@@ -167,7 +194,17 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
   font-size: clamp(2.8rem, 5vw, 5rem);
   line-height: 0.9;
   letter-spacing: 0.01em;
-  color: var(--black);
+  color: #fff;
+  background: #e0407a;
+  display: inline-block;
+  padding: 0.05em 0.25em 0.12em;
+  opacity: 0;
+  transform: translateY(-22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.page-header-title.title-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── ARTICLE SECTIONS ── */
@@ -183,9 +220,15 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
   border-bottom: 1px solid var(--rule);
   text-decoration: none;
   color: inherit;
-  transition: background 0.4s ease;
+  transition: background 0.4s ease, opacity 0.85s ease, transform 0.85s ease;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(28px);
+}
+.article-section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .article-section::before {
@@ -336,12 +379,28 @@ footer {
   header { width: 100% !important; padding: 0.4rem 1rem 0.3rem !important; }
   .logo img { height: 36px !important; }
   nav { flex: 0 1 60% !important; justify-content: space-between !important; padding-left: 0 !important; transform: none !important; margin-left: 40px !important; gap: 0 !important; }
-  nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; }
+  nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; flex: unset !important; }
+
+  .page-header { padding: 5rem 1.2rem 1.5rem !important; }
+  .page-header-title { font-size: clamp(2.4rem, 10vw, 3.6rem) !important; }
+
+  .articles-list { padding: 0 !important; }
+
+  .article-section { flex-direction: column !important; min-height: unset !important; }
+  .article-section:nth-child(even) { flex-direction: column !important; }
+
+  .section-img { flex: none !important; width: 100% !important; aspect-ratio: 3 / 2 !important; }
+  .section-text { width: 100% !important; padding: 1.2rem 1.2rem 1.6rem !important; }
+  .section-title { font-size: clamp(1.4rem, 6.5vw, 2.2rem) !important; }
+
+  footer { flex-direction: column !important; align-items: center !important; text-align: center !important; padding: 2rem 1rem !important; gap: 1rem !important; }
+  .foot-nav { justify-content: center !important; }
 }
 </style>
 </head>
 <body>
 
+<div class="bg-parallax"></div>
 <div class="glass-blob glass-blob-1"></div>
 <div class="glass-blob glass-blob-3"></div>
 <div class="glass-blob glass-blob-4"></div>
@@ -360,7 +419,6 @@ footer {
 
 <!-- ── PAGE HEADER ── -->
 <div class="page-header">
-  <span class="page-header-label">Home Scene</span>
   <h1 class="page-header-title">Reviews</h1>
 </div>
 
@@ -451,6 +509,41 @@ footer {
     <a href="shows.html">Shows</a>
   </nav>
 </footer>
+
+<script>
+  (function () {
+    // Title entrance animation
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var title = document.querySelector('.page-header-title');
+        if (title) title.classList.add('title-visible');
+      });
+    });
+
+    // Parallax scroll on background texture
+    const bg = document.querySelector('.bg-parallax');
+    if (bg) {
+      window.addEventListener('scroll', function () {
+        bg.style.backgroundPositionY = 'calc(50% + ' + (window.scrollY * 0.2) + 'px)';
+      }, { passive: true });
+    }
+
+    // Scroll-reveal for article sections
+    const sections = document.querySelectorAll('.article-section');
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    sections.forEach(function (s, i) {
+      s.style.transitionDelay = (i * 0.07) + 's';
+      observer.observe(s);
+    });
+  })();
+</script>
 
 </body>
 </html>

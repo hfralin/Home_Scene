@@ -735,12 +735,15 @@ nav a:hover {
 
 .sotd-label {
   display: block;
+  width: fit-content;
+  margin: 0 auto 0.7rem;
   font-family: 'Exposure', serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  font-size: clamp(1.6rem, 2.6vw, 2.8rem);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #e0407a;
-  margin-bottom: 0.4rem;
+  color: #fff;
+  background: #e0407a;
+  padding: 0.1em 0.3em 0.15em;
 }
 
 .ba-feature {
