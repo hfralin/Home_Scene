@@ -161,7 +161,7 @@ nav {
 }
 
 nav a {
-  font-family: 'ExposureVAR', serif;
+  font-family: 'Exposure', serif;
   font-weight: 400;
   font-size: clamp(14px, 1.7vw, 21px);
   letter-spacing: 0.02em;
@@ -169,7 +169,6 @@ nav a {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
-  font-variation-settings: 'EXPO' 0;
   transition: color 0.2s ease, font-variation-settings 0.4s ease;
   animation: nav-float 3s ease-in-out infinite;
   position: relative;
@@ -380,7 +379,7 @@ nav a:hover { color: #fff; font-variation-settings: 'EXPO' -80; text-decoration-
   .img3-frame { float: none; width: 100%; margin-right: 0; margin-left: 0; }
 }
 
-.recommended {
+.recommended { display: none;
   max-width: 420px;
   margin: 4rem auto 3rem;
   padding: 0 1rem;
@@ -428,7 +427,6 @@ nav a:hover { color: #fff; font-variation-settings: 'EXPO' -80; text-decoration-
   overflow: hidden;
   margin-bottom: 0.5rem;
   background: #ece8e3;
-  border-radius: 6px;
 }
 .rec-img-wrap img {
   width: 100%; height: 100%; object-fit: cover; display: block;
@@ -436,14 +434,14 @@ nav a:hover { color: #fff; font-variation-settings: 'EXPO' -80; text-decoration-
 }
 .rec-item:hover .rec-img-wrap img { transform: scale(1.04); }
 .rec-title {
-  font-family: 'ExposureVAR', serif;
+  font-family: 'Exposure', serif;
+  color: var(--black);
   font-size: 0.78rem;
   line-height: 1.2;
   margin-bottom: 0.25rem;
-  transition: color 0.3s ease, font-variation-settings 0.4s ease;
-  font-variation-settings: 'EXPO' 0;
+  transition: color 0.3s ease;
 }
-.rec-item:hover .rec-title { color: #e0407a; font-variation-settings: 'EXPO' -40; }
+.rec-item:hover .rec-title { color: #e0407a; }
 .rec-sub { font-family: 'ImmortelInfraG2', serif; font-size: 0.62rem; color: var(--mid); }
 
 .article-body p {
@@ -479,6 +477,15 @@ nav a:hover { color: #fff; font-variation-settings: 'EXPO' -80; text-decoration-
   .logo img { height: 36px !important; }
   nav { flex: 0 1 60% !important; justify-content: space-between !important; padding-left: 0 !important; transform: none !important; margin-left: 40px !important; gap: 0 !important; }
   nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; }
+  /* Block latest — 2×2 grid on mobile (matches article pages) */
+  .block-latest { padding: 2rem 16px 0 !important; max-width: 100% !important; }
+  .bl-top { grid-template-columns: 1fr 1fr !important; }
+  .bl-card,
+  .bl-card:first-child,
+  .bl-card:last-child { padding: 0.5rem 0.5rem 1rem !important; border-right: none !important; }
+  .bl-card:nth-child(3),
+  .bl-card:nth-child(4) { border-top: 1px solid var(--rule) !important; padding-top: 0.8rem !important; margin-top: 0.4rem !important; }
+
 
   .article-wrap { padding: 5rem 1.2rem 3.5rem !important; }
   .article-hero-row { flex-direction: column !important; gap: 0 !important; margin-left: 0 !important; margin-right: 0 !important; margin-bottom: 1.5rem !important; }
@@ -552,7 +559,7 @@ footer {
 
   <div class="article-body">
 
-    <p class="article-byline-hero" style="margin-bottom: 1.2rem; opacity:1; transform:none; text-align:center; font-size: 0.85rem; color: #e0407a; font-family: 'ExposureVAR', serif; font-variation-settings: 'EXPO' 10;">By Leon Park &nbsp;·&nbsp; February 23, 2026</p>
+    <p class="article-byline-hero" style="margin-bottom: 1.2rem; opacity:1; transform:none; text-align:center; font-size: 0.85rem; color: #e0407a; font-family: 'Exposure', serif; font-variation-settings: 'EXPO' 10;">By Leon Park &nbsp;·&nbsp; February 23, 2026</p>
 
     <p class="drop-cap" style="margin-left: auto; margin-right: auto; max-width: 520px;">M.I.A. has announced a world tour — her most ambitious run of dates in over a decade — with stops across North America, Europe, and Asia confirmed for late 2026. The announcement came without warning on a Tuesday morning, a single image and a string of dates dropping into her social channels and spreading fast across the internet before most of her fans had finished their coffee. Twelve hours later, the majority of shows had sold out.</p>
 
@@ -612,6 +619,32 @@ footer {
       <span class="art-byline">Sofia Reyes · Jan 15</span>
     </a>
 
+  </div>
+</div>
+
+<!-- ── RECOMMENDED (mobile) ── -->
+<div class="recommended">
+  <div class="rec-grid">
+    <a class="rec-item" href="mdou-moctar.html">
+      <div class="rec-img-wrap"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772758422/Screenshot_2026-03-05_at_7.53.16_PM_zcckdn.png" alt="Mdou Moctar" style="width:100%;height:100%;object-fit:cover; object-position:top;display:block;"></div>
+      <div class="rec-title">Mdou Moctar Sets the Desert Ablaze</div>
+      <div class="rec-sub">Live · ★★★★</div>
+    </a>
+    <a class="rec-item" href="starcleaner-reunion.html">
+      <div class="rec-img-wrap"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772817675/Artboard_2_3x_czuysd.jpg" alt="Starcleaner Reunion" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div class="rec-title">The Transcendent Luster of Starcleaner Reunion</div>
+      <div class="rec-sub">Album · ★★★★★</div>
+    </a>
+    <a class="rec-item" href="otto-benson.html">
+      <div class="rec-img-wrap"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772675536/Screenshot_2026-01-05_at_7.08.38_PM_tsdojf.png" alt="Otto Benson" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div class="rec-title">Otto Benson's 'Peanut' Is a Quiet Revelation</div>
+      <div class="rec-sub">Album Review · Folk</div>
+    </a>
+    <a class="rec-item" href="villagerrr.html">
+      <div class="rec-img-wrap"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772820712/a2547523506_16_x39qx6.jpg" alt="Villagerrr" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      <div class="rec-title">Villagerrr's 'Carousel' Is Their Most Confident Yet</div>
+      <div class="rec-sub">Album Review · Indie Rock</div>
+    </a>
   </div>
 </div>
 

@@ -773,15 +773,14 @@ nav a:hover {
     shape-outside: none !important;
   }
 
-  /* Block latest — 2 column */
-  .block-latest { padding: 2rem 1.2rem 0; }
-  .bl-top { grid-template-columns: repeat(2, 1fr); }
+  /* Block latest — 2×2 grid on mobile (matches article pages) */
+  .block-latest { padding: 2rem 16px 0 !important; max-width: 100% !important; }
+  .bl-top { grid-template-columns: 1fr 1fr !important; }
   .bl-card,
   .bl-card:first-child,
-  .bl-card:last-child {
-    padding: 0.5rem 0.5rem 1rem;
-    border-right: none;
-  }
+  .bl-card:last-child { padding: 0.5rem 0.5rem 1rem !important; border-right: none !important; }
+  .bl-card:nth-child(3),
+  .bl-card:nth-child(4) { border-top: 1px solid var(--rule) !important; padding-top: 0.8rem !important; margin-top: 0.4rem !important; }
 
   /* Footer — stacked */
 }
