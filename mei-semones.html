@@ -232,6 +232,23 @@ nav a:hover {
   margin: 2rem auto;
 }
 
+.body-video {
+  position: relative;
+  width: 80%;
+  margin: 2.5rem auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.body-video iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 .article-body p {
   font-family: 'ImmortelInfraG2', serif;
   font-size: 1rem;
@@ -334,6 +351,10 @@ footer {
     width: 100% !important;
     margin: 1.5rem 0 !important;
   }
+  .body-video {
+    width: 100% !important;
+    margin: 1.5rem 0 !important;
+  }
   .article-body p {
     opacity: 1 !important;
     transform: none !important;
@@ -396,6 +417,10 @@ footer {
 <!-- ── BODY ── -->
 <div class="article-body">
   <p>When Mei Semones began recording <em>Animaru</em>, she was working out of a bedroom studio in East London with nothing but a laptop, a battered condenser mic, and a year's worth of voice memos she'd been too afraid to revisit. The result is one of the most quietly ambitious debut full-lengths in recent memory — a record that holds its own weight without ever raising its voice.</p>
+
+  <div class="body-video">
+    <iframe src="https://player.mediadelivery.net/embed/622638/d4c466c7-7076-4638-b4c0-0684c17e1974?autoplay=true&loop=true&muted=true&preload=true&responsive=false" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
+  </div>
 
   <img class="body-img" src="https://res.cloudinary.com/de3dixf7f/image/upload/v1772835572/Screenshot_2026-03-06_at_5.19.14_PM_m6fxfb.png" alt="Mei Semones">
 
