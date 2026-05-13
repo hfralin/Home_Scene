@@ -141,7 +141,6 @@ header {
 nav {
   display: flex;
   flex: 1;
-  justify-content: space-evenly;
   padding-left: 4rem;
   transform: translateY(-6px);
 }
@@ -161,18 +160,42 @@ nav a {
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   font-variation-settings: 'EXPO' 0;
-  transition: font-variation-settings 0.4s ease;
+  transition: color 0.2s ease, font-variation-settings 0.4s ease;
   animation: nav-float 3s ease-in-out infinite;
+  position: relative;
+  flex: 1;
+  text-align: center;
 }
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  bottom: -200px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+}
+
+nav a:nth-child(1)::before { background: #2a52d4; }
+nav a:nth-child(2)::before { background: #e0407a; }
+nav a:nth-child(3)::before { background: #2a52d4; }
+nav a:hover::before { opacity: 1; }
 nav a:nth-child(2) { animation-delay: 0.4s; }
 nav a:nth-child(3) { animation-delay: 0.8s; }
-nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
+nav a:hover {
+  color: #fff;
+  font-variation-settings: 'EXPO' -80;
+  text-decoration-color: rgba(255,255,255,0.5);
+}
 
 /* ── ARTICLE ── */
 .article-wrap {
   max-width: 820px;
   margin: 0 auto;
-  padding: 4rem calc(3rem + 85px) 6rem;
+  padding: calc(4rem + 100px) calc(3rem + 85px) 6rem;
 }
 
 .article-body { overflow-x: visible; }
@@ -189,11 +212,12 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
 /* ── HERO ROW ── */
 .article-hero-row {
   display: flex;
+  flex-direction: row-reverse;
   gap: clamp(6rem, 12vw, 16rem);
   align-items: center;
   margin-bottom: 2.8rem;
-  margin-left: clamp(-280px, -22vw, 0px);
-  margin-right: clamp(-160px, -12vw, 0px);
+  margin-left: clamp(-160px, -12vw, 0px);
+  margin-right: clamp(-280px, -22vw, 0px);
 }
 
 .article-hero-col {
@@ -225,7 +249,7 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
   letter-spacing: 0.01em;
   color: var(--black);
   margin: 0 0 1rem;
-  text-align: right;
+  text-align: left;
 }
 
 .article-title .title-line {
@@ -250,7 +274,7 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
   color: var(--mid);
   letter-spacing: 0.02em;
   margin: 0 0 0.8rem;
-  text-align: right;
+  text-align: left;
   opacity: 1;
   transform: none;
 }
@@ -262,7 +286,7 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
   color: #e0407a;
   font-variation-settings: 'EXPO' 10;
   margin: 0 0 0.6rem;
-  text-align: right;
+  text-align: left;
   opacity: 1;
   transform: none;
 }
@@ -360,22 +384,9 @@ nav a:hover { color: #e0407a; font-variation-settings: 'EXPO' -80; }
 .bl-card:hover .bl-card-img > * { transform: scale(1.03); }
 
 /* ── FOOTER ── */
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem calc(3rem + 75px);
-  border-top: 1px solid var(--rule);
-  max-width: 1300px;
-  margin: 0 auto;
-}
-.foot-logo img { height: 38px; width: auto; display: block; }
+.foot-logo { display: flex; justify-content: center; }
+.foot-logo img { height: clamp(46px, 4.8vw, 80px); width: auto; display: block; }
 .foot-tagline { font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; color: var(--light); margin-top: 0.5rem; display: block; }
-.foot-nav { display: flex; gap: 2.2rem; }
-.foot-nav a { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.06em; color: var(--mid); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.foot-nav a:hover { color: var(--black); }
-
-
 @media (max-width: 768px) {
   header { width: 100% !important; padding: 0.4rem 1rem 0.3rem !important; }
   .logo img { height: 36px !important; }
@@ -383,7 +394,7 @@ footer {
   nav a { font-size: clamp(0.75rem, 3.4vw, 1.1rem) !important; animation: none !important; }
 
   .article-wrap { padding: 5rem 1rem 3rem !important; }
-  .article-hero-row { gap: clamp(0.8rem, 3vw, 1.4rem) !important; margin-left: 0 !important; margin-right: 0 !important; margin-bottom: 1.5rem !important; align-items: center !important; }
+  .article-hero-row { flex-direction: row-reverse !important; gap: clamp(0.8rem, 3vw, 1.4rem) !important; margin-left: 0 !important; margin-right: 0 !important; margin-bottom: 1.5rem !important; align-items: center !important; }
   .article-hero-col { flex: 0 0 50% !important; }
   .article-hero { aspect-ratio: 1 / 1 !important; width: 100% !important; }
   .article-title { font-size: clamp(1.1rem, 4.55vw, 1.43rem) !important; margin-bottom: 0.4rem !important; }
@@ -393,6 +404,28 @@ footer {
   .article-body { padding-top: 0.5rem !important; }
   .article-body p { opacity: 1 !important; transform: none !important; }
 }
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--rule);
+  gap: 0.9rem;
+  margin: 0 auto;
+}
+
+.foot-logo img { height: clamp(46px, 4.8vw, 80px); width: auto; display: block; }
+
+.foot-tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  color: var(--light);
+}
+
 </style>
 </head>
 <body>
@@ -427,8 +460,8 @@ footer {
       <h1 class="article-title"><span class="title-line">Villagerrr's 'Carousel' Is Their Most Confident Statement Yet</span></h1>
       <p class="article-subhead">The Atlanta trio returns with a sprawling indie-rock cut that builds from a whisper into something enormous</p>
       <p class="article-byline-hero">By James Fletcher &nbsp;·&nbsp; February 27, 2026</p>
-      <p class="article-label" style="margin-top:0.6rem; text-align:right;">Album Review · Indie Rock</p>
-      <iframe style="border: 0; width: calc(100% - 50px); height: 42px; margin-top: 1rem; margin-left: auto; display: block;" src="https://bandcamp.com/EmbeddedPlayer/album=1776242545/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless><a href="https://villagerrr.bandcamp.com/album/carousel">Carousel by villagerrr</a></iframe>
+      <p class="article-label" style="margin-top:0.6rem; text-align:left;">Album Review · Indie Rock</p>
+      <iframe style="border: 0; width: calc(100% - 50px); height: 42px; margin-top: 1rem; margin-left: 0; display: block;" src="https://bandcamp.com/EmbeddedPlayer/album=1776242545/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/transparent=true/" seamless><a href="https://villagerrr.bandcamp.com/album/carousel">Carousel by villagerrr</a></iframe>
     </div>
   </div>
 
@@ -499,15 +532,8 @@ footer {
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="foot-left">
-    <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene"></div>
-    <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
-  </div>
-  <nav class="foot-nav">
-    <a href="articles.html">Articles</a>
-    <a href="reviews.html">Reviews</a>
-    <a href="shows.html">Shows</a>
-  </nav>
+  <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene"></div>
+  <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
 </footer>
 
 <script>

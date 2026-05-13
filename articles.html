@@ -367,23 +367,10 @@ nav a:hover {
 }
 
 /* ── FOOTER ── */
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem calc(3rem + 75px);
-  border-top: 1px solid var(--rule);
-  max-width: 1300px;
-  margin: 0 auto;
-}
 
-.foot-logo img { height: 38px; width: auto; display: block; }
+.foot-logo { display: flex; justify-content: center; }
+.foot-logo img { height: clamp(46px, 4.8vw, 80px); width: auto; display: block; }
 .foot-tagline { font-family: 'Space Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; color: var(--light); margin-top: 0.5rem; display: block; }
-.foot-nav { display: flex; gap: 2.2rem; }
-.foot-nav a { font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.06em; color: var(--mid); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-.foot-nav a:hover { color: var(--black); }
-
-
 @media (max-width: 768px) {
 
   /* ── HEADER ── */
@@ -444,15 +431,30 @@ footer {
   .section-byline { margin-bottom: 1rem !important; }
 
   /* ── FOOTER ── */
-  footer {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 2rem 1.2rem !important;
-    gap: 1rem !important;
-  }
 
 }
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--rule);
+  gap: 0.9rem;
+  margin: 0 auto;
+}
+
+.foot-logo img { height: clamp(46px, 4.8vw, 80px); width: auto; display: block; }
+
+.foot-tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  color: var(--light);
+}
+
 </style>
 </head>
 <body>
@@ -542,15 +544,8 @@ footer {
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="foot-left">
-    <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene"></div>
-    <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
-  </div>
-  <nav class="foot-nav">
-    <a href="articles.html">Articles</a>
-    <a href="reviews.html">Reviews</a>
-    <a href="shows.html">Shows</a>
-  </nav>
+  <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene"></div>
+  <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
 </footer>
 
 <script>

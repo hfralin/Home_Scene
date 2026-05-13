@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home Scene</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&family=Barlow+Condensed:wght@300&family=Press+Start+2P&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@mux/mux-player" defer></script>
 <style>
 
@@ -617,7 +617,7 @@ nav a:hover {
 .gi-2 .gi-title { text-align: center; font-variation-settings: 'EXPO' -30; font-size: clamp(1.1rem, 1.9vw, 2rem); }
 .gi-3 .gi-title,
 .gi-6 .gi-title { text-align: right; }
-.gi-3:hover .gi-title { color: var(--black) !important; }
+.gi-3:hover .gi-title { color: #e0407a !important; }
 .gi-3:hover { box-shadow: none !important; }
 
 /* Placeholder gradients */
@@ -738,9 +738,10 @@ nav a:hover {
   width: fit-content;
   margin: 0 auto 0.7rem;
   font-family: 'Exposure', serif;
-  font-size: clamp(1.6rem, 2.6vw, 2.8rem);
+  font-size: clamp(1.1rem, 1.7vw, 1.85rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: #fff;
   background: #e0407a;
   padding: 0.1em 0.3em 0.15em;
@@ -1149,24 +1150,9 @@ mux-player {
 /* ─────────────────────────────
    FOOTER
 ───────────────────────────── */
-footer {
-  margin-top: 6rem;
-  padding: 2rem 3rem;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-.foot-left {}
-.foot-logo img {
-  height: 38px;
-  width: auto;
-  display: block;
-}
+.foot-logo { display: flex; justify-content: center; }
+.foot-logo img { height: clamp(46px, 4.8vw, 80px); width: auto; display: block; }
 .foot-tagline {
   font-family: 'Space Mono', monospace;
   font-size: 0.5rem;
@@ -1175,21 +1161,6 @@ footer {
   margin-top: 0.5rem;
   display: block;
 }
-
-.foot-nav {
-  display: flex;
-  gap: 2.2rem;
-}
-.foot-nav a {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.06em;
-  color: var(--mid);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-}
-.foot-nav a:hover { color: var(--black); }
 
 /* ─────────────────────────────
    NEWSLETTER WIDGET — fixed bottom-right
@@ -1214,7 +1185,10 @@ footer {
 
 .nw-inner {
   position: relative;
-  height: 1.5rem;
+  height: auto;
+  min-height: 3.8rem;
+  display: flex;
+  align-items: center;
 }
 
 .nw-label {
@@ -1222,9 +1196,10 @@ footer {
   inset: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: 'Exposure', serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.8rem;
   letter-spacing: 0.02em;
   color: #fff;
   opacity: 1;
@@ -1639,14 +1614,6 @@ footer {
   }
 
   /* ── FOOTER ── */
-  footer {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 2rem 1rem !important;
-    gap: 1rem !important;
-    margin-top: 3rem !important;
-  }
 
 }
 
@@ -1661,6 +1628,45 @@ footer {
     margin-top: calc(-19vw - 127px) !important;
   }
 }
+
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-top: 1px solid var(--rule);
+  gap: 0.9rem;
+  margin: 0 auto;
+}
+
+.foot-logo img { height: clamp(46px, 4.8vw, 80px); width: auto; display: block; }
+
+.foot-tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  color: var(--light);
+}
+
+/* ── PIXEL SENTENCE ── */
+.pixel-sentence {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(0.84rem, 1.3vw, 1.3rem);
+  image-rendering: pixelated;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  color: var(--black);
+  padding: 0.3rem 0.4rem 0.5rem;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+.pixel-sentence .char { display: inline; }
+.pixel-sentence .char.scrambling { color: #e0407a; }
+.pixel-sentence .char.resolved   { color: var(--black); }
 
 </style>
 </head>
@@ -1739,7 +1745,7 @@ footer {
   <!-- Item 5: col 3–6, row 2, 3:2 — offset down 3% -->
   <a class="gallery-item gi-5" href="john-roseboro.html" style="text-decoration:none;color:inherit;cursor:pointer;">
     <div class="gi-img-wrap" style="position:relative;">
-      <iframe src="https://player.mediadelivery.net/embed/622638/f0ae6c75-9753-412d-b321-c8a393dae420?autoplay=true&loop=true&muted=true&preload=true&responsive=true&controls=false" loading="lazy" style="border:0;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260%;height:150%;min-width:100%;min-height:100%;pointer-events:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="false"></iframe>
+      <iframe src="https://player.cloudinary.com/embed/?cloud_name=de3dixf7f&public_id=2026-04-26_JR_Fools_gwm4wd&autoplay=true&muted=true&loop=true" loading="lazy" style="border:0;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260%;height:150%;min-width:100%;min-height:100%;pointer-events:none;" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen frameborder="0"></iframe>
     </div>
     <div class="gi-title">John Roseboro Whispers Sage Perspective <span style="color:#6ee7b7;">'Fools'</span></div>
     <span class="gi-date" style="color:#2a52d4;text-align:right;">Feb 24, 2025</span>
@@ -1869,15 +1875,8 @@ footer {
 
 <!-- ── FOOTER ── -->
 <footer>
-  <div class="foot-left">
-    <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/q_auto/f_auto/v1775940421/2026-04-11_HomeScene_Logo_V4_b0b8k6.png" alt="Home Scene"></div>
-    <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
-  </div>
-  <nav class="foot-nav">
-    <a href="articles.html">Articles</a>
-    <a href="reviews.html">Reviews</a>
-    <a href="shows.html">Shows</a>
-  </nav>
+  <div class="foot-logo"><img src="https://res.cloudinary.com/de3dixf7f/image/upload/v1778350722/20260509_Logo_V3_j4h9p7.png" alt="Home Scene"></div>
+  <span class="foot-tagline">Independent music &amp; culture · Est. 2020 · New York</span>
 </footer>
 
 <script>
@@ -1967,6 +1966,8 @@ footer {
     window.addEventListener('scroll', checkScroll, { passive: true });
     checkScroll();
   })();
+
+
 
 </script>
 </body>
